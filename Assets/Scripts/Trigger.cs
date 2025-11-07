@@ -40,7 +40,7 @@ public class Trigger : MonoBehaviour
         {
             if (zoomZoom <= 8)
             {
-                zoomZoom += 0.1f;
+                zoomZoom += 0.1f * Time.timeScale;
             }
             else
             {
