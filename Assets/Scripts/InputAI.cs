@@ -1,16 +1,22 @@
 using UnityEngine;
 
-public class InputAI : MonoBehaviour
+namespace Spelprojekt1
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class InputAI : InputBase
     {
-        
-    }
+        [SerializeField] private Transform target;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Update()
+        {
+            if (target == null)
+            {
+                SetMoveInput(Vector2.zero);
+                return;
+            }
+
+            Vector2 direction = (target.position - transform.position).normalized;
+
+            SetMoveInput(direction);
+        }
     }
 }

@@ -1,16 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class InputBase : MonoBehaviour
+namespace Spelprojekt1
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class InputBase : MonoBehaviour
     {
-        
-    }
+        public Vector2 moveInput { get; protected set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected virtual void SetMoveInput(Vector2 value)
+        {
+            moveInput = value;
+        }
     }
 }

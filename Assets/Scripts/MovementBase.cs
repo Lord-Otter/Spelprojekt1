@@ -5,26 +5,17 @@ namespace Spelprojekt1
 {
     public class MovementBase : MonoBehaviour
     {
-        private TimeManager timeManager;
-        public InputBase input;
+        [SerializeField] protected InputBase input;
+        protected Rigidbody2D rb;
 
-        [SerializeField] private Transform selfTransform;
-        [SerializeField] private Rigidbody2D rb;
+        [SerializeField] protected float maxSpeed = 5f;
+        [SerializeField] protected float acceleration = 12f;
 
-        private Vector2 velocity;
-        private Vector2 unscaledVelocity;
-
-
-        [SerializeField] private bool canMove = true;
-        [SerializeField] private float maxMoveSpeed;
-        [SerializeField] private float moveSpeed;
+        private Vector2 currentVelocity;
 
         protected virtual void Awake()
         {
-            timeManager = GameObject.Find("GameManager").GetComponent<TimeManager>();
             input = GetComponent<InputBase>();
-
-            selfTransform = GetComponent<Transform>();
             rb = GetComponent<Rigidbody2D>();
         }
 
@@ -40,19 +31,16 @@ namespace Spelprojekt1
 
         protected virtual void FixedUpdate()
         {
-            Movement();
+            Move();
         }
 
-        protected virtual void Movement()
+        protected virtual void Move()
         {
-            velocity = rb.linearVelocity;
+            Vector2 target = input.moveInput * maxSpeed;
+            
+            currentVelocity = Vector2.Lerp(currentVelocity, target, acceleration * Time.fixedDeltaTime);
 
-            float horizontalSpeed;
-            float verticalSpeed;
-
-            //if(Mathf.Abs())
-
-            rb.linearVelocity = velocity;
+            rb.linearVelocity = currentVelocity;
         }
     }
 }
