@@ -4,7 +4,7 @@ namespace Spelprojekt1
 {
     public class PlayerMovement : MovementBase
     {
-        [SerializeField] private CapsuleCollider2D collider;
+        private CapsuleCollider2D collider;
 
         [SerializeField] private bool isDashing = false;
         [SerializeField] private bool canDash = true;

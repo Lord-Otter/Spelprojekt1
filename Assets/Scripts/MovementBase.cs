@@ -5,7 +5,7 @@ namespace Spelprojekt1
 {
     public class MovementBase : MonoBehaviour
     {
-        [SerializeField] protected InputBase input;
+        protected InputBase input;
         protected Rigidbody2D rb;
 
         [SerializeField] protected float maxSpeed = 5f;
