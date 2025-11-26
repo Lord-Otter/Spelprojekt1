@@ -120,27 +120,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""FireMouse"",
+                    ""name"": ""Fire1"",
                     ""type"": ""Button"",
                     ""id"": ""15d0ead7-6b18-4374-8e85-19385c519ad8"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""FireStick"",
-                    ""type"": ""Button"",
-                    ""id"": ""6aed8688-3a7a-4ede-a151-7a82205cf6ea"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""FireMove"",
-                    ""type"": ""Button"",
-                    ""id"": ""0bd924b8-499f-46a5-b34f-d400befd787b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -298,29 +280,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FireMouse"",
+                    ""action"": ""Fire1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b046d8a9-edae-4dab-8967-cd06a48589da"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FireStick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""95b83b90-12d2-4285-8500-b56881808e28"",
+                    ""id"": ""976149ce-225e-432e-bdf6-87924104393c"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FireMove"",
+                    ""action"": ""Fire1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -334,9 +305,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
-        m_Player_FireMouse = m_Player.FindAction("FireMouse", throwIfNotFound: true);
-        m_Player_FireStick = m_Player.FindAction("FireStick", throwIfNotFound: true);
-        m_Player_FireMove = m_Player.FindAction("FireMove", throwIfNotFound: true);
+        m_Player_Fire1 = m_Player.FindAction("Fire1", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -420,9 +389,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_MousePosition;
-    private readonly InputAction m_Player_FireMouse;
-    private readonly InputAction m_Player_FireStick;
-    private readonly InputAction m_Player_FireMove;
+    private readonly InputAction m_Player_Fire1;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -447,17 +414,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
         /// <summary>
-        /// Provides access to the underlying input action "Player/FireMouse".
+        /// Provides access to the underlying input action "Player/Fire1".
         /// </summary>
-        public InputAction @FireMouse => m_Wrapper.m_Player_FireMouse;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/FireStick".
-        /// </summary>
-        public InputAction @FireStick => m_Wrapper.m_Player_FireStick;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/FireMove".
-        /// </summary>
-        public InputAction @FireMove => m_Wrapper.m_Player_FireMove;
+        public InputAction @Fire1 => m_Wrapper.m_Player_Fire1;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -493,15 +452,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
-            @FireMouse.started += instance.OnFireMouse;
-            @FireMouse.performed += instance.OnFireMouse;
-            @FireMouse.canceled += instance.OnFireMouse;
-            @FireStick.started += instance.OnFireStick;
-            @FireStick.performed += instance.OnFireStick;
-            @FireStick.canceled += instance.OnFireStick;
-            @FireMove.started += instance.OnFireMove;
-            @FireMove.performed += instance.OnFireMove;
-            @FireMove.canceled += instance.OnFireMove;
+            @Fire1.started += instance.OnFire1;
+            @Fire1.performed += instance.OnFire1;
+            @Fire1.canceled += instance.OnFire1;
         }
 
         /// <summary>
@@ -522,15 +475,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
             @MousePosition.canceled -= instance.OnMousePosition;
-            @FireMouse.started -= instance.OnFireMouse;
-            @FireMouse.performed -= instance.OnFireMouse;
-            @FireMouse.canceled -= instance.OnFireMouse;
-            @FireStick.started -= instance.OnFireStick;
-            @FireStick.performed -= instance.OnFireStick;
-            @FireStick.canceled -= instance.OnFireStick;
-            @FireMove.started -= instance.OnFireMove;
-            @FireMove.performed -= instance.OnFireMove;
-            @FireMove.canceled -= instance.OnFireMove;
+            @Fire1.started -= instance.OnFire1;
+            @Fire1.performed -= instance.OnFire1;
+            @Fire1.canceled -= instance.OnFire1;
         }
 
         /// <summary>
@@ -593,25 +540,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMousePosition(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "FireMouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Fire1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnFireMouse(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "FireStick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnFireStick(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "FireMove" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnFireMove(InputAction.CallbackContext context);
+        void OnFire1(InputAction.CallbackContext context);
     }
 }

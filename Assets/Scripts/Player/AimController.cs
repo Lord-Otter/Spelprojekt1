@@ -7,6 +7,7 @@ namespace Spelprojekt1
 {
     public class AimController : MonoBehaviour
     {
+        private Transform aimerTransform;
         [SerializeField] private RotationMode rotationMode;
         public RotationMode CurrentMode => rotationMode;
         private InputPlayer inputPlayer;
@@ -22,6 +23,7 @@ namespace Spelprojekt1
         void Awake()
         {
             inputPlayer = GetComponent<InputPlayer>();
+            aimerTransform = GameObject.Find("Aimer").GetComponent<Transform>();
 
             if (mainCamera == null)
             {
@@ -56,7 +58,7 @@ namespace Spelprojekt1
             }
 
             float angle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            aimerTransform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         private void StickRotation()
@@ -68,7 +70,7 @@ namespace Spelprojekt1
             }
 
             float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            aimerTransform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         private void MouseRotation()
@@ -77,7 +79,7 @@ namespace Spelprojekt1
             Vector2 direction = mouseWorld - transform.position;
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            aimerTransform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         public void SetMode(RotationMode newMode) => rotationMode = newMode;

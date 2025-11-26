@@ -34,27 +34,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "FireMouse",
+                    "name": "Fire1",
                     "type": "Button",
                     "id": "15d0ead7-6b18-4374-8e85-19385c519ad8",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "FireStick",
-                    "type": "Button",
-                    "id": "6aed8688-3a7a-4ede-a151-7a82205cf6ea",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "FireMove",
-                    "type": "Button",
-                    "id": "0bd924b8-499f-46a5-b34f-d400befd787b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -212,29 +194,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FireMouse",
+                    "action": "Fire1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b046d8a9-edae-4dab-8967-cd06a48589da",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "FireStick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "95b83b90-12d2-4285-8500-b56881808e28",
+                    "id": "976149ce-225e-432e-bdf6-87924104393c",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FireMove",
+                    "action": "Fire1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
