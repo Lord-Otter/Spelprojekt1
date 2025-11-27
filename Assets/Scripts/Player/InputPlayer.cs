@@ -11,6 +11,8 @@ namespace Spelprojekt1
         [HideInInspector] public Vector2 mousePosition;
 
         public bool fire1Pressed;
+        public bool fire1Held;
+        public bool fire1Released;
 
         protected void Awake()
         {
@@ -44,8 +46,19 @@ namespace Spelprojekt1
 
         public void OnFire1(InputAction.CallbackContext ctx)
         {
-            if(ctx.performed) fire1Pressed = true;
-            if(ctx.canceled) fire1Pressed = false;
+            if(ctx.started)
+            {
+                fire1Held = true;
+                fire1Released = false;
+            }
+            else if(ctx.canceled)
+            {
+                fire1Held = false;
+                fire1Released = true;
+            }
+
+            /*if(ctx.performed) fire1Pressed = true;
+            if(ctx.canceled) fire1Pressed = false;*/
         }
         //private void OnEnable() => controls.Enable();
         //private void OnDisable() => controls.Disable();

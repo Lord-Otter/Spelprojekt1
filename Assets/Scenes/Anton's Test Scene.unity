@@ -426,6 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 690262040}
+  - component: {fileID: 690262041}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -448,6 +449,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &690262041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690262039}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725ca59de8dda2f43a6d9850af32c163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainingProjectile: {fileID: 0}
+  worldPause: 0
+  tpPause: 0
+  unityTimeScale: 1
+  lastUnityTimeScale: 0
 --- !u!1 &968151364
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   acceleration: 100
+  canMove: 0
   isDashing: 0
   canDash: 1
   dashSpeed: 0
@@ -725,6 +744,8 @@ MonoBehaviour:
   aimInput: {x: 0, y: 0}
   mousePosition: {x: 0, y: 0}
   fire1Pressed: 0
+  fire1Held: 0
+  fire1Released: 0
 --- !u!114 &1102110905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c891c4da935e24f923a6415535ef47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationMode: 2
+  rotationMode: 1
 --- !u!70 &1102110907
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -881,10 +902,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c911a7970a04f479e04618cfef2c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 913566087315063960, guid: 85e88463e22500c41958da290a1907a6, type: 3}
+  projectileWeak: {fileID: 429791330407088376, guid: 85e88463e22500c41958da290a1907a6, type: 3}
+  projectileMedium: {fileID: 373668113129517938, guid: a7592ac8bb136d24baacb9bbb9ba6b8b, type: 3}
+  projectileStrong: {fileID: 7407424971226695597, guid: c870976bf424f1b42a1a560cbe28a0ae, type: 3}
+  projectileCrit: {fileID: 7407424971226695597, guid: 42da8adc68aaaf6498fde2d044407101, type: 3}
   firePoint: {fileID: 1042077539}
-  projectileSpeed: 50
-  fireCooldown: 0.2
+  projectileSpeed: 10
+  maxChargeTime: 0.5
+  currentCharge: 0
+  critWindow: 0.1
+  weakDuration: 0.5
+  mediumDuration: 1
+  fireCooldown: 0.25
+  postShotRecovery: 0.25
 --- !u!1 &1769410180
 GameObject:
   m_ObjectHideFlags: 0
