@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8124438448034666009}
   - component: {fileID: 1653909884963683622}
+  - component: {fileID: 1660777508081091513}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Player
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158849992406273840}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1660777508081091513
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158849992406273840}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c9f8dd1bafe5fb42bdf792410eb7292, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3476416182017539262
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,11 +338,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7551704989850069933}
+  - component: {fileID: 7458199729491798877}
+  - component: {fileID: 8796260604151940195}
   - component: {fileID: 3281295472151721429}
-  - component: {fileID: 5522432997158012471}
-  - component: {fileID: 2454745200155415946}
   - component: {fileID: 2689884120353818552}
-  - component: {fileID: 3644074473118641712}
+  - component: {fileID: 7526024727622985597}
   - component: {fileID: 2235712830030399014}
   - component: {fileID: 2116606951831384315}
   m_Layer: 0
@@ -347,6 +370,38 @@ Transform:
   - {fileID: 8124438448034666009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7458199729491798877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422899888576234247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681847d45d761438e69897c7dc419b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimInput: {x: 0, y: 0}
+  mousePosition: {x: 0, y: 0}
+  fire1Pressed: 0
+  fire1Held: 0
+  fire1Released: 0
+--- !u!114 &8796260604151940195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422899888576234247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b635bb5eab22a3418c11f2466c39825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 12
+  acceleration: 100
+  drag: 100
 --- !u!114 &3281295472151721429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,44 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c891c4da935e24f923a6415535ef47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationMode: 1
---- !u!114 &5522432997158012471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422899888576234247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a657c85fcb1742445b6b68217d256e7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aimInput: {x: 0, y: 0}
-  mousePosition: {x: 0, y: 0}
-  fire1Pressed: 0
-  fire1Held: 0
-  fire1Released: 0
---- !u!114 &2454745200155415946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422899888576234247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3087bb324ab115546bc90618bf871921, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  acceleration: 100
-  canMove: 0
-  isDashing: 0
-  canDash: 1
-  dashSpeed: 0
-  dashRange: 0
-  dashCooldown: 0
+  rotationMode: 0
 --- !u!114 &2689884120353818552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +441,7 @@ MonoBehaviour:
   mediumDuration: 1
   fireCooldown: 0.25
   postShotRecovery: 0.25
---- !u!114 &3644074473118641712
+--- !u!114 &7526024727622985597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -450,8 +468,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5522432997158012471}
-        m_TargetAssemblyTypeName: Spelprojekt1.InputPlayer, Assembly-CSharp
+      - m_Target: {fileID: 7458199729491798877}
+        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -463,12 +481,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: ef53b470-1b0b-4780-a0dd-fc67a5ade4f2
-    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+    m_ActionName: 'Player/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5522432997158012471}
-        m_TargetAssemblyTypeName: Spelprojekt1.InputPlayer, Assembly-CSharp
-        m_MethodName: onAim
+      - m_Target: {fileID: 7458199729491798877}
+        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnAim
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -479,11 +497,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 52e0a638-d1f2-4b81-9cba-3fec4b35310b
-    m_ActionName: Player/Aim
+    m_ActionName: 'Player/Aim[/XInputControllerWindows/rightStick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5522432997158012471}
-        m_TargetAssemblyTypeName: Spelprojekt1.InputPlayer, Assembly-CSharp
+      - m_Target: {fileID: 7458199729491798877}
+        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
         m_MethodName: OnMousePosition
         m_Mode: 0
         m_Arguments:
@@ -495,11 +513,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: e16492e1-8734-4807-9523-7727be5dd3bc
-    m_ActionName: Player/New action1
+    m_ActionName: 'Player/MousePosition[/Mouse/position]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5522432997158012471}
-        m_TargetAssemblyTypeName: Spelprojekt1.InputPlayer, Assembly-CSharp
+      - m_Target: {fileID: 7458199729491798877}
+        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
         m_MethodName: OnFire1
         m_Mode: 0
         m_Arguments:
@@ -511,7 +529,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 15d0ead7-6b18-4374-8e85-19385c519ad8
-    m_ActionName: 'Player/FireMouse[/Mouse/leftButton]'
+    m_ActionName: 'Player/Fire1[/Mouse/leftButton,/XInputControllerWindows/buttonWest]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

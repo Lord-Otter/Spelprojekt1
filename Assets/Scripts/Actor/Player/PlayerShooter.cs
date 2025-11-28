@@ -5,7 +5,7 @@ namespace Spelprojekt1
     public class PlayerShooter : MonoBehaviour
     {
         private AimController aimController;
-        private InputPlayer inputPlayer;
+        private PlayerInputHandler playerInputHandler;
 
         [Header("Projectile Settings")]
         [SerializeField] private GameObject projectileWeak;
@@ -34,7 +34,7 @@ namespace Spelprojekt1
         private void Awake()
         {
             if (!aimController) aimController = GetComponentInChildren<AimController>();
-            if (!inputPlayer) inputPlayer = GetComponent<InputPlayer>();
+            if (!playerInputHandler) playerInputHandler = GetComponent<PlayerInputHandler>();
         }
 
         private void Update()
@@ -46,22 +46,22 @@ namespace Spelprojekt1
         private void ChargeAttack()
         {
             fireCooldownTimer += Time.deltaTime;
-            IsCharging = inputPlayer.fire1Held;
+            IsCharging = playerInputHandler.fire1Held;
 
             if(fireCooldownTimer >= fireCooldown)
             {
-                if(inputPlayer.fire1Held)
+                if(playerInputHandler.fire1Held)
                 {
                     currentCharge += Time.deltaTime; // Multiply this with eventual custom timescale
                     currentCharge = Mathf.Clamp(currentCharge, 0, maxChargeTime + critWindow + 0.1f);
                 }
 
-                if (inputPlayer.fire1Released)
+                if (playerInputHandler.fire1Released)
                 {
                     FireChargedShot(currentCharge);
 
                     currentCharge = 0;
-                    inputPlayer.fire1Released = false;
+                    playerInputHandler.fire1Released = false;
                     fireCooldownTimer = 0;
 
                     IsInShotRecovery = true;
@@ -118,7 +118,7 @@ namespace Spelprojekt1
         private void Shoot()
         {
             fireCooldownTimer += Time.deltaTime;
-            if(inputPlayer.fire1Pressed && fireCooldownTimer >= fireCooldown)
+            if(playerInputHandler.fire1Pressed && fireCooldownTimer >= fireCooldown)
             {
                 GameObject projectile = Instantiate(projectileWeak, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();

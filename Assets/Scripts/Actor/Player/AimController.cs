@@ -10,7 +10,7 @@ namespace Spelprojekt1
         private Transform aimerTransform;
         [SerializeField] private RotationMode rotationMode;
         public RotationMode CurrentMode => rotationMode;
-        private InputPlayer inputPlayer;
+        private PlayerInputHandler playerInputHandler;
         private Camera mainCamera;
 
         public enum RotationMode
@@ -21,7 +21,7 @@ namespace Spelprojekt1
 
         void Awake()
         {
-            inputPlayer = GetComponent<InputPlayer>();
+            playerInputHandler = GetComponent<PlayerInputHandler>();
             aimerTransform = GameObject.Find("Aimer").GetComponent<Transform>();
 
             if (mainCamera == null)
@@ -46,7 +46,7 @@ namespace Spelprojekt1
 
         private void MoveRotation()
         {
-            Vector2 move = inputPlayer.moveInput;
+            Vector2 move = playerInputHandler.moveInput;
             if(move.sqrMagnitude < 0.01f)
             {
                 return;
@@ -58,7 +58,7 @@ namespace Spelprojekt1
 
         /*private void StickRotation()
         {
-            Vector2 aim = inputPlayer.aimInput;
+            Vector2 aim = playerInputs.aimInput;
             if(aim.sqrMagnitude < 0.01f)
             {
                 return;
@@ -70,7 +70,7 @@ namespace Spelprojekt1
 
         private void MouseRotation()
         {
-            Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(inputPlayer.mousePosition);
+            Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(playerInputHandler.mousePosition);
             Vector2 direction = mouseWorld - transform.position;
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

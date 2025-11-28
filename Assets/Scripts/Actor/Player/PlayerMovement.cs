@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Spelprojekt1
 {
-    public class PlayerMovement : MovementBase
+    public class PlayerMovement : MonoBehaviour
     {
         private PlayerShooter playerShooter;
 
@@ -15,13 +15,13 @@ namespace Spelprojekt1
         [SerializeField] private float dashSpeed;
         [SerializeField] private float dashRange;
         [SerializeField] private float dashCooldown;
-
+/*
         protected override void Awake()
         {
             base.Awake();
             playerShooter = GetComponent<PlayerShooter>();
             collider = GetComponent<CapsuleCollider2D>();
-        }
+        }*/
 
         /*protected override void Start()
         {
@@ -32,7 +32,7 @@ namespace Spelprojekt1
         {
             base.Update();
         }*/
-
+/*
         protected override void FixedUpdate()
         {
             if(IsPlayerCharging())
@@ -46,7 +46,7 @@ namespace Spelprojekt1
                 return;
             }
             base.FixedUpdate();
-        }
+        }*/
 
         /*protected override void Move()
         {
@@ -58,7 +58,7 @@ namespace Spelprojekt1
 
             base.Move();
         }*/
-
+/*
         protected bool IsPlayerCharging()
         {
             if (playerShooter == null)
@@ -77,7 +77,7 @@ namespace Spelprojekt1
             }
 
             return playerShooter.IsInShotRecovery;
-        }
+        }*/
     }
 }
 

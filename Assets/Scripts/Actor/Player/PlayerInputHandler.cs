@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 
 namespace Spelprojekt1
 {
-    public class InputPlayer : InputBase
+    public class PlayerInputHandler : MonoBehaviour
     {
-        private PlayerControls controls;
+        [SerializeField] private PlayerControls controls;
 
         [HideInInspector] public Vector2 aimInput;
         [HideInInspector] public Vector2 mousePosition;
@@ -14,12 +14,11 @@ namespace Spelprojekt1
         public bool fire1Held;
         public bool fire1Released;
 
+        public Vector2 moveInput { get; protected set; }
+
         protected void Awake()
         {
             controls = new PlayerControls();
-
-            /*controls.Player.Move.performed += ctx => SetMoveInput(ctx.ReadValue<Vector2>());
-            controls.Player.Move.canceled += ctx => SetMoveInput(Vector2.zero);*/
         }
 
         public void OnMove(InputAction.CallbackContext ctx)
@@ -34,7 +33,7 @@ namespace Spelprojekt1
             }
         }
 
-        public void onAim(InputAction.CallbackContext ctx)
+        public void OnAim(InputAction.CallbackContext ctx)
         {
             aimInput = ctx.ReadValue<Vector2>();
         }
@@ -56,12 +55,11 @@ namespace Spelprojekt1
                 fire1Held = false;
                 fire1Released = true;
             }
-
-            /*if(ctx.performed) fire1Pressed = true;
-            if(ctx.canceled) fire1Pressed = false;*/
         }
-        //private void OnEnable() => controls.Enable();
-        //private void OnDisable() => controls.Disable();
-        
+
+        void SetMoveInput(Vector2 value)
+        {
+            moveInput = value;
+        }    
     }   
 }
