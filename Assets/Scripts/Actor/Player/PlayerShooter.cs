@@ -6,6 +6,8 @@ namespace Spelprojekt1
     {
         private AimController aimController;
         private PlayerInputHandler playerInputHandler;
+        private MovementController movementController;
+        private Rigidbody2D rigidBody;
 
         [Header("Projectile Settings")]
         [SerializeField] private GameObject projectileWeak;
@@ -28,13 +30,16 @@ namespace Spelprojekt1
 
         public bool IsCharging { get; private set;}
         [SerializeField] private float postShotRecovery;
+        //private bool canShoot = true;
         public bool IsInShotRecovery { get; private set; }
         private float postShotTimer;
 
         private void Awake()
         {
-            if (!aimController) aimController = GetComponentInChildren<AimController>();
-            if (!playerInputHandler) playerInputHandler = GetComponent<PlayerInputHandler>();
+            aimController = GetComponentInChildren<AimController>();
+            playerInputHandler = GetComponent<PlayerInputHandler>();
+            movementController = GetComponent<MovementController>();
+            rigidBody = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -54,6 +59,9 @@ namespace Spelprojekt1
                 {
                     currentCharge += Time.deltaTime; // Multiply this with eventual custom timescale
                     currentCharge = Mathf.Clamp(currentCharge, 0, maxChargeTime + critWindow + 0.1f);
+                
+                    movementController.enabled = false;
+                    rigidBody.linearVelocity = Vector2.zero;
                 }
 
                 if (playerInputHandler.fire1Released)
@@ -74,6 +82,7 @@ namespace Spelprojekt1
                 postShotTimer -= Time.deltaTime;
                 if(postShotTimer <= 0f)
                 {
+                    movementController.enabled = true;
                     IsInShotRecovery = false;
                 }
             }

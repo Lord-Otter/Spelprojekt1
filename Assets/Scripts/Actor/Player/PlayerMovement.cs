@@ -1,8 +1,8 @@
-using UnityEngine;
+/*using UnityEngine;
 
 namespace Spelprojekt1
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MovementController
     {
         private PlayerShooter playerShooter;
 
@@ -15,50 +15,40 @@ namespace Spelprojekt1
         [SerializeField] private float dashSpeed;
         [SerializeField] private float dashRange;
         [SerializeField] private float dashCooldown;
-/*
+
         protected override void Awake()
         {
             base.Awake();
             playerShooter = GetComponent<PlayerShooter>();
             collider = GetComponent<CapsuleCollider2D>();
-        }*/
-
-        /*protected override void Start()
-        {
-            base.Start();
         }
 
-        protected override void Update()
-        {
-            base.Update();
-        }*/
-/*
         protected override void FixedUpdate()
         {
             if(IsPlayerCharging())
             { 
-                rb.linearVelocity = Vector2.zero;
+                rigidBody.linearVelocity = Vector2.zero;
                 return;
             }
             if (IsPlayerShotRecovery())
             {
-                rb.linearVelocity = Vector2.zero;
+                rigidBody.linearVelocity = Vector2.zero;
                 return;
             }
             base.FixedUpdate();
-        }*/
+        }
 
-        /*protected override void Move()
+        protected override void HandleMovement()
         {
-            /*if(IsPlayerCharging())
+            if(IsPlayerCharging())
             {
-                rb.linearVelocity = Vector2.zero;
+                rigidBody.linearVelocity = Vector2.zero;
                 return;
             }
 
-            base.Move();
-        }*/
-/*
+            base.HandleMovement();
+        }
+
         protected bool IsPlayerCharging()
         {
             if (playerShooter == null)
@@ -77,8 +67,8 @@ namespace Spelprojekt1
             }
 
             return playerShooter.IsInShotRecovery;
-        }*/
+        }
     }
-}
+}*/
 
 
