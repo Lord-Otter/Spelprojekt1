@@ -7,10 +7,17 @@ namespace Spelprojekt1
     {
         [SerializeField] private float destroyTimer;
         [SerializeField] private float damage;
-        [SerializeField] private float Knockback;
+        [SerializeField] private float knockback;
         [SerializeField] private float range;
 
         private Vector2 direction = new Vector2(0, 1);
+
+        public void Initialize(float damage, float knockback, float range)
+        {
+            this.damage = damage;
+            this.knockback = knockback;
+            this.range = range;
+        }
 
         void Awake()
         {

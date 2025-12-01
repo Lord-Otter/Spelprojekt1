@@ -10,7 +10,7 @@ namespace Spelprojekt1
         private MovementController movementController;
         private Rigidbody2D rigidBody;
         //[SerializeField] private GameObject arrow;
-        [SerializeField] private SpriteRenderer arrowSprite;
+        private SpriteRenderer arrowSprite;
 
         [Header("Projectile Settings")]
         [SerializeField] private GameObject projectileWeak;
@@ -27,6 +27,7 @@ namespace Spelprojekt1
         [Tooltip("Units are in seconds")] [SerializeField] private float minChargeTime = 0.1f;
         [SerializeField] private float currentCharge = 0f;
         [Tooltip("Units are in seconds")] [SerializeField] private float critWindow = 0.1f;
+        private bool canCrit;
         [Tooltip("Units are in decimals")] [SerializeField] private float weakDuration = 0.5f;
         [Tooltip("Units are in decimals")] [SerializeField] private float mediumDuration = 1.0f;
         [Tooltip("Units are in seconds")] [SerializeField] private float fireCooldown = 0.2f;
@@ -63,7 +64,7 @@ namespace Spelprojekt1
             //UpdateArrowColor();
         }
 
-        private void UpdateArrowColor(float chargeProcent)
+        private void UpdateArrowColor(float chargePercent)
         {
             // 1. Handle the flash
             if (hasFlashed && flashTimer > 0f)
@@ -80,7 +81,7 @@ namespace Spelprojekt1
             }
 
             // 2. Trigger the flash exactly once when reaching full charge
-            if (!hasFlashed && chargeProcent >= 1f)
+            if (!hasFlashed && chargePercent >= 1f)
             {
                 hasFlashed = true;
                 flashTimer = flashDuration;
@@ -90,14 +91,14 @@ namespace Spelprojekt1
             }
 
             // 3. After flash is done AND charge is full → solid red
-            if (hasFlashed && chargeProcent >= 1f)
+            if (hasFlashed && chargePercent >= 1f)
             {
                 arrowSprite.color = maxChargeColor;
                 return;
             }
 
             // 4. Normal charge-up behavior before full charge
-            arrowSprite.color = Color.Lerp(minChargeColor, maxChargeColor, chargeProcent);
+            arrowSprite.color = Color.Lerp(minChargeColor, maxChargeColor, chargePercent);
         }
 
         private void ChargeAttack()
@@ -114,8 +115,8 @@ namespace Spelprojekt1
                     currentCharge += Time.deltaTime; // Multiply this with eventual custom timescale
                     currentCharge = Mathf.Clamp(currentCharge, 0, maxChargeTime + critWindow + 0.1f);
 
-                    float chargeProcent = Mathf.Clamp01(currentCharge / maxChargeTime);
-                    UpdateArrowColor(chargeProcent);
+                    float chargePercent = Mathf.Clamp01(currentCharge / maxChargeTime);
+                    UpdateArrowColor(chargePercent);
                 }
 
                 if (playerInputHandler.fire1Released)
@@ -155,13 +156,14 @@ namespace Spelprojekt1
         {
             GameObject projectileToUse;
 
-            float chargeProcent = charge / maxChargeTime;
+            float chargePercent = charge / maxChargeTime;
+            canCrit = false;
 
-            if (chargeProcent < weakDuration)
+            if (chargePercent < weakDuration)
             {
                 projectileToUse = projectileWeak;
             }
-            else if (chargeProcent < mediumDuration)
+            else if (chargePercent < mediumDuration)
             {
                 projectileToUse = projectileMedium;
             }
@@ -170,20 +172,39 @@ namespace Spelprojekt1
                 if(charge < maxChargeTime + critWindow)
                 {
                     projectileToUse = projectileCrit;
+                    canCrit = true;
                 }
                 else
                 {
                     projectileToUse = projectileStrong;
+                    canCrit = false;
                 }
                     
             }
-            /* The projectiles damage should be projectileBaseDamage * chargeProcent.
+            /* The projectiles damage should be projectileBaseDamage * chargePercent.
             *  If the player crits do projectileBaseDamage * 1.2f.
             *  If not then do projectileBaseDamage * 1. */ 
             
-            Debug.Log(chargeProcent);
-            GameObject projectile = Instantiate(projectileToUse, firePoint.position, firePoint.rotation); 
+            Debug.Log(chargePercent);
+            GameObject projectile = Instantiate(projectileToUse, firePoint.position, firePoint.rotation);
+            ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+            // Calculating Damage
+            float damage;
+
+            if(!canCrit)
+            {
+                damage = projectileBaseDamage * chargePercent;
+            }
+            else
+            {
+                damage = projectileBaseDamage * 1.2f;
+            }
+
+            // Add range and knockback calculations. Maybe knockback will be constant.
+
+            projectileBehaviour.Initialize(projectileBaseDamage * chargePercent, 1, 1);
             rb.linearVelocity = firePoint.right * projectileSpeed;
 
             arrowSprite.color = baseColor;
