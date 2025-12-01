@@ -77,27 +77,24 @@ namespace Spelprojekt1
                 else
                     arrowSprite.color = Color.Lerp(maxChargeColor, baseColor, (t - 0.5f) * 2f);
 
-                return; // Don't do anything else while flashing
+                return;
             }
 
-            // 2. Trigger the flash exactly once when reaching full charge
             if (!hasFlashed && chargePercent >= 1f)
             {
                 hasFlashed = true;
                 flashTimer = flashDuration;
 
-                arrowSprite.color = baseColor;     // Start flash at white
+                arrowSprite.color = baseColor;
                 return;
             }
 
-            // 3. After flash is done AND charge is full → solid red
             if (hasFlashed && chargePercent >= 1f)
             {
                 arrowSprite.color = maxChargeColor;
                 return;
             }
 
-            // 4. Normal charge-up behavior before full charge
             arrowSprite.color = Color.Lerp(minChargeColor, maxChargeColor, chargePercent);
         }
 
@@ -193,18 +190,22 @@ namespace Spelprojekt1
             // Calculating Damage
             float damage;
 
-            if(!canCrit)
+            if(chargePercent < 1)
             {
                 damage = projectileBaseDamage * chargePercent;
             }
-            else
+            else if (chargePercent <= 1 + critWindow)
             {
                 damage = projectileBaseDamage * 1.2f;
+            }
+            else
+            {
+                damage = projectileBaseDamage;
             }
 
             // Add range and knockback calculations. Maybe knockback will be constant.
 
-            projectileBehaviour.Initialize(projectileBaseDamage * chargePercent, 1, 1);
+            projectileBehaviour.Initialize(damage, 1, 1);
             rb.linearVelocity = firePoint.right * projectileSpeed;
 
             arrowSprite.color = baseColor;
