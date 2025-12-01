@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b635bb5eab22a3418c11f2466c39825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 12
+  maxSpeed: 7.5
   acceleration: 100
   drag: 100
 --- !u!114 &3281295472151721429
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c891c4da935e24f923a6415535ef47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationMode: 0
+  rotationMode: 1
 --- !u!114 &2689884120353818552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c911a7970a04f479e04618cfef2c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowSprite: {fileID: 0}
   projectileWeak: {fileID: 429791330407088376, guid: 85e88463e22500c41958da290a1907a6, type: 3}
   projectileMedium: {fileID: 373668113129517938, guid: a7592ac8bb136d24baacb9bbb9ba6b8b, type: 3}
   projectileStrong: {fileID: 7407424971226695597, guid: c870976bf424f1b42a1a560cbe28a0ae, type: 3}
@@ -436,11 +437,15 @@ MonoBehaviour:
   projectileSpeed: 10
   maxChargeTime: 0.5
   currentCharge: 0
-  critWindow: 0.1
+  critWindow: 0.15
   weakDuration: 0.5
   mediumDuration: 1
   fireCooldown: 0.25
   postShotRecovery: 0.25
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  minChargeColor: {r: 0, g: 1, b: 0, a: 1}
+  maxChargeColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.15
 --- !u!114 &7526024727622985597
 MonoBehaviour:
   m_ObjectHideFlags: 0

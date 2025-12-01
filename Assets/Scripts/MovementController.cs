@@ -16,6 +16,18 @@ namespace Spelprojekt1
         private Rigidbody2D rigidBody;
         private Vector2 inputDirection;
 
+        public bool MovementLocked { get; private set; }
+
+        public void SetMovementLock(bool locked)
+        {
+            MovementLocked = locked;
+
+            if(locked)
+            {
+                rigidBody.linearVelocity = Vector2.zero;
+            }
+        }
+
         void Awake()
         {
             rigidBody = GetComponent<Rigidbody2D>();
@@ -39,6 +51,12 @@ namespace Spelprojekt1
 
         void HandleMovement()
         {
+            if(MovementLocked)
+            {
+                rigidBody.linearVelocity = Vector2.zero;
+                return;
+            }
+
             Vector2 targetVelocity = inputDirection.normalized * maxSpeed;
 
             if (inputDirection.sqrMagnitude > 0.01f)
