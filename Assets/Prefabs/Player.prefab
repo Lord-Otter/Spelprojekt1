@@ -338,8 +338,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7551704989850069933}
+  - component: {fileID: 1968600153998333994}
   - component: {fileID: 7458199729491798877}
-  - component: {fileID: 8796260604151940195}
+  - component: {fileID: 8496476262272340701}
   - component: {fileID: 3281295472151721429}
   - component: {fileID: 2689884120353818552}
   - component: {fileID: 7526024727622985597}
@@ -370,6 +371,18 @@ Transform:
   - {fileID: 8124438448034666009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1968600153998333994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422899888576234247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9792c40dd49e16040b185d04156140e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7458199729491798877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +400,7 @@ MonoBehaviour:
   fire1Pressed: 0
   fire1Held: 0
   fire1Released: 0
---- !u!114 &8796260604151940195
+--- !u!114 &8496476262272340701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -396,7 +409,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8422899888576234247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b635bb5eab22a3418c11f2466c39825, type: 3}
+  m_Script: {fileID: 11500000, guid: 3087bb324ab115546bc90618bf871921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 7.5
@@ -427,7 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c911a7970a04f479e04618cfef2c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowSprite: {fileID: 0}
   projectileWeak: {fileID: 429791330407088376, guid: 85e88463e22500c41958da290a1907a6, type: 3}
   projectileMedium: {fileID: 373668113129517938, guid: a7592ac8bb136d24baacb9bbb9ba6b8b, type: 3}
   projectileStrong: {fileID: 7407424971226695597, guid: c870976bf424f1b42a1a560cbe28a0ae, type: 3}
@@ -436,6 +448,7 @@ MonoBehaviour:
   projectileBaseDamage: 100
   projectileSpeed: 10
   maxChargeTime: 0.5
+  minChargeTime: 0.1
   currentCharge: 0
   critWindow: 0.15
   weakDuration: 0.5

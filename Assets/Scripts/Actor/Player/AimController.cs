@@ -22,7 +22,7 @@ namespace Spelprojekt1
         void Awake()
         {
             playerInputHandler = GetComponent<PlayerInputHandler>();
-            aimerTransform = GameObject.Find("Aimer").GetComponent<Transform>();
+            aimerTransform = transform.Find("Aimer").GetComponent<Transform>();
 
             if (mainCamera == null)
             {

@@ -11,10 +11,10 @@ namespace Spelprojekt1
         public float drag;
 
         [Header("Optional Input Source")]
-        private PlayerInputHandler inputHandler; 
+        //protected PlayerInputHandler inputHandler; 
 
-        private Rigidbody2D rigidBody;
-        private Vector2 inputDirection;
+        protected Rigidbody2D rigidBody;
+        protected Vector2 inputDirection;
 
         public bool MovementLocked { get; private set; }
 
@@ -28,28 +28,28 @@ namespace Spelprojekt1
             }
         }
 
-        void Awake()
+        protected virtual void Awake()
         {
             rigidBody = GetComponent<Rigidbody2D>();
-            inputHandler = GetComponent<PlayerInputHandler>();
+            
         }
 
-        void Update()
+        protected virtual void Update()
         {
             SetDirection();
         }
 
-        void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             HandleMovement();
         }
 
-        public void SetInput(Vector2 direction)
+        public virtual void SetInput(Vector2 direction)
         {
             inputDirection = direction;
         }
 
-        void HandleMovement()
+        protected virtual void HandleMovement()
         {
             if(MovementLocked)
             {
@@ -69,9 +69,9 @@ namespace Spelprojekt1
             }
         }
 
-        void SetDirection()
+        protected virtual void SetDirection()
         {
-            inputDirection = inputHandler.moveInput;
+            //inputDirection = inputHandler.moveInput;
         }
     }
 }

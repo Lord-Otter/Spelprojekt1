@@ -38,6 +38,11 @@ namespace Spelprojekt1
         {
             if(!other.CompareTag("Player"))
             {
+                if(other.CompareTag("Enemy"))
+                {
+                    HealthHandler enemyHealth = other.GetComponent<HealthHandler>();
+                    enemyHealth.TakeDamage((int)damage);
+                }
                 Destroy(gameObject);
             }
         }
