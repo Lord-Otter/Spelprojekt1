@@ -1,3 +1,4 @@
+using Spelprojekt1;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -12,5 +13,14 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(1);
+        }
     }
 }

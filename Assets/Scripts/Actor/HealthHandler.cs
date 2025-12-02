@@ -5,7 +5,7 @@ namespace Spelprojekt1
 {
     public class HealthHandler : MonoBehaviour
     {
-        [SerializeField] protected int maxHealth, currentHealth;
+        public int maxHealth, currentHealth;
         protected bool canTakeDamage;
 
         protected virtual void Awake()
@@ -25,7 +25,7 @@ namespace Spelprojekt1
 
         public virtual void TakeDamage(int damage) // Maybe add knockback, stuns, or other effects that come from taking damage.
         {
-            if(!canTakeDamage)
+            /*if(!canTakeDamage)
                 return;
 
             currentHealth -= damage;
@@ -36,7 +36,7 @@ namespace Spelprojekt1
             else
             {
                 HandleDeath(); // Maybe make this a coroutine for a sequence of events.
-            }
+            }*/
         }
 
         protected virtual void HandleDamage()
