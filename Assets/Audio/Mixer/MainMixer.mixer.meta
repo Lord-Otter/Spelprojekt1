@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: 8d7e3ce3206fc1e42bbe740ea451b63c
-labels:
-- Audio
-- Character
+guid: 250bbe7076fba314f8abf907fda277b0
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 7400000
+  mainObjectFileID: 24100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
