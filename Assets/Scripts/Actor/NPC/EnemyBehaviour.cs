@@ -24,6 +24,9 @@ namespace Spelprojekt1
         
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 3ce71a7 (Player has health, UI Hearts and can take damage. Next finish the enemy.)
+=======
 >>>>>>> parent of 3ce71a7 (Player has health, UI Hearts and can take damage. Next finish the enemy.)
 =======
 >>>>>>> parent of 3ce71a7 (Player has health, UI Hearts and can take damage. Next finish the enemy.)
