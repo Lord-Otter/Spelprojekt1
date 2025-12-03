@@ -1,10 +1,10 @@
-using Spelprojekt1;
 using UnityEngine;
 
 namespace Spelprojekt1
 {
     public class EnemyBehaviour : MonoBehaviour
     {
+<<<<<<< HEAD
         void Start()
         {
             
@@ -14,5 +14,14 @@ namespace Spelprojekt1
         {
             
         }
+=======
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+>>>>>>> parent of 3ce71a7 (Player has health, UI Hearts and can take damage. Next finish the enemy.)
     }
 }
