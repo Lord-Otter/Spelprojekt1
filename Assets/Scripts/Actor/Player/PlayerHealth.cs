@@ -1,9 +1,12 @@
 using Spelprojekt1;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class PlayerHealth : HealthHandler
 {
     public event System.Action<int> OnHealthChanged;
+    public UnityEvent OnPlayerDiedEvent;
 
     protected override void Start()
     {
@@ -69,6 +72,7 @@ public class PlayerHealth : HealthHandler
 
     protected override void HandleDeath()
     {
+        OnPlayerDiedEvent?.Invoke();
         // Play death animation / change to death sprite.
         // Play death sound effect.
         // Play game over music

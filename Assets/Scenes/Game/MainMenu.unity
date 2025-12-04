@@ -686,7 +686,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 979208667215744918, guid: ec14804dabdd80b4b80593bbc320e5cb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 979208667215744918, guid: ec14804dabdd80b4b80593bbc320e5cb, type: 3}
       propertyPath: sceneToLoad
@@ -730,6 +730,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5139942030649523152, guid: ec14804dabdd80b4b80593bbc320e5cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5141224000709351587, guid: ec14804dabdd80b4b80593bbc320e5cb, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379072696627834370, guid: ec14804dabdd80b4b80593bbc320e5cb, type: 3}

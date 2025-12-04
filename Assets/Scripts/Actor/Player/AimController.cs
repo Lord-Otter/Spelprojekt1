@@ -44,7 +44,6 @@ namespace Spelprojekt1
                     MouseRotation();
                     break;
             }
-            Debug.Log(aimAngle);
         }
 
         private void MoveRotation()

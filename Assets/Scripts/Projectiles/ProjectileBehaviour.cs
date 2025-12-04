@@ -36,15 +36,38 @@ namespace Spelprojekt1
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if(!other.CompareTag("Player"))
+            if(this.CompareTag("Projectile_Ally"))
             {
-                if(other.CompareTag("Enemy"))
+                if(!other.CompareTag("Player"))
                 {
-                    HealthHandler enemyHealth = other.GetComponent<HealthHandler>();
-                    enemyHealth.TakeDamage((int)damage);
+                    if(other.CompareTag("Enemy"))
+                    {
+                        HealthHandler enemyHealth = other.GetComponent<HealthHandler>();
+                        enemyHealth.TakeDamage((int)damage);
+                    }
+                    if(!other.CompareTag("Projectile_Enemy") && !other.CompareTag("Projectile_Ally"))
+                    {
+                        Destroy(gameObject);
+                    }
+                    
                 }
-                Destroy(gameObject);
             }
+            else if (this.CompareTag("Projectile_Enemy"))
+            {
+                if(!other.CompareTag("Enemy"))
+                {
+                    if(other.CompareTag("Player"))
+                    {
+                        HealthHandler enemyHealth = other.GetComponent<HealthHandler>();
+                        enemyHealth.TakeDamage((int)damage);
+                    }
+                    if(!other.CompareTag("Projectile_Enemy") && !other.CompareTag("Projectile_Ally"))
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
+            
         }
     }
 }
