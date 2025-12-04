@@ -13,6 +13,8 @@ namespace Spelprojekt1
         private PlayerInputHandler playerInputHandler;
         private Camera mainCamera;
 
+        public float aimAngle { get; private set; }
+
         public enum RotationMode
         {
             MoveAim,
@@ -42,6 +44,7 @@ namespace Spelprojekt1
                     MouseRotation();
                     break;
             }
+            Debug.Log(aimAngle);
         }
 
         private void MoveRotation()
@@ -52,8 +55,8 @@ namespace Spelprojekt1
                 return;
             }
 
-            float angle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg;
-            aimerTransform.rotation = Quaternion.Euler(0, 0, angle);
+            aimAngle = Mathf.Repeat(Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg + 360f, 360f);
+            aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
         }
 
         /*private void StickRotation()
@@ -73,8 +76,8 @@ namespace Spelprojekt1
             Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(playerInputHandler.mousePosition);
             Vector2 direction = mouseWorld - transform.position;
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            aimerTransform.rotation = Quaternion.Euler(0, 0, angle);
+            aimAngle = Mathf.Repeat(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 360f, 360f);
+            aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
         }
 
         public void SetMode(RotationMode newMode) => rotationMode = newMode;
