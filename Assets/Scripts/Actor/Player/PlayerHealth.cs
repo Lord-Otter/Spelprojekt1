@@ -3,21 +3,42 @@ using UnityEngine;
 
 public class PlayerHealth : HealthHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public event System.Action<int> OnHealthChanged;
+
+    protected override void Start()
     {
-        
+        base.Start();
+        canTakeDamage = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         
     }
 
     public override void TakeDamage(int damage)
     {
-        base.TakeDamage(damage);
+        if(!canTakeDamage)
+        {   
+            return;
+        }
+
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        OnHealthChanged?.Invoke(currentHealth);
+
+        if(currentHealth > 0)
+        {
+            HandleDamage(); // Maybe make this a coroutine for a sequence of events.
+        }
+        else
+        {
+            HandleDeath(); // Maybe make this a coroutine for a sequence of events.
+        }
+
+
+
         // Update UI. If this doesn't work then use code below and 
 
         /*if(!canTakeDamage)

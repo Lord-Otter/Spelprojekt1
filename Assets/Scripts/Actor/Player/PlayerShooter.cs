@@ -27,7 +27,6 @@ namespace Spelprojekt1
         [Tooltip("Units are in seconds")] [SerializeField] private float minChargeTime = 0.1f;
         [SerializeField] private float currentCharge = 0f;
         [Tooltip("Units are in seconds")] [SerializeField] private float critWindow = 0.1f;
-        private bool canCrit;
         [Tooltip("Units are in decimals")] [SerializeField] private float weakDuration = 0.5f;
         [Tooltip("Units are in decimals")] [SerializeField] private float mediumDuration = 1.0f;
         [Tooltip("Units are in seconds")] [SerializeField] private float fireCooldown = 0.2f;
@@ -154,7 +153,6 @@ namespace Spelprojekt1
             GameObject projectileToUse;
 
             float chargePercent = charge / maxChargeTime;
-            canCrit = false;
 
             if (chargePercent < weakDuration)
             {
@@ -169,12 +167,10 @@ namespace Spelprojekt1
                 if(charge < maxChargeTime + critWindow)
                 {
                     projectileToUse = projectileCrit;
-                    canCrit = true;
                 }
                 else
                 {
                     projectileToUse = projectileStrong;
-                    canCrit = false;
                 }
                     
             }

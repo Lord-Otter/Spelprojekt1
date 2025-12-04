@@ -8,7 +8,10 @@ namespace Spelprojekt1
         private SpriteRenderer playerSprite;
         private PlayerInputHandler input;
         private AimController aimController;
+        private PlayerShooter shooter;
         private MovementController movement;
+
+        private Rigidbody2D rb;
 
         private const int north = 90;
         private const int east = 0;
@@ -23,30 +26,64 @@ namespace Spelprojekt1
             playerSprite = transform.Find("Visual").GetComponent<SpriteRenderer>();
             input = GetComponent<PlayerInputHandler>();
             aimController = GetComponent<AimController>();
+            shooter = GetComponent<PlayerShooter>();
             movement = GetComponent<MovementController>();
+
+            rb = GetComponent<Rigidbody2D>();
         }
 
         void Update()
         {
-            if(aimController.aimAngle > east && aimController.aimAngle < west) // When aiming upwards
-            {
-                isFacingUp = true;
-            }
-            else if (aimController.aimAngle > west || aimController.aimAngle < east) // When aiming downwards
-            {
-                isFacingUp = false;
-            }
+            DirectionCheck();
+            FlipSprite();
 
-            if(aimController.aimAngle < north || aimController.aimAngle > south) // When aiming right
+            Debug.Log($"isFacingUp: {isFacingUp}");
+            Debug.Log($"isFacingRight: {isFacingRight}");
+        }
+
+        private void DirectionCheck()
+        {
+            if (shooter.IsCharging) // While charging an attack
             {
-                isFacingRight = true;
+                if(aimController.aimAngle > east && aimController.aimAngle < west) // When aiming upwards
+                {
+                    isFacingUp = true;
+                }
+                else if (aimController.aimAngle > west || aimController.aimAngle < east) // When aiming downwards
+                {
+                    isFacingUp = false;
+                }
+
+                if(aimController.aimAngle < north || aimController.aimAngle > south) // When aiming right
+                {
+                    isFacingRight = true;
+                }
+                else if(aimController.aimAngle > north && aimController.aimAngle < south || aimController.aimAngle < south && aimController.aimAngle < north) // When aiming left
+                {
+                    isFacingRight = false;
+                }
             }
-            else if(aimController.aimAngle > north && aimController.aimAngle < south || aimController.aimAngle < south && aimController.aimAngle < north) // When aiming left
+            else // While walking normally
             {
-                isFacingRight = false;
+                if(rb.linearVelocity.x > 0)
+                {
+                    isFacingRight = true;
+                }
+                else if (rb.linearVelocity.x < 0)
+                {
+                    isFacingRight = false;
+                }
+
+                if(rb.linearVelocity.y > 0)
+                {
+                    isFacingUp = true;
+                }
+                else if(rb.linearVelocity.y < 0)
+                {
+                    isFacingUp = false;
+                }
             }
             
-            FlipSprite();
         }
 
         private void FlipSprite()
@@ -59,6 +96,16 @@ namespace Spelprojekt1
             {
                 playerSprite.flipX = true;
             }
+
+            if(isFacingUp)
+            {
+                // Change to upwards sprite
+            }
+            else
+            {
+                // Change to downwards sprite
+            }
+            
         }
     }
 }

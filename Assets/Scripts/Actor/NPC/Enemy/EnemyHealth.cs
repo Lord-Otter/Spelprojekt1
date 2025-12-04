@@ -5,13 +5,14 @@ namespace Spelprojekt1
     public class EnemyHealth : HealthHandler
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        protected override void Start()
         {
-            
+            base.Start();
+            canTakeDamage = true;
         }
 
         // Update is called once per frame
-        void Update()
+        protected override void Update()
         {
             
         }
@@ -25,7 +26,7 @@ namespace Spelprojekt1
 
         protected override void HandleDeath()
         {
-            
+            Destroy(gameObject);
         }
     }
 }
