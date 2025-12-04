@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8704800300502779774}
   m_Layer: 0
   m_Name: Projectile_Weak
-  m_TagString: Player
+  m_TagString: Projectile_Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTimer: 15
+  damage: 0
+  knockback: 0
+  range: 0
 --- !u!50 &2223050814693764788
 Rigidbody2D:
   serializedVersion: 5
