@@ -1,2 +1,0 @@
-NavMeshPlush by h8man: https://github.com/h8man/NavMeshPlus
-	Desc: Scripts to make pathfinding easier.
