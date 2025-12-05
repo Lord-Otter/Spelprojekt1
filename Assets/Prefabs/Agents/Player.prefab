@@ -515,6 +515,9 @@ MonoBehaviour:
   minChargeColor: {r: 0, g: 1, b: 0, a: 1}
   maxChargeColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.15
+  chargeStartSFX: {fileID: 0}
+  shotNormalSFX: {fileID: 0}
+  shotCritSFX: {fileID: 0}
 --- !u!82 &4270644617335516370
 AudioSource:
   m_ObjectHideFlags: 0
