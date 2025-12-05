@@ -26,7 +26,7 @@ public class PlayerAnimationController : MonoBehaviour
         Vector2 vel = rb.linearVelocity;
         
         // If idle
-        if (vel.magnitude < 0.1f)
+        if (vel.magnitude < deadzone)
         {
             PlayAnimation("Idle_Placeholder");
             return;

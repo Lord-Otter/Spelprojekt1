@@ -46,6 +46,16 @@ namespace Spelprojekt1
         private bool hasFlashed = false;
         private float flashTimer = 0f;
 
+        [Header("Audio")]
+        private AudioSource audioSource;
+
+        [SerializeField] private AudioClip chargeStartSFX;
+        [SerializeField] private AudioClip shotNormalSFX;
+        [SerializeField] private AudioClip shotCritSFX;
+
+        private bool isChargeLoopPlaying = false;
+        private bool wasCharging = false;
+
         private void Awake()
         {
             aimController = GetComponentInChildren<AimController>();
@@ -53,6 +63,8 @@ namespace Spelprojekt1
             movementController = GetComponent<MovementController>();
             rigidBody = GetComponent<Rigidbody2D>();
             arrowSprite = transform.Find("Aimer").transform.Find("Arrow").GetComponent<SpriteRenderer>();
+
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -105,6 +117,11 @@ namespace Spelprojekt1
             {
                 if(playerInputHandler.fire1Held)
                 {
+                        if (!wasCharging)
+                        {
+                            PlaySFX(chargeStartSFX);
+                            wasCharging = true;
+                        }
                     movementController.SetMovementLock(true);
 
                     currentCharge += Time.deltaTime; // Multiply this with eventual custom timescale
@@ -116,6 +133,16 @@ namespace Spelprojekt1
 
                 if (playerInputHandler.fire1Released)
                 {
+                    audioSource.Stop();
+                    wasCharging = false;
+                    
+                    if (isChargeLoopPlaying)
+                    {
+                        audioSource.loop = false;
+                        audioSource.Stop();
+                        isChargeLoopPlaying = false;
+                    }
+
                     if(currentCharge >= minChargeTime)
                     {
                         FireChargedShot(currentCharge);  
@@ -155,20 +182,24 @@ namespace Spelprojekt1
 
             if (chargePercent < weakDuration)
             {
+                PlaySFX(shotNormalSFX);
                 projectileToUse = projectileWeak;
             }
             else if (chargePercent < mediumDuration)
             {
+                PlaySFX(shotNormalSFX);
                 projectileToUse = projectileMedium;
             }
             else
             {
                 if(charge < maxChargeTime + critWindow)
                 {
+                    PlaySFX(shotCritSFX);
                     projectileToUse = projectileCrit;
                 }
                 else
                 {
+                    PlaySFX(shotNormalSFX);
                     projectileToUse = projectileStrong;
                 }
                     
@@ -206,6 +237,12 @@ namespace Spelprojekt1
             arrowSprite.color = baseColor;
             hasFlashed = false;
             flashTimer = 0f;
+        }
+
+        private void PlaySFX(AudioClip clip)
+        {
+            if (clip != null && audioSource != null)
+                audioSource.PlayOneShot(clip);
         }
 
         /*private void Shoot()

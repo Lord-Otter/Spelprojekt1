@@ -13,6 +13,9 @@ public class PlayerAudioVisual : MonoBehaviour
 
     [Header("Animation")]
     private Animator animator;
+    private string currentAnimation;
+    private string lastDirection = "Down";
+    private const float deadzone = 0.1f;
 
     void Awake()
     {
@@ -26,9 +29,10 @@ public class PlayerAudioVisual : MonoBehaviour
     void Update()
     {
         PlayFootSteps();
-        AnimationParams();
+        HandleAnimation();
     }
 
+    #region Audio
     private void PlayFootSteps()
     {
         if (Mathf.Abs(rb.linearVelocity.x) > 0.01f || Mathf.Abs(rb.linearVelocity.y) > 0.01f)
@@ -54,13 +58,69 @@ public class PlayerAudioVisual : MonoBehaviour
             audioSource.PlayOneShot(clip);
         }
     }
+    #endregion
 
-    private void AnimationParams()
+    #region Animation
+    private void HandleAnimation()
     {
-        Vector2 velocity = rb.linearVelocity;
+        Vector2 vel = rb.linearVelocity;
+        
+        // If idle
+        if (vel.magnitude < deadzone)
+        {
+            PlayAnimation("Idle_Placeholder");
+            return;
+        }
 
-        animator.SetFloat("VelocityX", velocity.x);
-        animator.SetFloat("VelocityY", velocity.y);
-        animator.SetFloat("Speed", velocity.magnitude);
+        float absX = Mathf.Abs(vel.x);
+        float absY = Mathf.Abs(vel.y);
+
+        string newAnim = "";
+
+        // --- PRIORITY 1: LEFT / RIGHT ---
+        if (absX >= absY)  
+        {
+            if (vel.x > 0)
+            {
+                newAnim = "Run_Right";
+                lastDirection = "Right";
+            }
+            else
+            {
+                newAnim = "Run_Left";
+                lastDirection = "Left";
+            }
+        }
+        // --- PRIORITY 2: UP / DOWN ---
+        else
+        {
+            if (vel.y > 0)
+            {
+                newAnim = "Run_Up";
+                lastDirection = "Up";
+            }
+            else
+            {
+                newAnim = "Run_Down";
+                lastDirection = "Down";
+            }
+        }
+
+        if(vel.magnitude < 0.1f)
+        {
+            PlayAnimation($"Idle_PlaceHolder");
+        }
+
+        PlayAnimation(newAnim);
     }
+
+    private void PlayAnimation(string animName)
+    {
+        if (currentAnimation == animName)
+            return;
+
+        currentAnimation = animName;
+        animator.Play(animName);
+    }
+    #endregion
 }

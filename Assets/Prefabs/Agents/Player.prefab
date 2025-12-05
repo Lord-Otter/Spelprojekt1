@@ -385,7 +385,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8422899888576234247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 331030045ad1ef64e9135f5dc3f91de0, type: 3}
   m_Name: 
@@ -404,6 +404,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 6
   currentHealth: 0
+  OnPlayerDiedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3047200598040328223
 MonoBehaviour:
   m_ObjectHideFlags: 0
