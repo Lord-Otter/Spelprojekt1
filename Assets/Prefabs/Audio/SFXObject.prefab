@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7379072696627834370
+--- !u!1 &4232377216970766018
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,97 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5139942030649523152}
-  - component: {fileID: 5141224000709351587}
-  - component: {fileID: 979208667215744918}
-  - component: {fileID: 2316685530704626328}
-  - component: {fileID: 8830025755981439260}
+  - component: {fileID: 4992047836260740308}
+  - component: {fileID: 546266951400047987}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: SFXObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5139942030649523152
+--- !u!4 &4992047836260740308
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379072696627834370}
+  m_GameObject: {fileID: 4232377216970766018}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.0637236, y: -7.0003843, z: 0.044054456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5141224000709351587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379072696627834370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974b46e4deb139645a6d1e422305fa71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cornerA: {x: -4, y: -10.5}
-  cornerB: {x: 14, y: 1.75}
-  minSpawnTime: 2
-  maxSpawnTime: 4
-  enemyPrefab: {fileID: 7978245863105396949, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
-  maxEnemies: 10
---- !u!114 &979208667215744918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379072696627834370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a850b31aee0d81f44a8a8be326871631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: 
---- !u!114 &2316685530704626328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379072696627834370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725ca59de8dda2f43a6d9850af32c163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trainingProjectile: {fileID: 0}
-  worldPause: 0
-  tpPause: 0
-  unityTimeScale: 1
-  lastUnityTimeScale: 0
---- !u!82 &8830025755981439260
+--- !u!82 &546266951400047987
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379072696627834370}
-  m_Enabled: 0
+  m_GameObject: {fileID: 4232377216970766018}
+  m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3008504647168948805, guid: 103fd4aaa8d75174b9d787e9728a1233, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6d23b4471f5a80e4e8e515edde656f9e, type: 3}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

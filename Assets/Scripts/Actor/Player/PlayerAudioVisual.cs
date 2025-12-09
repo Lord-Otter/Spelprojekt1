@@ -40,7 +40,8 @@ public class PlayerAudioVisual : MonoBehaviour
             footStepTimer += Time.deltaTime;
             if(footStepTimer > footStepCooldown)
             {
-                PlaySFX(footsteps[Random.Range(0, 6)]);
+                //PlaySFX(footsteps[Random.Range(0, 6)]);
+                SFXManager.instance.PlayRandomSFXClip(footsteps, transform, 1f);
 
                 footStepTimer = 0;
             }

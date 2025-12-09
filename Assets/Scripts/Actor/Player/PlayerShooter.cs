@@ -48,6 +48,7 @@ namespace Spelprojekt1
 
         [Header("Audio")]
         private AudioSource audioSource;
+        private AudioSource chargeSFXInstance;
 
         [SerializeField] private AudioClip chargeStartSFX;
         [SerializeField] private AudioClip shotNormalSFX;
@@ -117,11 +118,12 @@ namespace Spelprojekt1
             {
                 if(playerInputHandler.fire1Held)
                 {
-                        if (!wasCharging)
-                        {
-                            PlaySFX(chargeStartSFX);
-                            wasCharging = true;
-                        }
+                    if (!wasCharging)
+                    {
+                        chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, 1f);
+                        wasCharging = true;
+                    }
+
                     movementController.SetMovementLock(true);
 
                     currentCharge += Time.deltaTime; // Multiply this with eventual custom timescale
@@ -133,13 +135,20 @@ namespace Spelprojekt1
 
                 if (playerInputHandler.fire1Released)
                 {
-                    audioSource.Stop();
+                    // Cancel chargeStartSFX
+                    if (chargeSFXInstance != null)
+                    {
+                        chargeSFXInstance.Stop();
+                        Destroy(chargeSFXInstance.gameObject);
+                        chargeSFXInstance = null;
+                    }
+
                     wasCharging = false;
                     
                     if (isChargeLoopPlaying)
                     {
                         audioSource.loop = false;
-                        audioSource.Stop();
+                        // Cancel chargeStartSFX
                         isChargeLoopPlaying = false;
                     }
 
@@ -182,24 +191,24 @@ namespace Spelprojekt1
 
             if (chargePercent < weakDuration)
             {
-                PlaySFX(shotNormalSFX);
+                SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, 1f);
                 projectileToUse = projectileWeak;
             }
             else if (chargePercent < mediumDuration)
             {
-                PlaySFX(shotNormalSFX);
+                SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, 1f);
                 projectileToUse = projectileMedium;
             }
             else
             {
                 if(charge < maxChargeTime + critWindow)
                 {
-                    PlaySFX(shotCritSFX);
+                    SFXManager.instance.PlaySFXClip(shotCritSFX, transform, 1f);
                     projectileToUse = projectileCrit;
                 }
                 else
                 {
-                    PlaySFX(shotNormalSFX);
+                    SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, 1f);
                     projectileToUse = projectileStrong;
                 }
                     
