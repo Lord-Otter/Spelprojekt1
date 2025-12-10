@@ -45,7 +45,7 @@ namespace Spelprojekt1
             ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
 
-            projectileBehaviour.Initialize(1, 1, 1);
+            projectileBehaviour.Initialize(1, 1, 1, true);
             rb.linearVelocity = firePoint.right * projectileSpeed;
         }
     }

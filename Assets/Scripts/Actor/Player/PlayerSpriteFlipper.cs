@@ -43,7 +43,7 @@ namespace Spelprojekt1
 
         private void DirectionCheck()
         {
-            if (shooter.IsCharging) // While charging an attack
+            if (true) // While charging an attack
             {
                 if(aimController.aimAngle > east && aimController.aimAngle < west) // When aiming upwards
                 {

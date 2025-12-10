@@ -4,11 +4,20 @@ namespace Spelprojekt1
 {
     public class PlayerShooter : MonoBehaviour
     {
+        public enum ShootState
+        {
+            Ready,
+            Charging,
+            ChargedRelease,
+            Recovery
+        }
+
+        public ShootState State { get; private set; } = ShootState.Ready;
+
         private AimController aimController;
         private PlayerInputHandler playerInputHandler;
         private MovementController movementController;
         private Rigidbody2D rigidBody;
-        //[SerializeField] private GameObject arrow;
         private SpriteRenderer arrowSprite;
 
         [Header("Projectile Settings")]
@@ -22,20 +31,19 @@ namespace Spelprojekt1
         [SerializeField] private float projectileSpeed = 10f;
 
         [Header("Charge Settings")]
-        [Tooltip("Units are in seconds")] [SerializeField] private float maxChargeTime = 1.0f;
-        [Tooltip("Units are in seconds")] [SerializeField] private float minChargeTime = 0.1f;
-        [SerializeField] private float currentCharge = 0f;
-        [Tooltip("Units are in seconds")] [SerializeField] private float critWindow = 0.1f;
-        [Tooltip("Units are in decimals")] [SerializeField] private float weakDuration = 0.5f;
-        [Tooltip("Units are in decimals")] [SerializeField] private float mediumDuration = 1.0f;
-        [Tooltip("Units are in seconds")] [SerializeField] private float fireCooldown = 0.2f;
+        [SerializeField] private float maxChargeTime = 1.0f;
+        [SerializeField] private float minChargeTime = 0.1f;
+        [SerializeField] private float critWindow = 0.1f;
+        [SerializeField] private float weakDuration = 0.5f;
+        [SerializeField] private float mediumDuration = 1.0f;
+        [SerializeField] private float fireCooldown = 0.2f;
+
+        private float currentCharge = 0f;
         private float fireCooldownTimer = 0f;
 
-        public bool IsCharging { get; private set;}
-        [SerializeField] private float postShotRecovery;
-        //private bool canShoot = true;
-        public bool IsInShotRecovery { get; private set; }
-        private float postShotTimer;
+        [Header("Recovery Settings")]
+        [SerializeField] private float postShotRecovery = 0.3f;
+        private float recoveryTimer = 0f;
 
         [Header("Arrow Settings")]
         [SerializeField] private Color baseColor = Color.white;
@@ -54,7 +62,6 @@ namespace Spelprojekt1
         [SerializeField] private AudioClip shotNormalSFX;
         [SerializeField] private AudioClip shotCritSFX;
 
-        private bool isChargeLoopPlaying = false;
         private bool wasCharging = false;
 
         private void Awake()
@@ -70,9 +77,176 @@ namespace Spelprojekt1
 
         private void Update()
         {
+            fireCooldownTimer += Time.deltaTime;
+
+            switch (State)
+            {
+                case ShootState.Ready:
+                    Ready();
+                    break;
+
+                case ShootState.Charging:
+                    Charging();
+                    break;
+                
+                case ShootState.ChargedRelease:
+                    ChargedRelease();
+                    break;
+            
+                case ShootState.Recovery:
+                    Recovery();
+                    break;
+            }
+
             //Shoot();
-            ChargeAttack();
+            //TryChargeAttack();
+            //ChargeAttack();
             //UpdateArrowColor();
+        }
+
+        // Ready State
+        private void Ready()
+        {
+            if(playerInputHandler.fire1Held && fireCooldownTimer >= fireCooldown)
+            {
+                BeginCharging();
+            }
+        }
+
+        private void BeginCharging()
+        {
+            State = ShootState.Charging;
+            currentCharge = 0;
+            wasCharging = false;
+            hasFlashed = false;
+            flashTimer = 0f;
+        }
+
+        // Charging State
+        private void Charging()
+        {
+            if (playerInputHandler.fire1Held)
+            {
+                if (!wasCharging) // Play charge up SFX while assigning the instance to a variable
+                {
+                    chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, 1f);
+                    wasCharging = true;
+                }
+
+                currentCharge += Time.deltaTime;
+                currentCharge = Mathf.Clamp(currentCharge, 0, maxChargeTime + critWindow + 0.1f);
+
+                float chargePercent = Mathf.Clamp01(currentCharge / maxChargeTime);
+                UpdateArrowColor(chargePercent);
+                return;
+            }
+
+            if (playerInputHandler.fire1Released)
+            {
+                State = ShootState.ChargedRelease;
+            }
+        }
+
+        // Charged Release State
+        private void ChargedRelease()
+        {
+            if (chargeSFXInstance != null) // Stop charge up SFX
+            {
+                chargeSFXInstance.Stop();
+                Destroy(chargeSFXInstance.gameObject);
+                chargeSFXInstance = null;
+            }
+
+            float finalCharge = currentCharge;
+            if (finalCharge >= minChargeTime)
+            {
+                FireChargedShot(finalCharge);
+            }
+
+            ResetChargeVisuals();
+
+            fireCooldownTimer = 0f;
+
+            State = ShootState.Recovery;
+            recoveryTimer = postShotRecovery;
+        }
+
+        // Recovery
+        private void Recovery()
+        {
+            recoveryTimer -= Time.deltaTime;
+
+            if(recoveryTimer <= 0)
+            {
+                State = ShootState.Ready;
+            }
+        }
+
+        // Firing Logic
+        private void FireChargedShot(float charge)
+        {
+            float chargePercent = charge / maxChargeTime;
+            GameObject projectileToUse;
+
+            if (chargePercent < weakDuration)
+            {
+                projectileToUse = projectileWeak;
+            }
+            else if (chargePercent < mediumDuration)
+            {
+                projectileToUse = projectileMedium;
+            }
+            else
+            {
+                projectileToUse = (charge < maxChargeTime + critWindow) ? projectileCrit : projectileStrong;
+            }
+
+            // Play SFX
+            if(projectileToUse == projectileCrit)
+            {
+                SFXManager.instance.PlaySFXClip(shotCritSFX, transform, 1f);
+            }
+            else
+            {
+                SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, 1f);
+            }
+
+            // Instantiate Projectile
+            GameObject projectile = Instantiate(projectileToUse, firePoint.position, firePoint.rotation);
+            ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+            // Damage Calculation
+            float damage;
+            bool pierce;
+            if(chargePercent < 1)
+            {
+                damage = projectileBaseDamage * chargePercent;
+                pierce = false;
+            }
+            else
+            {
+                if(charge <= maxChargeTime + critWindow)
+                {
+                    damage = projectileBaseDamage * 1.2f;
+                    pierce = true;
+                }
+                else
+                {
+                    damage = projectileBaseDamage;
+                    pierce = true;
+                }
+            }
+
+            projectileBehaviour.Initialize(damage, 1, 1, pierce);
+            rb.linearVelocity = firePoint.right * projectileSpeed;
+        }
+
+        private void ResetChargeVisuals()
+        {
+            arrowSprite.color = baseColor;
+            hasFlashed = false;
+            flashTimer = 0f;
         }
 
         private void UpdateArrowColor(float chargePercent)
@@ -108,162 +282,5 @@ namespace Spelprojekt1
 
             arrowSprite.color = Color.Lerp(minChargeColor, maxChargeColor, chargePercent);
         }
-
-        private void ChargeAttack()
-        {
-            fireCooldownTimer += Time.deltaTime;
-            IsCharging = playerInputHandler.fire1Held;
-
-            if(fireCooldownTimer >= fireCooldown)
-            {
-                if(playerInputHandler.fire1Held)
-                {
-                    if (!wasCharging)
-                    {
-                        chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, 1f);
-                        wasCharging = true;
-                    }
-
-                    movementController.SetMovementLock(true);
-
-                    currentCharge += Time.deltaTime; // Multiply this with eventual custom timescale
-                    currentCharge = Mathf.Clamp(currentCharge, 0, maxChargeTime + critWindow + 0.1f);
-
-                    float chargePercent = Mathf.Clamp01(currentCharge / maxChargeTime);
-                    UpdateArrowColor(chargePercent);
-                }
-
-                if (playerInputHandler.fire1Released)
-                {
-                    // Cancel chargeStartSFX
-                    if (chargeSFXInstance != null)
-                    {
-                        chargeSFXInstance.Stop();
-                        Destroy(chargeSFXInstance.gameObject);
-                        chargeSFXInstance = null;
-                    }
-
-                    wasCharging = false;
-                    
-                    if (isChargeLoopPlaying)
-                    {
-                        audioSource.loop = false;
-                        // Cancel chargeStartSFX
-                        isChargeLoopPlaying = false;
-                    }
-
-                    if(currentCharge >= minChargeTime)
-                    {
-                        FireChargedShot(currentCharge);  
-                    }
-                    else
-                    {
-                       arrowSprite.color = baseColor; 
-                       hasFlashed = false;
-                       flashTimer = 0f;
-                    }
-                      
-                    currentCharge = 0;
-                    playerInputHandler.fire1Released = false;
-                    fireCooldownTimer = 0;
-                    
-                    IsInShotRecovery = true;
-                    postShotTimer = postShotRecovery;
-                }
-            }
-
-            if (IsInShotRecovery)
-            {
-                postShotTimer -= Time.deltaTime;
-                if(postShotTimer <= 0f)
-                {
-                    movementController.SetMovementLock(false);
-                    IsInShotRecovery = false;
-                }
-            }
-        }
-
-        private void FireChargedShot(float charge)
-        {
-            GameObject projectileToUse;
-
-            float chargePercent = charge / maxChargeTime;
-
-            if (chargePercent < weakDuration)
-            {
-                SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, 1f);
-                projectileToUse = projectileWeak;
-            }
-            else if (chargePercent < mediumDuration)
-            {
-                SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, 1f);
-                projectileToUse = projectileMedium;
-            }
-            else
-            {
-                if(charge < maxChargeTime + critWindow)
-                {
-                    SFXManager.instance.PlaySFXClip(shotCritSFX, transform, 1f);
-                    projectileToUse = projectileCrit;
-                }
-                else
-                {
-                    SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, 1f);
-                    projectileToUse = projectileStrong;
-                }
-                    
-            }
-            /* The projectiles damage should be projectileBaseDamage * chargePercent.
-            *  If the player crits do projectileBaseDamage * 1.2f.
-            *  If not then do projectileBaseDamage * 1. */ 
-            
-            Debug.Log(chargePercent);
-            GameObject projectile = Instantiate(projectileToUse, firePoint.position, firePoint.rotation);
-            ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-
-            // Calculating Damage
-            float damage;
-
-            if(chargePercent < 1)
-            {
-                damage = projectileBaseDamage * chargePercent;
-            }
-            else if (chargePercent <= 1 + critWindow)
-            {
-                damage = projectileBaseDamage * 1.2f;
-            }
-            else
-            {
-                damage = projectileBaseDamage;
-            }
-
-            // Add range and knockback calculations. Maybe knockback will be constant.
-
-            projectileBehaviour.Initialize(damage, 1, 1);
-            rb.linearVelocity = firePoint.right * projectileSpeed;
-
-            arrowSprite.color = baseColor;
-            hasFlashed = false;
-            flashTimer = 0f;
-        }
-
-        private void PlaySFX(AudioClip clip)
-        {
-            if (clip != null && audioSource != null)
-                audioSource.PlayOneShot(clip);
-        }
-
-        /*private void Shoot()
-        {
-            fireCooldownTimer += Time.deltaTime;
-            if(playerInputHandler.fire1Pressed && fireCooldownTimer >= fireCooldown)
-            {
-                GameObject projectile = Instantiate(projectileWeak, firePoint.position, firePoint.rotation);
-                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-                rb.linearVelocity = firePoint.right * projectileSpeed;
-                fireCooldownTimer = 0;
-            }
-        }*/
     }
 }
