@@ -19,6 +19,9 @@ namespace Spelprojekt1
         public Vector2 moveInput { get; protected set; }
         public bool dashPressed;
 
+        [Header("UI")]
+        public bool menuButtonPressed;
+
         protected void Awake()
         {
             controls = new PlayerControls();
@@ -39,6 +42,7 @@ namespace Spelprojekt1
             fire1Pressed = false;
             fire1Released = false;
             dashPressed = false;
+            menuButtonPressed = false;
         }
 
         // Movement
@@ -46,6 +50,15 @@ namespace Spelprojekt1
         {
             moveInput = ctx.ReadValue<Vector2>();
         }
+
+        // Dash
+                public void OnDash(InputAction.CallbackContext ctx)
+                {
+                    if (ctx.started)
+                    {
+                        dashPressed = true;
+                    }
+                }  
 
         // Aiming
         public void OnAim(InputAction.CallbackContext ctx)
@@ -74,13 +87,14 @@ namespace Spelprojekt1
             }
         }
 
-        // Dash
-        public void OnDash(InputAction.CallbackContext ctx)
+        // UI
+        public void OnPause(InputAction.CallbackContext ctx)
         {
             if (ctx.started)
             {
-                dashPressed = true;
+                menuButtonPressed = true;
             }
-        }  
+        }
+        
     }   
 }

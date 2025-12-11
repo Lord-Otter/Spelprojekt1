@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class PlayerProjectile : MonoBehaviour
+namespace Spelprojekt1
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PlayerProjectile : ProjectileBehaviour
     {
-        
-    }
+        [SerializeField] private bool pierce;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void Initialize(float damage, float knockback, float range, bool pierce)
+        {
+            base.Initialize(damage, knockback, range, pierce);
+            this.pierce = pierce;
+        }
     }
 }
+
+

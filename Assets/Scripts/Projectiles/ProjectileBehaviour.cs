@@ -9,16 +9,14 @@ namespace Spelprojekt1
         [SerializeField] private float damage;
         [SerializeField] private float knockback;
         [SerializeField] private float range;
-        [SerializeField] private bool pierce;
 
         private Vector2 direction = new Vector2(0, 1);
 
-        public void Initialize(float damage, float knockback, float range, bool pierce)
+        public virtual void Initialize(float damage, float knockback, float range, bool pierce)
         {
             this.damage = damage;
             this.knockback = knockback;
-            this.range = range;
-            this.pierce = pierce;
+            this.range = range;    
         }
 
         void Awake()
