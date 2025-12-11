@@ -5,6 +5,8 @@ namespace Spelprojekt1
     [RequireComponent(typeof(Rigidbody2D))]
     public class MovementController : MonoBehaviour
     {
+        private PlayerShooter playerShooter;
+
         [Header("Movement Settings")]
         public float maxSpeed;
         public float acceleration;
@@ -16,7 +18,9 @@ namespace Spelprojekt1
         protected Rigidbody2D rigidBody;
         protected Vector2 inputDirection;
 
+        [Header("Movement Adjustment")]
         public bool MovementLocked { get; private set; }
+        [SerializeField] private float chargeMoveSpeedMultiplier;
 
         public void SetMovementLock(bool locked)
         {
@@ -30,6 +34,8 @@ namespace Spelprojekt1
 
         protected virtual void Awake()
         {
+            playerShooter = GetComponent<PlayerShooter>();
+
             rigidBody = GetComponent<Rigidbody2D>();
             
         }
@@ -57,7 +63,17 @@ namespace Spelprojekt1
                 return;
             }
 
-            Vector2 targetVelocity = inputDirection.normalized * maxSpeed;
+            Vector2 targetVelocity;
+
+            if (true)
+            {
+                targetVelocity = inputDirection.normalized * maxSpeed * chargeMoveSpeedMultiplier;
+            }
+            else
+            {
+                targetVelocity = inputDirection.normalized * maxSpeed;
+            }
+
 
             if (inputDirection.sqrMagnitude > 0.01f)
             {

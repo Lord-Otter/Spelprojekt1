@@ -5092,6 +5092,42 @@ PrefabInstance:
       propertyPath: chargeStartSFX
       value: 
       objectReference: {fileID: 8300000, guid: 1142cb36fa8000f4ea0d2a3802bd6063, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: footsteps.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bfd201b08ed655345b6ff0b0f542f17f, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5768db100c7a0be43941ed82b39c0d26, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c8fe82058d6a6b74c995a374a8d2ceb9, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ebaad9aaf87e714092540829de1823f, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: de37869f33327ce4d8a941d74a126197, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[5]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270644617335516370, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270644617335516370, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3632159668654638656, guid: 250bbe7076fba314f8abf907fda277b0, type: 2}
     - target: {fileID: 7551704989850069933, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

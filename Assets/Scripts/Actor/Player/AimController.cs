@@ -17,7 +17,7 @@ namespace Spelprojekt1
 
         public enum RotationMode
         {
-            MoveAim,
+            StickAim,
             MouseAim
         }
 
@@ -36,8 +36,8 @@ namespace Spelprojekt1
         {
             switch (rotationMode)
             {
-                case RotationMode.MoveAim:
-                    MoveRotation();
+                case RotationMode.StickAim:
+                    StickRotation();
                     break;
                 
                 case RotationMode.MouseAim:
@@ -58,9 +58,9 @@ namespace Spelprojekt1
             aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
         }
 
-        /*private void StickRotation()
+        private void StickRotation()
         {
-            Vector2 aim = playerInputs.aimInput;
+            Vector2 aim = playerInputHandler.aimInput;
             if(aim.sqrMagnitude < 0.01f)
             {
                 return;
@@ -68,7 +68,7 @@ namespace Spelprojekt1
 
             float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg;
             aimerTransform.rotation = Quaternion.Euler(0, 0, angle);
-        }*/
+        }
 
         private void MouseRotation()
         {

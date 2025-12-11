@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Spelprojekt1
 {
-    public class EnemyMovement : MovementController
+    public class EnemyMovement : MonoBehaviour
     {
         
     }
