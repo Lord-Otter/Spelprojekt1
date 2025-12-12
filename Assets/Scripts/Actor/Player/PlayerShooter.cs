@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 namespace Spelprojekt1
@@ -9,7 +10,8 @@ namespace Spelprojekt1
             Ready,
             Charging,
             ChargedRelease,
-            Recovery
+            Recovery,
+            Stunned
         }
 
         public ShootState State { get; private set; } = ShootState.Ready;
@@ -45,6 +47,10 @@ namespace Spelprojekt1
         [SerializeField] private float postShotRecovery = 0.3f;
         private float recoveryTimer = 0f;
 
+        [Header("Stunned Settings")]
+        [SerializeField] private float stunDuration;
+        private float stunTimer;
+
         [Header("Arrow Settings")]
         [SerializeField] private Color baseColor = Color.white;
         [SerializeField] private Color minChargeColor = Color.green;
@@ -77,7 +83,13 @@ namespace Spelprojekt1
 
         private void Update()
         {
-            fireCooldownTimer += Time.deltaTime;
+            UpdateCooldowns();
+            
+            if (State == ShootState.Stunned)
+            {
+                Stunned();
+                return;
+            }
 
             switch (State)
             {
@@ -96,12 +108,11 @@ namespace Spelprojekt1
                 case ShootState.Recovery:
                     Recovery();
                     break;
-            }
 
-            //Shoot();
-            //TryChargeAttack();
-            //ChargeAttack();
-            //UpdateArrowColor();
+                case ShootState.Stunned:
+                    Stunned();
+                    break;
+            }
         }
 
         // Ready State
@@ -171,7 +182,7 @@ namespace Spelprojekt1
             recoveryTimer = postShotRecovery;
         }
 
-        // Recovery
+        // Recovery State
         private void Recovery()
         {
             recoveryTimer -= Time.deltaTime;
@@ -242,6 +253,43 @@ namespace Spelprojekt1
             rb.linearVelocity = firePoint.right * projectileSpeed;
         }
 
+        // Stunned State
+        private void Stunned()
+        {
+            stunTimer -= Time.deltaTime;
+
+            if(stunTimer <= 0)
+            {
+                State = ShootState.Ready;
+            }
+        }
+
+        public void ApplyStun(float duration)
+        {
+            stunDuration = duration;
+            stunTimer = duration;
+
+            // Set State to Stunned
+            State = ShootState.Stunned;
+
+            // Cancel charge SFX
+            if(chargeSFXInstance != null)
+            {
+                chargeSFXInstance.Stop();
+                Destroy(chargeSFXInstance.gameObject);
+                chargeSFXInstance = null;
+            }
+
+            // Reset charging visuals
+            ResetChargeVisuals();
+
+            // Clear charge
+            currentCharge = 0;
+            wasCharging = false;
+            hasFlashed = false;
+        }
+
+        //-----------------------
         private void ResetChargeVisuals()
         {
             arrowSprite.color = baseColor;
@@ -281,6 +329,11 @@ namespace Spelprojekt1
             }
 
             arrowSprite.color = Color.Lerp(minChargeColor, maxChargeColor, chargePercent);
+        }
+
+        private void UpdateCooldowns()
+        {
+            fireCooldownTimer += Time.deltaTime;
         }
     }
 }

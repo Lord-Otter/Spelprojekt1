@@ -545,6 +545,7 @@ MonoBehaviour:
   fire1Held: 0
   fire1Released: 0
   dashPressed: 0
+  menuButtonPressed: 0
 --- !u!114 &8496476262272340701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,7 +563,8 @@ MonoBehaviour:
   drag: 100
   chargeMoveSpeedMultiplier: 0.5
   dashSpeed: 15
-  dashDuration: 0.5
+  dashDuration: 0.2
+  dashCooldown: 0.5
 --- !u!114 &3281295472151721429
 MonoBehaviour:
   m_ObjectHideFlags: 0
