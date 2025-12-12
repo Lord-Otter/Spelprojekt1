@@ -30,8 +30,11 @@ namespace Spelprojekt1
 
         [Header("Dash Settings")]
         [SerializeField] private float dashSpeed;
+        private Vector2 dashDirection;
         [SerializeField] private float dashDuration;
         private float dashTimer;
+        [SerializeField] private float dashCooldown;
+        private float dashCooldownTimer;
 
         public bool MovementLocked { get; private set; }
 
@@ -43,35 +46,6 @@ namespace Spelprojekt1
                 rigidBody.linearVelocity = Vector2.zero;
             }
         }
-
-
-        /*private PlayerInputHandler inputHandler;
-        private PlayerShooter playerShooter;
-
-        [Header("Movement Settings")]
-        public float maxSpeed;
-        public float acceleration;
-        public float drag;
-
-        [Header("Optional Input Source")]
-        //private  PlayerInputHandler inputHandler; 
-
-        private  Rigidbody2D rigidBody;
-        private  Vector2 inputDirection;
-
-        [Header("Movement Adjustment")]
-        public bool MovementLocked { get; private set; }
-        [SerializeField] private float chargeMoveSpeedMultiplier;
-
-        public void SetMovementLock(bool locked)
-        {
-            MovementLocked = locked;
-
-            if(locked)
-            {
-                rigidBody.linearVelocity = Vector2.zero;
-            }
-        }*/
 
         void Awake()
         {
@@ -89,6 +63,8 @@ namespace Spelprojekt1
         void Update()
         {
             inputDirection = inputHandler.moveInput;
+
+            UpdateCooldowns();
 
             switch (State)
             {
@@ -163,8 +139,17 @@ namespace Spelprojekt1
         // Dash State
         private void StartDash()
         {
+            if(dashCooldownTimer > 0)
+            {
+                return;
+            }
+
             State = MoveState.Dash;
             dashTimer = dashDuration;
+
+            dashDirection = inputDirection.sqrMagnitude > 0.01f ? inputDirection.normalized : rigidBody.linearVelocity.normalized;
+            SetMovementLock(true);
+            shooter.ApplyStun(dashDuration);
         }
 
         private void UpdateDash()
@@ -173,6 +158,8 @@ namespace Spelprojekt1
 
             if (dashTimer <= 0f)
             {
+                SetMovementLock(false);
+                dashCooldownTimer = dashCooldown;
                 State = inputDirection.sqrMagnitude > 0.01f ? MoveState.Move : MoveState.Idle;
             }
         }
@@ -206,48 +193,12 @@ namespace Spelprojekt1
 
         private void DashPhysics()
         {
-            rigidBody.linearVelocity = inputDirection.normalized * dashSpeed;
+            rigidBody.linearVelocity = dashDirection * dashSpeed;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-        /*void HandleMovement()
+        private void UpdateCooldowns()
         {
-            if(MovementLocked)
-            {
-                rigidBody.linearVelocity = Vector2.zero;
-                return;
-            }
-
-            Vector2 targetVelocity;
-
-            if (true)
-            {
-                targetVelocity = inputDirection.normalized * maxSpeed * chargeMoveSpeedMultiplier;
-            }
-            else
-            {
-                targetVelocity = inputDirection.normalized * maxSpeed;
-            }
-
-
-            if (inputDirection.sqrMagnitude > 0.01f)
-            {
-                rigidBody.linearVelocity = Vector2.MoveTowards(rigidBody.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
-            }
-            else
-            {
-                rigidBody.linearVelocity = Vector2.MoveTowards(rigidBody.linearVelocity, Vector2.zero, drag * Time.fixedDeltaTime);
-            }
-        }*/
+            dashCooldownTimer -= Time.deltaTime;
+        }
     }
 }
