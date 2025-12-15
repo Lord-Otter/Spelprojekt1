@@ -70,15 +70,11 @@ namespace Spelprojekt1
                 case PauseState.Gameplay:
                     Time.timeScale = 1f;
                     playerInput.SwitchCurrentActionMap("Player");
-                    //Cursor.visible = false;
-                    //Cursor.lockState = CursorLockMode.Locked;
                     break;
                 
                 case PauseState.Paused:
                     Time.timeScale = 0f;
                     playerInput.SwitchCurrentActionMap("UI");
-                    //Cursor.visible = true;
-                    //Cursor.lockState = CursorLockMode.None;
                     pauseMenuPanel.SetActive(true);
                     break;
                 
@@ -91,6 +87,16 @@ namespace Spelprojekt1
                     break;
                 
             }
+        }
+
+        public void OpenGameplay()
+        {
+            SetState(PauseState.Gameplay);
+        }
+
+        public void OpenPaused()
+        {
+            SetState(PauseState.Paused);
         }
 
         public void OpenSettings()
