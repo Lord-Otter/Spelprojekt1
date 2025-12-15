@@ -426,10 +426,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7551704989850069933}
-  - component: {fileID: 642105225956412129}
   - component: {fileID: 1968600153998333994}
   - component: {fileID: 3047200598040328223}
-  - component: {fileID: 1895464481009285403}
   - component: {fileID: 7458199729491798877}
   - component: {fileID: 8496476262272340701}
   - component: {fileID: 3281295472151721429}
@@ -466,18 +464,6 @@ Transform:
   - {fileID: 8124438448034666009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &642105225956412129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422899888576234247}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331030045ad1ef64e9135f5dc3f91de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1968600153998333994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,18 +501,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: aa3bd8e64329ae94a810e3b39f2d9e3e, type: 3}
   - {fileID: 8300000, guid: 10c9169b817bfc9488a22426c0b48956, type: 3}
   footStepCooldown: 0.3
---- !u!114 &1895464481009285403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422899888576234247}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074408aa63afbe641b45a3af30524a23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7458199729491798877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,11 +515,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimInput: {x: 0, y: 0}
   mousePosition: {x: 0, y: 0}
+  mouseDelta: {x: 0, y: 0}
   fire1Pressed: 0
   fire1Held: 0
   fire1Released: 0
   dashPressed: 0
-  menuButtonPressed: 0
 --- !u!114 &8496476262272340701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,8 +691,40 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 920f65b9-697b-4cfe-a162-ecf9a30e0eee
     m_ActionName: 'Player/Dash[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7458199729491798877}
+        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ad36192d-85fd-47ee-b218-1381b185c1b8
+    m_ActionName: 'UI/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7458199729491798877}
+        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b783de89-5323-43f3-919c-c2d12fef470a
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: KBM
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

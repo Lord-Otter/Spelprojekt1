@@ -5,10 +5,19 @@ namespace Spelprojekt1
 {
     public class PlayerInputHandler : MonoBehaviour
     {
-        [SerializeField] private PlayerControls controls;
+        public enum ControlState
+        {
+            KBM,
+            Gamepad
+        }
+
+        public ControlState CurrentControlState { get; private set; }
+
+        private PlayerInput playerInput;
 
         [HideInInspector] public Vector2 aimInput;
         [HideInInspector] public Vector2 mousePosition;
+        [HideInInspector] public Vector2 mouseDelta;
 
         [Header("Shooting")]
         public bool fire1Pressed;
@@ -19,22 +28,19 @@ namespace Spelprojekt1
         public Vector2 moveInput { get; protected set; }
         public bool dashPressed;
 
-        [Header("UI")]
-        public bool menuButtonPressed;
-
-        protected void Awake()
+        private void Awake()
         {
-            controls = new PlayerControls();
+            playerInput = GetComponent<PlayerInput>();
+            UpdateControlState();
         }
-
         private void OnEnable()
         {
-            controls.Enable();
+            playerInput.onControlsChanged += OnControlsChanged;
         }
 
         private void OnDisable()
         {
-            controls.Disable();
+            playerInput.onControlsChanged -= OnControlsChanged;
         }
 
         private void LateUpdate()
@@ -42,9 +48,28 @@ namespace Spelprojekt1
             fire1Pressed = false;
             fire1Released = false;
             dashPressed = false;
-            menuButtonPressed = false;
         }
 
+        private void OnControlsChanged(PlayerInput input)
+        {
+            UpdateControlState();
+        }
+
+        private void UpdateControlState()
+        {
+            switch (playerInput.currentControlScheme)
+            {
+                case "KBM":
+                    CurrentControlState = ControlState.KBM;
+                    break;
+                
+                case "Gamepad":
+                    CurrentControlState = ControlState.Gamepad;
+                    break;
+            }
+        }
+
+        #region Player Action Map
         // Movement
         public void OnMove(InputAction.CallbackContext ctx)
         {
@@ -52,13 +77,13 @@ namespace Spelprojekt1
         }
 
         // Dash
-                public void OnDash(InputAction.CallbackContext ctx)
-                {
-                    if (ctx.started)
-                    {
-                        dashPressed = true;
-                    }
-                }  
+        public void OnDash(InputAction.CallbackContext ctx)
+        {
+            if (ctx.started)
+            {
+                dashPressed = true;
+            }
+        }  
 
         // Aiming
         public void OnAim(InputAction.CallbackContext ctx)
@@ -68,7 +93,9 @@ namespace Spelprojekt1
 
         public void OnMousePosition(InputAction.CallbackContext ctx)
         {
-            mousePosition = ctx.ReadValue<Vector2>();
+            Vector2 newPos = ctx.ReadValue<Vector2>();
+            mouseDelta = newPos - mousePosition;
+            mousePosition = newPos;
         }
 
         // Shooting
@@ -78,7 +105,6 @@ namespace Spelprojekt1
             {
                 fire1Pressed = true;
                 fire1Held = true;
-                fire1Released = false;
             }
             else if(ctx.canceled)
             {
@@ -86,15 +112,16 @@ namespace Spelprojekt1
                 fire1Released = true;
             }
         }
+        #endregion
 
-        // UI
+        #region UI Action Map
         public void OnPause(InputAction.CallbackContext ctx)
         {
             if (ctx.started)
             {
-                menuButtonPressed = true;
+                PauseManager.Instance.TogglePause();
             }
         }
-        
+        #endregion
     }   
 }
