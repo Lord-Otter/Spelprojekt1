@@ -2,6 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
 namespace Spelprojekt1
 {
@@ -16,13 +17,17 @@ namespace Spelprojekt1
 
         public float aimAngle { get; private set; }
 
-        private const float AIM_DEADZONE = 0.01f;
         private RotationMode lastAimSource = RotationMode.MouseAim;
+        private Vector3 lastMouseWorldPos;
+        private const float STICK_DEADZONE = 0.1f;
+
+        [SerializeField] private float moveStickFallBackDelay = 0.2f;
+        private float aimStickReleaseTimer;
 
         public enum RotationMode
         {
+            MouseAim,
             StickAim,
-            MouseAim
         }
 
         void Awake()
@@ -41,29 +46,30 @@ namespace Spelprojekt1
             UpdateRotationMode();
 
             switch (rotationMode)
-            {
-                case RotationMode.StickAim:
-                    StickRotation();
-                    break;
-                
+            {                
                 case RotationMode.MouseAim:
                     MouseRotation();
+                    break;
+
+                case RotationMode.StickAim:
+                    StickRotation();
                     break;
             }
         }
 
         private void UpdateRotationMode()
         {
-            // Stick aim if using Gamepad
-            if (inputHandler.CurrentControlState == PlayerInputHandler.ControlState.Gamepad)
+            // Check last used control scheme
+            if (inputHandler.lastDevice == PlayerInputHandler.LastInputDevice.Gamepad)
             {
-                rotationMode = RotationMode.StickAim;
+                lastAimSource = RotationMode.StickAim;
             }
-            // Mouse aim if using KBM
-            else
+            else if (inputHandler.lastDevice == PlayerInputHandler.LastInputDevice.KBM)
             {
-                rotationMode = RotationMode.MouseAim;
+                lastAimSource = RotationMode.MouseAim;
             }
+
+            rotationMode = lastAimSource;
         }
 
         /*private void MoveRotation()
@@ -78,27 +84,53 @@ namespace Spelprojekt1
             aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
         }*/
 
-        private void StickRotation()
-        {
-            Vector2 aim = inputHandler.aimInput;
-
-            if (aim.sqrMagnitude < 0.01f)
-            {
-                aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
-                return;
-            }
-
-            aimAngle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg;
-            aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
-        }
-
         private void MouseRotation()
         {
             Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(inputHandler.mousePosition);
             Vector2 direction = mouseWorld - transform.position;
 
-            aimAngle = Mathf.Repeat(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 360f, 360f);
+            aimAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
+        }
+
+        private void StickRotation()
+        {
+            Vector2 aimStick = inputHandler.aimStick;
+            Vector2 moveStick = inputHandler.moveInput;
+
+            bool aimStickActive = aimStick.sqrMagnitude > STICK_DEADZONE * STICK_DEADZONE;
+
+            // Aim stick in use → reset timer and aim with it
+            if (aimStickActive)
+            {
+                aimStickReleaseTimer = moveStickFallBackDelay;
+
+                aimAngle = Mathf.Atan2(aimStick.y, aimStick.x) * Mathf.Rad2Deg;
+                aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
+                return;
+            }
+
+            // Aim stick released → count down fallback delay
+            if (aimStickReleaseTimer > 0f)
+            {
+                aimStickReleaseTimer -= Time.deltaTime;
+
+                // Keep last aim direction during grace period
+                aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
+                return;
+            }
+
+            // Fallback to movement stick
+            if (moveStick.sqrMagnitude > STICK_DEADZONE * STICK_DEADZONE)
+            {
+                aimAngle = Mathf.Atan2(moveStick.y, moveStick.x) * Mathf.Rad2Deg;
+                aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
+            }
+            else
+            {
+                // No input → keep last aim
+                aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
+            }
         }
 
         public void SetMode(RotationMode newMode) => rotationMode = newMode;
