@@ -31,6 +31,8 @@ namespace Spelprojekt1
         [SerializeField] private Transform firePoint;
         [SerializeField] private int projectileBaseDamage = 100;
         [SerializeField] private float projectileSpeed = 10f;
+        [SerializeField] private float maxProjectileRange;
+        [SerializeField] private float minProjectileRange;
 
         [Header("Charge Settings")]
         [SerializeField] private float maxChargeTime = 1.0f;
@@ -224,8 +226,7 @@ namespace Spelprojekt1
 
             // Instantiate Projectile
             GameObject projectile = Instantiate(projectileToUse, firePoint.position, firePoint.rotation);
-            ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            PlayerProjectile playerProjectile = projectile.GetComponent<PlayerProjectile>();
 
             // Damage Calculation
             float damage;
@@ -249,8 +250,11 @@ namespace Spelprojekt1
                 }
             }
 
-            projectileBehaviour.Initialize(damage, 1, 1, pierce);
-            rb.linearVelocity = firePoint.right * projectileSpeed;
+            float projectileRange = Mathf.Lerp(minProjectileRange, maxProjectileRange, chargePercent);
+            Debug.Log($"Charge Procent: {chargePercent}");
+            Debug.Log($"Proje range: {projectileRange}");
+
+            playerProjectile.Initialize(firePoint.right, damage, projectileRange, 1, true); // pierce is set to true for now. We'll see if we change it. Knockback is set to 1 for now. Idk if I want it to be a flat number or a multiplier. Range is a flat 7.5f untill I do varable range depending on charge.
         }
 
         // Stunned State

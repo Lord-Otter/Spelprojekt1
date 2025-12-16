@@ -40,13 +40,16 @@ namespace Spelprojekt1
 
         void Shoot()
         {
-            Debug.Log("BAM BAM SHOOTY BOOTY");
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-            ProjectileBehaviour projectileBehaviour = projectile.GetComponent<ProjectileBehaviour>();
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            GameObject projectile = Instantiate(
+                projectilePrefab,
+                firePoint.position,
+                firePoint.rotation
+            );
 
-            projectileBehaviour.Initialize(1, 1, 1, true);
-            rb.linearVelocity = firePoint.right * projectileSpeed;
+            EnemyProjectile projectileBehaviour =
+                projectile.GetComponent<EnemyProjectile>();
+
+            projectileBehaviour.SetDirection(firePoint.right);
         }
     }
 }

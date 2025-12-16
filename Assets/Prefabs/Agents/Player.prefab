@@ -417,6 +417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3adee78d03e7c4ba0099f67a5b2231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistanceX: 2
+  maxDistanceY: 3
+  mouseMultiplier: 0.175
+  yBias: 1.6
+  speed: 20
 --- !u!1 &8422899888576234247
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +444,7 @@ GameObject:
   - component: {fileID: 9176883794451047996}
   - component: {fileID: 6015469814070525856}
   - component: {fileID: 4843310731248475307}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -571,6 +576,8 @@ MonoBehaviour:
   firePoint: {fileID: 3493144323303050717}
   projectileBaseDamage: 100
   projectileSpeed: 10
+  maxProjectileRange: 0
+  minProjectileRange: 0
   maxChargeTime: 0.5
   minChargeTime: 0.1
   critWindow: 0.15
@@ -724,51 +731,15 @@ MonoBehaviour:
     m_ActionId: b783de89-5323-43f3-919c-c2d12fef470a
     m_ActionName: 'Player/Pause[/Keyboard/escape]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7458199729491798877}
-        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 54bc3b80-0a48-43de-ae74-20ae43c983b9
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick,/XInputControllerWindows/dpad]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7458199729491798877}
-        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: ec022923-b051-47b0-ab83-f3139085eeb9
     m_ActionName: 'UI/Submit[/Keyboard/enter,/Keyboard/space,/XInputControllerWindows/buttonSouth]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7458199729491798877}
-        m_TargetAssemblyTypeName: Spelprojekt1.PlayerInputHandler, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: af8d9eff-f5e5-4cae-bfa0-5c89734ef461
     m_ActionName: 'UI/Cancel[/Keyboard/escape,/Keyboard/backspace,/XInputControllerWindows/buttonEast]'
   m_NeverAutoSwitchControlSchemes: 0
