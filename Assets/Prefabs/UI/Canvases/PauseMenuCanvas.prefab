@@ -193,7 +193,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 976680905044366006}
+      - m_Target: {fileID: 7557266368879171259}
         m_TargetAssemblyTypeName: Spelprojekt1.UIPauseMenu, Assembly-CSharp
         m_MethodName: OpenSettings
         m_Mode: 1
@@ -573,9 +573,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 976680905044366006}
+      - m_Target: {fileID: 7557266368879171259}
         m_TargetAssemblyTypeName: Spelprojekt1.UIPauseMenu, Assembly-CSharp
-        m_MethodName: OpenPaused
+        m_MethodName: OpenSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 976680905044366006}
+      - m_Target: {fileID: 7557266368879171259}
         m_TargetAssemblyTypeName: Spelprojekt1.UIPauseMenu, Assembly-CSharp
         m_MethodName: OpenGameplay
         m_Mode: 1
@@ -2139,7 +2139,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 976680905044366006}
+      - m_Target: {fileID: 7557266368879171259}
         m_TargetAssemblyTypeName: Spelprojekt1.UIPauseMenu, Assembly-CSharp
         m_MethodName: ExitToMainMenu
         m_Mode: 1
@@ -2637,7 +2637,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5709699397108150470}
   - component: {fileID: 7557266368879171259}
-  - component: {fileID: 976680905044366006}
   - component: {fileID: 2196620497835638937}
   - component: {fileID: 8623188358578721964}
   - component: {fileID: 2400929074633575934}
@@ -2680,21 +2679,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a9563f0f7d232c42a18084b7b8057e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuPanel: {fileID: 8804603997732858993}
-  settingsMenuPanel: {fileID: 6992602264107726575}
-  confirmExitPanel: {fileID: 4059259133326954725}
---- !u!114 &976680905044366006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235326704661436984}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8472c8c5c61724abdeb71014cbb77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuPanel: {fileID: 8804603997732858993}
@@ -3123,7 +3107,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 976680905044366006}
+      - m_Target: {fileID: 7557266368879171259}
         m_TargetAssemblyTypeName: Spelprojekt1.UIPauseMenu, Assembly-CSharp
         m_MethodName: OpenPaused
         m_Mode: 1
@@ -3256,7 +3240,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 976680905044366006}
+      - m_Target: {fileID: 7557266368879171259}
         m_TargetAssemblyTypeName: Spelprojekt1.UIPauseMenu, Assembly-CSharp
         m_MethodName: OpenConfirmExit
         m_Mode: 1
