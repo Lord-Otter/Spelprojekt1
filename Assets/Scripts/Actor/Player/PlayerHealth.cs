@@ -8,10 +8,23 @@ public class PlayerHealth : HealthHandler
     public event System.Action<int> OnHealthChanged;
     public UnityEvent OnPlayerDiedEvent;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override void Start()
     {
         base.Start();
         canTakeDamage = true;
+        
+        GetData();
+    }
+
+    private void GetData()
+    {
+        maxHealth = PlayerData.Instance.stats.maxHealth;
+        currentHealth = PlayerData.Instance.stats.currentHealth;
     }
 
     protected override void Update()
@@ -28,6 +41,8 @@ public class PlayerHealth : HealthHandler
 
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        PlayerData.Instance.stats.currentHealth = currentHealth; // Save health to pass along in new scenes
 
         OnHealthChanged?.Invoke(currentHealth);
 

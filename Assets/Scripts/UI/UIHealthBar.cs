@@ -29,6 +29,8 @@ namespace Spelprojekt1
                 GameObject h = Instantiate(heart, healthBarTransform);
                 hearts.Add(h);
             }
+
+            UpdateHearts(playerHealth.currentHealth);
         }
 
         private void UpdateHearts(int currentHealth)

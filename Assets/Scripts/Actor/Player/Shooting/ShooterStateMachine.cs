@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Spelprojekt1
+/*namespace Spelprojekt1
 {
     public class ShooterStateMachine : MonoBehaviour
     {
@@ -43,4 +43,4 @@ namespace Spelprojekt1
             }
         }
     }
-}
+}*/
