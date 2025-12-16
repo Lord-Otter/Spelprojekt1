@@ -17,16 +17,16 @@ namespace Spelprojekt1
 
         [Header("Movement")]
         public Vector2 moveInput { get; protected set; }
-        public bool dashPressed;
+        [HideInInspector] public bool dashPressed;
 
         [Header("Aiming")]
-        public Vector2 aimStick;
-        public Vector2 mousePosition;
+        [HideInInspector] public Vector2 aimStick;
+        [HideInInspector] public Vector2 mousePosition;
 
         [Header("Shooting")]
-        public bool fire1Pressed;
-        public bool fire1Held;
-        public bool fire1Released;
+        [HideInInspector] public bool fire1Pressed;
+        [HideInInspector] public bool fire1Held;
+        [HideInInspector] public bool fire1Released;
 
         private void Awake()
         {
@@ -45,8 +45,6 @@ namespace Spelprojekt1
                 lastDevice = LastInputDevice.Gamepad;
                 Cursor.visible = false;
             }
-
-            Debug.Log(lastDevice);
         }
 
         private void LateUpdate()
@@ -103,7 +101,7 @@ namespace Spelprojekt1
         {
             if (ctx.started)
             {
-                PauseManager.Instance.TogglePause();
+                UIPauseMenu.Instance.TogglePause();
             }
         }
         #endregion
