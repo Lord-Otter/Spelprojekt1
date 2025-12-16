@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Projectile_Ally
   - Projectile_Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -15,12 +16,12 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - PlayerProjectile
+  - EnemyProjectile
+  - Wall
+  - Pierceable
   - 
   - 
   - 

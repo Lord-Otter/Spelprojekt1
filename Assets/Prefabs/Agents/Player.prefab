@@ -417,11 +417,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3adee78d03e7c4ba0099f67a5b2231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceX: 2
-  maxDistanceY: 3
+  mouseMaxDistanceX: 2
+  mouseMaxDistanceY: 3
   mouseMultiplier: 0.175
-  yBias: 1.6
-  speed: 20
+  mouseYBias: 1.6
+  mouseSpeed: 20
+  stickMaxDistanceX: 1.75
+  stickMaxDistanceY: 1.75
+  stickYBias: 1
+  stickSpeed: 2.5
 --- !u!1 &8422899888576234247
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c891c4da935e24f923a6415535ef47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
   rotationMode: 0
   moveStickFallBackDelay: 0.3
 --- !u!114 &2689884120353818552
@@ -575,7 +580,6 @@ MonoBehaviour:
   projectileCrit: {fileID: 7407424971226695597, guid: 42da8adc68aaaf6498fde2d044407101, type: 3}
   firePoint: {fileID: 3493144323303050717}
   projectileBaseDamage: 100
-  projectileSpeed: 10
   maxProjectileRange: 0
   minProjectileRange: 0
   maxChargeTime: 0.5
@@ -593,6 +597,7 @@ MonoBehaviour:
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
   shotNormalSFX: {fileID: 8300000, guid: 001234d4378b3f24db08866c41834149, type: 3}
   shotCritSFX: {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
+  fullChargeSFX: {fileID: 0}
 --- !u!114 &7526024727622985597
 MonoBehaviour:
   m_ObjectHideFlags: 0

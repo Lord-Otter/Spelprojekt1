@@ -7,13 +7,21 @@ namespace Spelprojekt1
     {
         [Header("References")]
         private Transform player;
+        private AimController aimController;
 
-        [Header("Settings")]
-        [SerializeField] private float maxDistanceX = 3f;   // Max horizontal offset
-        [SerializeField] private float maxDistanceY = 5f;   // Max vertical offset
-        [SerializeField] [Range(0f, 1f)] private float mouseMultiplier = 0.1f; // Fraction of mouse offset applied
-        [SerializeField] private float yBias = 1.5f;        // Bias vertical movement
-        [SerializeField] private float speed;
+        [Header("Mouse Settings")]
+        [SerializeField] private float mouseMaxDistanceX = 2f;
+        [SerializeField] private float mouseMaxDistanceY = 3f;
+        [SerializeField] [Range(0f, 1f)] private float mouseMultiplier = 0.175f;
+        [SerializeField] private float mouseYBias = 1.6f;
+        [SerializeField] private float mouseSpeed = 20f;
+
+        [Header("Stick Settings")]
+        [SerializeField] private float stickMaxDistanceX = 2f;
+        [SerializeField] private float stickMaxDistanceY = 2f;
+        [SerializeField] private float stickYBias = 1.0f;
+        [SerializeField] private float stickSpeed = 15f;
+
 
         private Camera mainCamera;
 
@@ -21,33 +29,45 @@ namespace Spelprojekt1
         {
             mainCamera = Camera.main;
             player = transform.parent;
+            aimController = GetComponentInParent<AimController>();
         }
 
         void LateUpdate()
         {
-            // Mouse position in world
-            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0f;
+            Vector3 targetPosition = player.position;
 
-            // Vector from player to mouse
-            Vector3 offset = mouseWorldPos - player.position;
+            if(aimController.CurrentMode == AimController.RotationMode.MouseAim)
+            {
+                Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                mouseWorldPos.z = 0f;
 
-            // Apply Y bias
-            offset.y *= yBias;
+                Vector3 offset = mouseWorldPos - player.position;
 
-            // Apply multiplier (percentage of offset)
-            offset *= mouseMultiplier;
+                offset.y *= mouseYBias;
+                offset *= mouseMultiplier;
 
-            // Clamp to max distances
-            offset.x = Mathf.Clamp(offset.x, -maxDistanceX, maxDistanceX);
-            offset.y = Mathf.Clamp(offset.y, -maxDistanceY, maxDistanceY);
+                offset.x = Mathf.Clamp(offset.x, -mouseMaxDistanceX, mouseMaxDistanceX);
+                offset.y = Mathf.Clamp(offset.y, -mouseMaxDistanceY, mouseMaxDistanceY);
 
-            // Set camera target position
-            //transform.position = player.position + offset;
+                targetPosition += offset;
 
-            Vector3 targetPosition = player.position + offset;
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, mouseSpeed * Time.deltaTime);
+            }
+            else if(aimController.CurrentMode == AimController.RotationMode.StickAim)
+            {
+                Vector2 stick = aimController.inputHandler.aimStick;
 
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                Vector3 offset = new Vector3( stick.x * stickMaxDistanceX,  stick.y * stickMaxDistanceY * stickYBias, 0f);
+
+                targetPosition += offset;
+
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, stickSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.position, stickSpeed * Time.deltaTime);
+            }
+            
         }
     }
 }

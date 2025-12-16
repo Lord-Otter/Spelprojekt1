@@ -9,7 +9,7 @@ namespace Spelprojekt1
     public class AimController : MonoBehaviour
     {
         private Transform aimerTransform;
-        private PlayerInputHandler inputHandler;
+        [HideInInspector] public PlayerInputHandler inputHandler;
         private Camera mainCamera;
 
         [SerializeField] private RotationMode rotationMode;
@@ -27,7 +27,7 @@ namespace Spelprojekt1
         public enum RotationMode
         {
             MouseAim,
-            StickAim,
+            StickAim
         }
 
         void Awake()
@@ -96,11 +96,9 @@ namespace Spelprojekt1
         private void StickRotation()
         {
             Vector2 aimStick = inputHandler.aimStick;
-            Vector2 moveStick = inputHandler.moveInput;
-
+            
             bool aimStickActive = aimStick.sqrMagnitude > STICK_DEADZONE * STICK_DEADZONE;
 
-            // Aim stick in use → reset timer and aim with it
             if (aimStickActive)
             {
                 aimStickReleaseTimer = moveStickFallBackDelay;
@@ -110,25 +108,31 @@ namespace Spelprojekt1
                 return;
             }
 
-            // Aim stick released → count down fallback delay
             if (aimStickReleaseTimer > 0f)
             {
                 aimStickReleaseTimer -= Time.deltaTime;
 
-                // Keep last aim direction during grace period
                 aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
                 return;
             }
 
-            // Fallback to movement stick
-            if (moveStick.sqrMagnitude > STICK_DEADZONE * STICK_DEADZONE)
+            
+            MoveRotation();
+        }
+
+        private void MoveRotation()
+        {
+            Vector2 moveStick = inputHandler.moveInput;
+
+            bool moveStickActive = moveStick.sqrMagnitude > STICK_DEADZONE * STICK_DEADZONE;
+
+            if (moveStickActive)
             {
                 aimAngle = Mathf.Atan2(moveStick.y, moveStick.x) * Mathf.Rad2Deg;
                 aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
             }
             else
             {
-                // No input → keep last aim
                 aimerTransform.rotation = Quaternion.Euler(0, 0, aimAngle);
             }
         }

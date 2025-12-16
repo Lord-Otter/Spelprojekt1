@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 69087253}
   - component: {fileID: 69087252}
   - component: {fileID: 69087251}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Obstacle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,6 +689,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1813875537774747489, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1635063896}
+    - target: {fileID: 1813875537774747489, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420677502709618360, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1635063896}
+    - target: {fileID: 4420677502709618360, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusicVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 5709699397108150470, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -768,6 +784,14 @@ PrefabInstance:
     - target: {fileID: 5709699397108150470, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004490580183890427, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1635063896}
+    - target: {fileID: 6004490580183890427, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSFXVolume
       objectReference: {fileID: 0}
     - target: {fileID: 7235326704661436984, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
       propertyPath: m_Name
@@ -879,7 +903,7 @@ GameObject:
   - component: {fileID: 799064847}
   - component: {fileID: 799064846}
   - component: {fileID: 799064845}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Obstacle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,6 +1114,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1158849992406273840, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: fullChargeSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: de7d2a5e835b66f439a9e00e084c0ecc, type: 3}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: projectileRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: maxProjectileRange
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: minProjectileRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476416182017539262, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4938400080180209656, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533108968820413968, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692630190933450239, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7526024727622985597, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1306,6 +1366,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1635063896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1134454586220653999, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+  m_PrefabInstance: {fileID: 6210519868081909281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b35bf28114e6e47bcd3ac9a0aa31ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1769410180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1389,7 @@ GameObject:
   - component: {fileID: 1769410182}
   - component: {fileID: 1769410184}
   - component: {fileID: 1769410181}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1468,6 +1539,7 @@ GameObject:
   - component: {fileID: 1868742915}
   - component: {fileID: 1868742914}
   - component: {fileID: 1868742913}
+  - component: {fileID: 1868742916}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -1502,7 +1574,7 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   Damping: {x: 0, y: 0, z: 0}
   Lookahead:
-    Enabled: 0
+    Enabled: 1
     Time: 0
     Smoothing: 0
     IgnoreY: 0
@@ -1564,6 +1636,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1868742916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868742912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundingShape2D: {fileID: 0}
+  Damping: 0.5
+  SlowingDistance: 5
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0
+    Padding: 0
+  m_LegacyMaxWindowSize: -2
 --- !u!1001 &2300745664570854721
 PrefabInstance:
   m_ObjectHideFlags: 0

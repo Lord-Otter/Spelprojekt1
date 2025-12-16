@@ -30,7 +30,7 @@ namespace Spelprojekt1
 
         [SerializeField] private Transform firePoint;
         [SerializeField] private int projectileBaseDamage = 100;
-        [SerializeField] private float projectileSpeed = 10f;
+        //[SerializeField] private float projectileSpeed = 10f;
         [SerializeField] private float maxProjectileRange;
         [SerializeField] private float minProjectileRange;
 
@@ -69,8 +69,10 @@ namespace Spelprojekt1
         [SerializeField] private AudioClip chargeStartSFX;
         [SerializeField] private AudioClip shotNormalSFX;
         [SerializeField] private AudioClip shotCritSFX;
+        [SerializeField] private AudioClip fullChargeSFX;
 
         private bool wasCharging = false;
+        private bool fullChargeReached = false;
 
         private void Awake()
         {
@@ -129,10 +131,7 @@ namespace Spelprojekt1
         private void BeginCharging()
         {
             State = ShootState.Charging;
-            currentCharge = 0;
-            wasCharging = false;
-            hasFlashed = false;
-            flashTimer = 0f;
+            ClearCharge();
         }
 
         // Charging State
@@ -150,6 +149,11 @@ namespace Spelprojekt1
                 currentCharge = Mathf.Clamp(currentCharge, 0, maxChargeTime + critWindow + 0.1f);
 
                 float chargePercent = Mathf.Clamp01(currentCharge / maxChargeTime);
+                if(chargePercent >= 1 && !fullChargeReached)
+                {
+                    SFXManager.instance.PlaySFXClip(fullChargeSFX, transform, 1f);
+                    fullChargeReached = true;
+                }
                 UpdateArrowColor(chargePercent);
                 return;
             }
@@ -163,7 +167,7 @@ namespace Spelprojekt1
         // Charged Release State
         private void ChargedRelease()
         {
-            if (chargeSFXInstance != null) // Stop charge up SFX
+            if (chargeSFXInstance != null)
             {
                 chargeSFXInstance.Stop();
                 Destroy(chargeSFXInstance.gameObject);
@@ -234,7 +238,7 @@ namespace Spelprojekt1
             if(chargePercent < 1)
             {
                 damage = projectileBaseDamage * chargePercent;
-                pierce = false;
+                pierce = true;
             }
             else
             {
@@ -251,10 +255,8 @@ namespace Spelprojekt1
             }
 
             float projectileRange = Mathf.Lerp(minProjectileRange, maxProjectileRange, chargePercent);
-            Debug.Log($"Charge Procent: {chargePercent}");
-            Debug.Log($"Proje range: {projectileRange}");
 
-            playerProjectile.Initialize(firePoint.right, damage, projectileRange, 1, true); // pierce is set to true for now. We'll see if we change it. Knockback is set to 1 for now. Idk if I want it to be a flat number or a multiplier. Range is a flat 7.5f untill I do varable range depending on charge.
+            playerProjectile.Initialize(firePoint.right, damage, projectileRange, 1, pierce); // pierce is set to true for now. We'll see if we change it. Knockback is set to 1 for now. Idk if I want it to be a flat number or a multiplier. Range is a flat 7.5f untill I do varable range depending on charge.
         }
 
         // Stunned State
@@ -288,9 +290,16 @@ namespace Spelprojekt1
             ResetChargeVisuals();
 
             // Clear charge
+            ClearCharge();
+        }
+
+        private void ClearCharge()
+        {
             currentCharge = 0;
             wasCharging = false;
+            fullChargeReached = false;
             hasFlashed = false;
+            flashTimer = 0;
         }
 
         //-----------------------
