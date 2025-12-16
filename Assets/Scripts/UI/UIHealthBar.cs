@@ -24,13 +24,13 @@ namespace Spelprojekt1
 
         private void CreateHearts()
         {
-            for (int i = 0; i < playerHealth.maxHealth; i++)
+            for (int i = 0; i < PlayerData.Instance.stats.maxHealth; i++)
             {
                 GameObject h = Instantiate(heart, healthBarTransform);
                 hearts.Add(h);
             }
 
-            UpdateHearts(playerHealth.currentHealth);
+            UpdateHearts(PlayerData.Instance.stats.currentHealth);
         }
 
         private void UpdateHearts(int currentHealth)

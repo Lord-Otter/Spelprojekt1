@@ -35,7 +35,6 @@ namespace Spelprojekt1
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
 
             playerInput = Object.FindAnyObjectByType<PlayerInput>();
         }
@@ -110,6 +109,7 @@ namespace Spelprojekt1
         public void ExitToMainMenu()
         {
             Time.timeScale = 1f;
+            SetState(PauseState.Gameplay);
             SceneManager.LoadScene("MainMenu");
         }
 
