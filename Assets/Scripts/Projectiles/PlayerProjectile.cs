@@ -9,10 +9,12 @@ namespace Spelprojekt1
 
         [Header("Stats")]
         [SerializeField] private float speed;
-        [SerializeField] private float damage;
+        [SerializeField] private int damage;
+        [SerializeField] private int baseDamage;
         [SerializeField] private float damageFallOff;
         [SerializeField] private float range;
-        [SerializeField] private float knockback;
+        [SerializeField] private float knockbackForce;
+        [SerializeField] private float knockbackDuration;
         [SerializeField] private bool pierce;
 
         [Header("Collision")]
@@ -23,11 +25,14 @@ namespace Spelprojekt1
         private Vector2 direction = new Vector2(0, 1);
         private Vector2 startPosition;
 
-        public virtual void Initialize(Vector2 direction, float damage, float range, float knockback, bool pierce)
+        public void Initialize(Vector2 direction, int damage, float speed, float range, float knockbackForce, float knockbackDuration, bool pierce)
         {
             this.damage = damage;
+            this.baseDamage = damage;
+            this.speed = speed;
             this.range = range;
-            this.knockback = knockback;
+            this.knockbackForce = knockbackForce;
+            this.knockbackDuration = knockbackDuration;
             this.pierce = pierce;
 
             rb.linearVelocity = direction * speed;
@@ -63,6 +68,20 @@ namespace Spelprojekt1
             if (other.TryGetComponent(out HealthHandler health))
             {
                 health.TakeDamage(Mathf.RoundToInt(damage));
+
+                damage = Mathf.RoundToInt(damage * (1 - damageFallOff));
+
+                damage = Mathf.Max(damage, Mathf.RoundToInt(baseDamage * 0.3f));
+
+            }
+
+            if(other.TryGetComponent(out EnemyAI enemyAI))
+            {
+                float angleInRadians = Mathf.Deg2Rad * transform.eulerAngles.z;
+
+                Vector2 knockbackDirection = new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians)).normalized;
+
+                enemyAI.ApplyKnockback(knockbackDirection, knockbackForce, knockbackDuration);
             }
 
             if (!canPierce)

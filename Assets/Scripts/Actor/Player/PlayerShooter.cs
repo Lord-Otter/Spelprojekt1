@@ -30,9 +30,12 @@ namespace Spelprojekt1
 
         [SerializeField] private Transform firePoint;
         [SerializeField] private int projectileBaseDamage = 100;
-        //[SerializeField] private float projectileSpeed = 10f;
+        [SerializeField] private float projectileSpeed;
         [SerializeField] private float maxProjectileRange;
         [SerializeField] private float minProjectileRange;
+        [SerializeField] private float maxKnockbackForce;
+        [SerializeField] private float minKnockbackForce;
+        [SerializeField] private float knockbackDuration;
 
         [Header("Charge Settings")]
         [SerializeField] private float maxChargeTime = 1.0f;
@@ -233,18 +236,18 @@ namespace Spelprojekt1
             PlayerProjectile playerProjectile = projectile.GetComponent<PlayerProjectile>();
 
             // Damage Calculation
-            float damage;
+            int damage;
             bool pierce;
             if(chargePercent < 1)
             {
-                damage = projectileBaseDamage * chargePercent;
+                damage = Mathf.RoundToInt(projectileBaseDamage * chargePercent);
                 pierce = true;
             }
             else
             {
                 if(charge <= maxChargeTime + critWindow)
                 {
-                    damage = projectileBaseDamage * 1.2f;
+                    damage = Mathf.RoundToInt(projectileBaseDamage * 1.2f);
                     pierce = true;
                 }
                 else
@@ -254,9 +257,10 @@ namespace Spelprojekt1
                 }
             }
 
+            float knockbackForce = Mathf.Lerp(minKnockbackForce, maxKnockbackForce, chargePercent);
             float projectileRange = Mathf.Lerp(minProjectileRange, maxProjectileRange, chargePercent);
 
-            playerProjectile.Initialize(firePoint.right, damage, projectileRange, 1, pierce); // pierce is set to true for now. We'll see if we change it. Knockback is set to 1 for now. Idk if I want it to be a flat number or a multiplier. Range is a flat 7.5f untill I do varable range depending on charge.
+            playerProjectile.Initialize(firePoint.right, damage, projectileSpeed, projectileRange, knockbackForce, knockbackDuration, pierce); // pierce is set to true for now. We'll see if we change it.
         }
 
         // Stunned State

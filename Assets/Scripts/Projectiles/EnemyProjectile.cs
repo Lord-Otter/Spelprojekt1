@@ -25,6 +25,12 @@ namespace Spelprojekt1
             Destroy(gameObject, destroyTimer);
         }
 
+        public void Initialize(int damage, float speed)
+        {
+            this.damage = damage;
+            this.speed = speed;
+        }
+
         public void SetDirection(Vector2 dir)
         {
             direction = dir.normalized;

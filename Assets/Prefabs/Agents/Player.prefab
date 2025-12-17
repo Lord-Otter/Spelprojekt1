@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8124438448034666009}
   - component: {fileID: 1653909884963683622}
   - component: {fileID: 1660777508081091513}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -110,6 +110,75 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2905393268022529654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4025647713205520305}
+  - component: {fileID: 9098045140755989696}
+  m_Layer: 0
+  m_Name: PhysicalCollider
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4025647713205520305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2905393268022529654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7551704989850069933}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &9098045140755989696
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2905393268022529654}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.45}
+  m_Size: {x: 0.55, y: 0.5}
+  m_Direction: 1
 --- !u!1 &3476416182017539262
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6342644754734724773}
   - component: {fileID: 8304303515804984345}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Aimer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -209,9 +278,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3493144323303050717}
   - component: {fileID: 3056489548210847390}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -296,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4633799408196948414}
   - component: {fileID: 5567451121551623650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arrow
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -383,7 +452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8578675626271505909}
   - component: {fileID: 1797111379342701251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraTrackingTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -444,7 +513,6 @@ GameObject:
   - component: {fileID: 7526024727622985597}
   - component: {fileID: 2235712830030399014}
   - component: {fileID: 8950220673537406141}
-  - component: {fileID: 2116606951831384315}
   - component: {fileID: 9176883794451047996}
   - component: {fileID: 6015469814070525856}
   - component: {fileID: 4843310731248475307}
@@ -471,6 +539,7 @@ Transform:
   - {fileID: 8578675626271505909}
   - {fileID: 6342644754734724773}
   - {fileID: 8124438448034666009}
+  - {fileID: 4025647713205520305}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1968600153998333994
@@ -487,10 +556,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 6
   currentHealth: 0
+  canTakeDamage: 0
   takeDamageCooldown: 0.5
   hurtBoxes:
   - {fileID: 8950220673537406141}
-  - {fileID: 2116606951831384315}
+  - {fileID: 0}
   OnPlayerDiedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -616,11 +686,15 @@ MonoBehaviour:
   projectileCrit: {fileID: 7407424971226695597, guid: 42da8adc68aaaf6498fde2d044407101, type: 3}
   firePoint: {fileID: 3493144323303050717}
   projectileBaseDamage: 100
+  projectileSpeed: 25
   maxProjectileRange: 8.5
   minProjectileRange: 3
-  maxChargeTime: 0.5
+  maxKnockbackForce: 5
+  minKnockbackForce: 0
+  knockbackDuration: 0.1
+  maxChargeTime: 0.75
   minChargeTime: 0.1
-  critWindow: 0.15
+  critWindow: 0.3
   weakDuration: 0.5
   mediumDuration: 1
   fireCooldown: 0.25
@@ -859,45 +933,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.15, y: 0.9}
+  m_Size: {x: 0.1, y: 0.7}
   m_EdgeRadius: 0
---- !u!70 &2116606951831384315
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422899888576234247}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: a3d10af9c8b991e4ba1e49ea41314af7, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.55}
-  m_Size: {x: 0.5, y: 0.2}
-  m_Direction: 1
 --- !u!95 &9176883794451047996
 Animator:
   serializedVersion: 7

@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 3466077684706408392}
   - component: {fileID: 6903597275669056727}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Enemy_v.1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,18 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9782eae92938abb4693a53583a5eace7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 220
+  maxHealth: 250
   currentHealth: 0
-  hurtSoundsVolume: 0.8
-  hurtSounds:
-  - {fileID: 8300000, guid: 3a291ee0d9434cf47bbf83cf33ff2860, type: 3}
-  - {fileID: 8300000, guid: e2c810c904c4ffb42b63135cddd3740f, type: 3}
-  - {fileID: 8300000, guid: c1b026049e037894292f6eb7421953ec, type: 3}
-  deathSoundsVolume: 0.5
-  deathSounds:
-  - {fileID: 8300000, guid: d48bc244b8a83b64fafdba92c1f8fb89, type: 3}
-  - {fileID: 8300000, guid: 409e446630e60814a8cbb8ab51f54278, type: 3}
-  - {fileID: 8300000, guid: 78c977749f6d7af4e910caba22007790, type: 3}
 --- !u!195 &1114776526189084264
 NavMeshAgent:
   m_ObjectHideFlags: 0

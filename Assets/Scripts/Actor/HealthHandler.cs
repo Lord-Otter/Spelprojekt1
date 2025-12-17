@@ -6,7 +6,7 @@ namespace Spelprojekt1
     public class HealthHandler : MonoBehaviour
     {
         [SerializeField] public int maxHealth, currentHealth;
-        protected bool canTakeDamage;
+        [SerializeField] protected bool canTakeDamage;
 
         protected virtual void Awake()
         {

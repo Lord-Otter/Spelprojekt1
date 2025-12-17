@@ -9,7 +9,7 @@ public class PlayerHealth : HealthHandler
     [SerializeField] private float takeDamageCooldown;
     private float takeDamageTimer;
 
-    [SerializeField] private Collider2D[] hurtBoxes;
+    private Collider2D hurtBox;
 
     public event System.Action<int> OnHealthChanged;
     public UnityEvent OnPlayerDiedEvent;
@@ -23,6 +23,7 @@ public class PlayerHealth : HealthHandler
     protected override void Awake()
     {
         base.Awake();
+        hurtBox = GetComponent<Collider2D>();
     }
 
     protected override void Start()
@@ -32,8 +33,7 @@ public class PlayerHealth : HealthHandler
         
         GetData();
 
-        hurtBoxes[0].enabled = true;
-        hurtBoxes[1].enabled = true;
+        hurtBox.enabled = true;
     }
 
     private void GetData()
@@ -122,8 +122,7 @@ public class PlayerHealth : HealthHandler
         SFXManager.instance.PlaySFXClip(deathSound, transform, deathSoundVolume);
 
         // Disable hurt box
-        hurtBoxes[0].enabled = false;
-        hurtBoxes[1].enabled = false;
+        hurtBox.enabled = false;
 
         // Play game over music
         // Do some time scale effects.
