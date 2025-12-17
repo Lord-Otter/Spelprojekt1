@@ -487,9 +487,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 6
   currentHealth: 0
+  takeDamageCooldown: 0.5
   OnPlayerDiedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6533108968820413968}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  hurtSounds:
+  - {fileID: 8300000, guid: 7cf72ab7ec0910a4cbe172a2ddfed66c, type: 3}
+  - {fileID: 8300000, guid: b3cab7223247ccb439851d977698f6d0, type: 3}
+  - {fileID: 8300000, guid: 5f0b4dff408ba994299427873203870a, type: 3}
+  deathSound: {fileID: 8300000, guid: a22953d81cf1a0c4ca067ea32ce5507b, type: 3}
 --- !u!114 &3047200598040328223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,8 +598,8 @@ MonoBehaviour:
   projectileCrit: {fileID: 7407424971226695597, guid: 42da8adc68aaaf6498fde2d044407101, type: 3}
   firePoint: {fileID: 3493144323303050717}
   projectileBaseDamage: 100
-  maxProjectileRange: 0
-  minProjectileRange: 0
+  maxProjectileRange: 7.5
+  minProjectileRange: 3
   maxChargeTime: 0.5
   minChargeTime: 0.1
   critWindow: 0.15
@@ -597,7 +615,7 @@ MonoBehaviour:
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
   shotNormalSFX: {fileID: 8300000, guid: 001234d4378b3f24db08866c41834149, type: 3}
   shotCritSFX: {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
-  fullChargeSFX: {fileID: 0}
+  fullChargeSFX: {fileID: 8300000, guid: de7d2a5e835b66f439a9e00e084c0ecc, type: 3}
 --- !u!114 &7526024727622985597
 MonoBehaviour:
   m_ObjectHideFlags: 0
