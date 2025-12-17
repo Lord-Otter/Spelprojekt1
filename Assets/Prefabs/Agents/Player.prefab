@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57330ed4de56a9b4d82bc1f8461e2b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsVolume: 0.441
+  footstepsVolume: 1
   footsteps:
   - {fileID: 8300000, guid: 5cc2327940b5f9f43b7252f4c6c98ec6, type: 3}
   - {fileID: 8300000, guid: c9217fb56d7d6d34498ea53cfb5b03ee, type: 3}
@@ -616,7 +616,7 @@ MonoBehaviour:
   projectileCrit: {fileID: 7407424971226695597, guid: 42da8adc68aaaf6498fde2d044407101, type: 3}
   firePoint: {fileID: 3493144323303050717}
   projectileBaseDamage: 100
-  maxProjectileRange: 7.5
+  maxProjectileRange: 8.5
   minProjectileRange: 3
   maxChargeTime: 0.5
   minChargeTime: 0.1

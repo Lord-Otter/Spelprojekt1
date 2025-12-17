@@ -1,32 +1,72 @@
 using UnityEngine;
 using UnityEngine.AI;
+using Pathfinding;
+using Unity.VisualScripting;
 
-public class EnemyAI : MonoBehaviour
+namespace Spelprojekt1
 {
-    private Transform target;
-
-    private NavMeshAgent agent;
-
-    void Awake()
+    public class EnemyAI : MonoBehaviour
     {
-        agent = GetComponent<NavMeshAgent>();
-    }
+        [SerializeField] private Transform target;
 
-    void Start()
-    {
-        target = GameObject.Find("Player").GetComponent<Transform>();
+        [SerializeField] private float speed = 200f;
+        [SerializeField] private float nextWaypointDistance = 3f;
 
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-    }
+        Path path;
+        int currentWaypoint = 0;
+        bool reachedEndOfPath = false;
 
-    void Update()
-    {
-        agent.SetDestination(target.position);
+        Seeker seeker;
+        Rigidbody2D rb;
 
-        Vector2 direction = (target.position - transform.position).normalized;
+        void Awake()
+        {
+            seeker = GetComponent<Seeker>();
+            rb = GetComponent<Rigidbody2D>();
+        }
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        void Start()
+        {
+            target = GameObject.Find("Player").GetComponent<Transform>();
+
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
+        }
+
+        void OnPathComplete(Path p)
+        {
+            if (!p.error)
+            {
+                path = p;
+                currentWaypoint = 0;
+            }
+        }
+
+        void FixedUpdate()
+        {
+            if(path == null)
+                return;
+
+            if(currentWaypoint >= path.vectorPath.Count)
+            {
+                reachedEndOfPath = true;
+                return;
+            }
+            else
+            {
+                reachedEndOfPath = false;
+            }
+
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 force = direction * speed * Time.deltaTime;
+
+            rb.AddForce(force);
+
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+            if(distance < nextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+        }
     }
 }
