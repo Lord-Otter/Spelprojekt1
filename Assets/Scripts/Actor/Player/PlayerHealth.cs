@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Spelprojekt1;
 using UnityEngine;
 using UnityEngine.Events;
@@ -5,8 +6,15 @@ using UnityEngine.Events;
 
 public class PlayerHealth : HealthHandler
 {
+    [SerializeField] private float takeDamageCooldown;
+    private float takeDamageTimer;
+
     public event System.Action<int> OnHealthChanged;
     public UnityEvent OnPlayerDiedEvent;
+
+    [Header("Audio")]
+    [SerializeField] private List<AudioClip> hurtSounds;
+    [SerializeField] private AudioClip deathSound;
 
     protected override void Awake()
     {
@@ -29,7 +37,14 @@ public class PlayerHealth : HealthHandler
 
     protected override void Update()
     {
-        
+        if (!canTakeDamage)
+        {
+            takeDamageTimer -= Time.deltaTime;
+            if(takeDamageTimer <= 0)
+            {
+                canTakeDamage = true;
+            }
+        }
     }
 
     public override void TakeDamage(int damage)
@@ -54,6 +69,9 @@ public class PlayerHealth : HealthHandler
         {
             HandleDeath(); // Maybe make this a coroutine for a sequence of events.
         }
+
+        takeDamageTimer = takeDamageCooldown;
+        canTakeDamage = false;
 
 
 
@@ -80,7 +98,10 @@ public class PlayerHealth : HealthHandler
     {
         // Update UI
         // Play damage effects. Screen, particles, sprite, animation, etc.
+
         // Play damage sound effects.
+        SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, 1);
+
         // Maybe do time scale effects. Maybe depending on the attack.
         // Make invulnerable for a few frames
     }
@@ -89,7 +110,10 @@ public class PlayerHealth : HealthHandler
     {
         OnPlayerDiedEvent?.Invoke();
         // Play death animation / change to death sprite.
+
         // Play death sound effect.
+        SFXManager.instance.PlaySFXClip(deathSound, transform, 1);
+
         // Play game over music
         // Do some time scale effects.
         // Disable player control
