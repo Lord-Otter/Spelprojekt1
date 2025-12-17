@@ -1119,20 +1119,8 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: fullChargeSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: de7d2a5e835b66f439a9e00e084c0ecc, type: 3}
-    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: projectileRange
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: maxProjectileRange
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: minProjectileRange
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3476416182017539262, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_Layer
@@ -1725,6 +1713,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5137380855381012777, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5413450763871500714, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

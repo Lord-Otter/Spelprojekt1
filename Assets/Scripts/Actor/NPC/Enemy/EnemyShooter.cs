@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Spelprojekt1
@@ -16,6 +17,10 @@ namespace Spelprojekt1
 
         private float shootTimer;
         [SerializeField] private float projectileSpeed;
+
+        [Header("Audio")]
+        [SerializeField] [Range(0, 1)] private float shootSoundsVolume;
+        [SerializeField] private List<AudioClip> shootSounds;
 
         void Start()
         {
@@ -40,14 +45,11 @@ namespace Spelprojekt1
 
         void Shoot()
         {
-            GameObject projectile = Instantiate(
-                projectilePrefab,
-                firePoint.position,
-                firePoint.rotation
-            );
+            SFXManager.instance.PlayRandomSFXClip(shootSounds, transform, shootSoundsVolume);
 
-            EnemyProjectile projectileBehaviour =
-                projectile.GetComponent<EnemyProjectile>();
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+
+            EnemyProjectile projectileBehaviour = projectile.GetComponent<EnemyProjectile>();
 
             projectileBehaviour.SetDirection(firePoint.right);
         }
