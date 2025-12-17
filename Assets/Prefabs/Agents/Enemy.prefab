@@ -155,6 +155,11 @@ MonoBehaviour:
   minShootTime: 2
   maxShootTime: 4
   projectileSpeed: 3
+  shootSoundsVolume: 0.5
+  shootSounds:
+  - {fileID: 8300000, guid: 15ff31e9205a01d4fa9f2f12945a949b, type: 3}
+  - {fileID: 8300000, guid: 17733ae3a734a6143be5a8468217663a, type: 3}
+  - {fileID: 8300000, guid: 73f65d2a2133b3343a2bee4d988553d9, type: 3}
 --- !u!114 &8355012844168011154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +186,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 220
   currentHealth: 0
+  hurtSoundsVolume: 0.8
+  hurtSounds:
+  - {fileID: 8300000, guid: 3a291ee0d9434cf47bbf83cf33ff2860, type: 3}
+  - {fileID: 8300000, guid: e2c810c904c4ffb42b63135cddd3740f, type: 3}
+  - {fileID: 8300000, guid: c1b026049e037894292f6eb7421953ec, type: 3}
+  deathSoundsVolume: 0.5
+  deathSounds:
+  - {fileID: 8300000, guid: d48bc244b8a83b64fafdba92c1f8fb89, type: 3}
+  - {fileID: 8300000, guid: 409e446630e60814a8cbb8ab51f54278, type: 3}
+  - {fileID: 8300000, guid: 78c977749f6d7af4e910caba22007790, type: 3}
 --- !u!195 &1114776526189084264
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -9,11 +9,15 @@ public class PlayerHealth : HealthHandler
     [SerializeField] private float takeDamageCooldown;
     private float takeDamageTimer;
 
+    [SerializeField] private Collider2D[] hurtBoxes;
+
     public event System.Action<int> OnHealthChanged;
     public UnityEvent OnPlayerDiedEvent;
 
     [Header("Audio")]
+    [SerializeField] [Range(0, 1)] private float hurtSoundsVolume;
     [SerializeField] private List<AudioClip> hurtSounds;
+    [SerializeField] [Range(0, 1)] private float deathSoundVolume;
     [SerializeField] private AudioClip deathSound;
 
     protected override void Awake()
@@ -27,6 +31,9 @@ public class PlayerHealth : HealthHandler
         canTakeDamage = true;
         
         GetData();
+
+        hurtBoxes[0].enabled = true;
+        hurtBoxes[1].enabled = true;
     }
 
     private void GetData()
@@ -100,7 +107,7 @@ public class PlayerHealth : HealthHandler
         // Play damage effects. Screen, particles, sprite, animation, etc.
 
         // Play damage sound effects.
-        SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, 1);
+        SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume);
 
         // Maybe do time scale effects. Maybe depending on the attack.
         // Make invulnerable for a few frames
@@ -112,7 +119,11 @@ public class PlayerHealth : HealthHandler
         // Play death animation / change to death sprite.
 
         // Play death sound effect.
-        SFXManager.instance.PlaySFXClip(deathSound, transform, 1);
+        SFXManager.instance.PlaySFXClip(deathSound, transform, deathSoundVolume);
+
+        // Disable hurt box
+        hurtBoxes[0].enabled = false;
+        hurtBoxes[1].enabled = false;
 
         // Play game over music
         // Do some time scale effects.

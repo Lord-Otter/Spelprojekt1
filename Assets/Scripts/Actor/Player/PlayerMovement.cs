@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -35,6 +36,12 @@ namespace Spelprojekt1
         private float dashTimer;
         [SerializeField] private float dashCooldown;
         private float dashCooldownTimer;
+
+        [Header("Audio")]
+        [SerializeField] [Range(0, 1)] private float dashSoundVolume;
+        [SerializeField] private List<AudioClip> dashSounds;
+        [SerializeField] [Range(0, 1)] private float fabricSoundVolume; // Test
+        [SerializeField] private List<AudioClip> fabricSounds; // Test
 
         public bool MovementLocked { get; private set; }
 
@@ -143,6 +150,9 @@ namespace Spelprojekt1
             {
                 return;
             }
+
+            SFXManager.instance.PlayRandomSFXClip(dashSounds, transform, dashSoundVolume);
+            SFXManager.instance.PlayRandomSFXClip(fabricSounds, transform, fabricSoundVolume);
 
             State = MoveState.Dash;
             dashTimer = dashDuration;
