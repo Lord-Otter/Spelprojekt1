@@ -79,11 +79,9 @@ namespace Spelprojekt1
             Vector3 directionToPlayer = player.position - aimer.position;
             directionToPlayer.z = 0f;
 
-            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, directionToPlayer);
-            
-            targetRotation = Quaternion.Euler(targetRotation.eulerAngles.x, targetRotation.eulerAngles.y, targetRotation.eulerAngles.z + 90f);
+            float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
 
-            aimer.rotation = Quaternion.Slerp(aimer.rotation, targetRotation, Time.deltaTime * 5f);
+            aimer.rotation = Quaternion.Euler(0f, 0f, angle);
         }
     }
 }

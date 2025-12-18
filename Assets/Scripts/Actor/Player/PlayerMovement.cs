@@ -18,6 +18,8 @@ namespace Spelprojekt1
         private PlayerInputHandler inputHandler;        
         private PlayerShooter shooter;
         private Rigidbody2D rigidBody;
+        private Collider2D hurtBox;
+        [SerializeField] private CapsuleCollider2D collisionBox;
 
         private Vector2 inputDirection;
 
@@ -36,6 +38,7 @@ namespace Spelprojekt1
         private float dashTimer;
         [SerializeField] private float dashCooldown;
         private float dashCooldownTimer;
+        [SerializeField] private LayerMask excludeLayersDuringDash;
 
         [Header("Audio")]
         [SerializeField] [Range(0, 1)] private float dashSoundVolume;
@@ -60,6 +63,8 @@ namespace Spelprojekt1
             shooter = GetComponent<PlayerShooter>();
 
             rigidBody = GetComponent<Rigidbody2D>();
+            hurtBox = GetComponent<Collider2D>();
+            collisionBox = GetComponentInChildren<CapsuleCollider2D>();
         }
 
         void Start()
@@ -147,10 +152,11 @@ namespace Spelprojekt1
         private void StartDash()
         {
             if(dashCooldownTimer > 0)
-            {
                 return;
-            }
-
+            
+            if(inputDirection.sqrMagnitude <= 0.01f)
+                return;
+            
             SFXManager.instance.PlayRandomSFXClip(dashSounds, transform, dashSoundVolume);
             SFXManager.instance.PlayRandomSFXClip(fabricSounds, transform, fabricSoundVolume);
 
@@ -158,7 +164,11 @@ namespace Spelprojekt1
             dashTimer = dashDuration;
 
             dashDirection = inputDirection.sqrMagnitude > 0.01f ? inputDirection.normalized : rigidBody.linearVelocity.normalized;
-            SetMovementLock(true);
+
+            SetMovementLock(true); // Disable player movement
+            hurtBox.enabled = false; // Disable hurtBox
+            collisionBox.excludeLayers = LayerMask.GetMask("Enemy"); // Exclude "Enemy" Layer from Collisions
+
             shooter.ApplyStun(dashDuration);
         }
 
@@ -168,7 +178,10 @@ namespace Spelprojekt1
 
             if (dashTimer <= 0f)
             {
-                SetMovementLock(false);
+                SetMovementLock(false); // Enable player movement
+                hurtBox.enabled = true; // Enable hurtBox
+                collisionBox.excludeLayers &= ~LayerMask.GetMask("Enemy"); // Stop Excluding "Enemy Layer from Collision
+
                 dashCooldownTimer = dashCooldown;
                 State = inputDirection.sqrMagnitude > 0.01f ? MoveState.Move : MoveState.Idle;
             }

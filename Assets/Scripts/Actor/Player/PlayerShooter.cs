@@ -20,7 +20,6 @@ namespace Spelprojekt1
         private PlayerInputHandler playerInputHandler;
         private MovementController movementController;
         private Rigidbody2D rigidBody;
-        private SpriteRenderer arrowSprite;
 
         [Header("Projectile Settings")]
         [SerializeField] private GameObject projectileWeak;
@@ -57,21 +56,34 @@ namespace Spelprojekt1
         private float stunTimer;
 
         [Header("Arrow Settings")]
-        [SerializeField] private Color baseColor = Color.white;
-        [SerializeField] private Color minChargeColor = Color.green;
-        [SerializeField] private Color maxChargeColor = Color.red;
-        [SerializeField] private float flashDuration = 0.2f;
+        private SpriteRenderer arrowSprite;
 
-        private bool hasFlashed = false;
-        private float flashTimer = 0f;
+        // Moving the Arrow
+        private Transform arrowHeadTransform;
+        private SpriteRenderer arrowHeadSR;
+        private Transform arrowShaftTransform;
+        private SpriteRenderer arrowShaftSR;
+        [SerializeField] private float headOffset;
+        [SerializeField] private float shaftOffset;
+
+        // Changing the Arrows Color
+        private bool isFlashing = false;
+        private bool isIncreasingAlpha = false;
+        [SerializeField] private float flashDuration = 0.2f;
+        private float flashTimer;
+        private bool hasFlashed = false;        
 
         [Header("Audio")]
         private AudioSource audioSource;
         private AudioSource chargeSFXInstance;
 
+        [SerializeField] [Range(0, 1)] private float chargeStartSFXVolume;
         [SerializeField] private AudioClip chargeStartSFX;
+        [SerializeField] [Range(0, 1)] private float shotNormalSFXVolume;
         [SerializeField] private AudioClip shotNormalSFX;
+        [SerializeField] [Range(0, 1)] private float shotCritSFXVolume;
         [SerializeField] private AudioClip shotCritSFX;
+        [SerializeField] [Range(0, 1)] private float fullChargeSFXVolume;
         [SerializeField] private AudioClip fullChargeSFX;
 
         private bool wasCharging = false;
@@ -83,7 +95,12 @@ namespace Spelprojekt1
             playerInputHandler = GetComponent<PlayerInputHandler>();
             movementController = GetComponent<MovementController>();
             rigidBody = GetComponent<Rigidbody2D>();
+            
             arrowSprite = transform.Find("Aimer").transform.Find("Arrow").GetComponent<SpriteRenderer>();
+            arrowHeadTransform = transform.Find("Aimer").transform.Find("ArrowHead").transform;
+            arrowHeadSR = transform.Find("Aimer").transform.Find("ArrowHead").GetComponent<SpriteRenderer>();
+            arrowShaftTransform = transform.Find("Aimer").transform.Find("ArrowShaft").transform;
+            arrowShaftSR = transform.Find("Aimer").transform.Find("ArrowShaft").GetComponent<SpriteRenderer>();
 
             audioSource = GetComponent<AudioSource>();
         }
@@ -144,7 +161,7 @@ namespace Spelprojekt1
             {
                 if (!wasCharging) // Play charge up SFX while assigning the instance to a variable
                 {
-                    chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, 1f);
+                    chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, chargeStartSFXVolume);
                     wasCharging = true;
                 }
 
@@ -152,18 +169,101 @@ namespace Spelprojekt1
                 currentCharge = Mathf.Clamp(currentCharge, 0, maxChargeTime + critWindow + 0.1f);
 
                 float chargePercent = Mathf.Clamp01(currentCharge / maxChargeTime);
+
                 if(chargePercent >= 1 && !fullChargeReached)
                 {
-                    SFXManager.instance.PlaySFXClip(fullChargeSFX, transform, 1f);
+                    SFXManager.instance.PlaySFXClip(fullChargeSFX, transform, fullChargeSFXVolume);
                     fullChargeReached = true;
                 }
-                UpdateArrowColor(chargePercent);
+
+                if(currentCharge >= minChargeTime)
+                UpdateArrowVisuals(chargePercent);
                 return;
             }
 
             if (playerInputHandler.fire1Released)
             {
                 State = ShootState.ChargedRelease;
+            }
+        }
+
+        private void UpdateArrowVisuals(float chargePercent)
+        {
+            //UpdateArrowColor(chargePercent);
+
+            // ArrowHead
+            arrowHeadSR.enabled = true;
+            float maxHeadRange = Mathf.Lerp(minProjectileRange, maxProjectileRange, chargePercent);
+            Vector3 newHeadPosition = new Vector3(maxHeadRange, 0f, 0f);
+            arrowHeadTransform.transform.localPosition = newHeadPosition + new Vector3(headOffset, 0, 0);
+
+            // ArrowShaft
+            arrowShaftSR.enabled = true;
+            Vector3 scale = arrowSprite.transform.localScale;
+            scale.x = Mathf.Lerp(minProjectileRange, maxProjectileRange, chargePercent);
+            arrowShaftTransform.transform.localScale = scale + new Vector3(shaftOffset, -0.25f, 0);
+
+            float maxShaftRange = Mathf.Lerp(minProjectileRange, maxProjectileRange, chargePercent);
+            Vector3 newShaftPosition = new Vector3(maxShaftRange, 0f, 0f);
+            arrowShaftTransform.transform.localPosition = (newShaftPosition + new Vector3(shaftOffset, 0, 0))  / 2f;
+
+            if(chargePercent >= 1f && !isFlashing && !hasFlashed)
+            {
+                isFlashing = true;
+                isIncreasingAlpha = true;
+                flashTimer = flashDuration;
+
+                SetArrowColorAlpha(50);
+            }
+
+            if (isFlashing && !hasFlashed)
+            {
+                flashTimer -= Time.deltaTime;
+
+                if(isIncreasingAlpha)
+                {
+                    float alpha = Mathf.Lerp(50f, 255f, 1f - (flashTimer / flashDuration));
+
+                    SetArrowColorAlpha(alpha);
+
+                    if(flashTimer <= 0f)
+                    {
+                        isIncreasingAlpha = false;
+                        flashTimer = flashDuration;
+                    }
+                }
+                else
+                {
+                    float alpha = Mathf.Lerp(255f, 50f, 1f - (flashTimer / flashDuration));
+
+                    SetArrowColorAlpha(alpha);
+
+                    if(flashTimer <= 0f)
+                    {
+                        SetArrowColorAlpha(50);
+                        hasFlashed = true;
+                        isFlashing = false;
+                    }
+                }
+            }
+        }
+
+        private void SetArrowColorAlpha(float alpha)
+        {
+            Color headColor = arrowHeadSR.color;
+            headColor.a = alpha / 255f;
+            arrowHeadSR.color = headColor;
+
+            Color shaftColor = arrowShaftSR.color;
+            shaftColor.a = alpha / 255f;
+            arrowShaftSR.color = shaftColor;
+        }
+
+        private void UpdateArrowColor(float chargePercent)
+        {
+            if (!isFlashing) 
+            {
+                //arrowSprite.color = Color.Lerp(minChargeColor, maxChargeColor, chargePercent);
             }
         }
 
@@ -205,6 +305,9 @@ namespace Spelprojekt1
         // Firing Logic
         private void FireChargedShot(float charge)
         {
+            arrowHeadSR.enabled = false;
+            arrowShaftSR.enabled = false;
+
             float chargePercent = charge / maxChargeTime;
             GameObject projectileToUse;
 
@@ -224,11 +327,11 @@ namespace Spelprojekt1
             // Play SFX
             if(projectileToUse == projectileCrit)
             {
-                SFXManager.instance.PlaySFXClip(shotCritSFX, transform, 1f);
+                SFXManager.instance.PlaySFXClip(shotCritSFX, transform, shotCritSFXVolume);
             }
             else
             {
-                SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, 1f);
+                SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, shotNormalSFXVolume);
             }
 
             // Instantiate Projectile
@@ -268,6 +371,8 @@ namespace Spelprojekt1
         {
             stunTimer -= Time.deltaTime;
 
+
+
             if(stunTimer <= 0)
             {
                 State = ShootState.Ready;
@@ -304,48 +409,22 @@ namespace Spelprojekt1
             fullChargeReached = false;
             hasFlashed = false;
             flashTimer = 0;
+            isFlashing = false;
+
+            SetArrowColorAlpha(50);
         }
 
         //-----------------------
         private void ResetChargeVisuals()
         {
-            arrowSprite.color = baseColor;
+            arrowHeadSR.enabled = false;
+            arrowShaftSR.enabled = false;
+
+            //arrowSprite.color = baseColor;
             hasFlashed = false;
             flashTimer = 0f;
-        }
 
-        private void UpdateArrowColor(float chargePercent)
-        {
-            // 1. Handle the flash
-            if (hasFlashed && flashTimer > 0f)
-            {
-                flashTimer -= Time.deltaTime;
-                float t = 1f - (flashTimer / flashDuration);
-
-                if (t < 0.5f)
-                    arrowSprite.color = Color.Lerp(baseColor, maxChargeColor, t * 2f);
-                else
-                    arrowSprite.color = Color.Lerp(maxChargeColor, baseColor, (t - 0.5f) * 2f);
-
-                return;
-            }
-
-            if (!hasFlashed && chargePercent >= 1f)
-            {
-                hasFlashed = true;
-                flashTimer = flashDuration;
-
-                arrowSprite.color = baseColor;
-                return;
-            }
-
-            if (hasFlashed && chargePercent >= 1f)
-            {
-                arrowSprite.color = maxChargeColor;
-                return;
-            }
-
-            arrowSprite.color = Color.Lerp(minChargeColor, maxChargeColor, chargePercent);
+            SetArrowColorAlpha(50);
         }
 
         private void UpdateCooldowns()

@@ -1,10 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Spelprojekt1
 {
     public class EnemyHealth : HealthHandler
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        [SerializeField] [Range(0, 1)] private float hurtSoundsVolume;
+        [SerializeField] private List<AudioClip> hurtSounds;
+        [SerializeField] [Range(0, 1)] private float deathSoundsVolume;
+        [SerializeField] private List<AudioClip> deathSounds;
         protected override void Start()
         {
             base.Start();
@@ -19,6 +23,9 @@ namespace Spelprojekt1
 
         protected override void HandleDamage()
         {
+            // Play Damage SFX
+            SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume);
+
             // Play damage flash and/or animation
             // Stagger or knockback or canceling attacks or any other feedback
             
@@ -26,6 +33,8 @@ namespace Spelprojekt1
 
         protected override void HandleDeath()
         {
+            SFXManager.instance.PlayRandomSFXClip(deathSounds, transform, deathSoundsVolume);
+
             Destroy(gameObject);
         }
     }

@@ -62,5 +62,5 @@ MonoBehaviour:
   cornerB: {x: 14, y: 1.75}
   minSpawnTime: 2
   maxSpawnTime: 4
-  enemyPrefab: {fileID: 7978245863105396949, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
+  enemyPrefab: {fileID: 967611885315125264, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
   maxEnemies: 10
