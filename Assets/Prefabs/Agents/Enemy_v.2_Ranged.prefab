@@ -85,7 +85,7 @@ MonoBehaviour:
   maxShootTime: 3
   projectileDamage: 1
   projectileSpeed: 10
-  shootSoundsVolume: 0.25
+  shootSoundsVolume: 0.2
   shootSounds:
   - {fileID: 8300000, guid: 3f075651151c93f44a5924c983eaadc7, type: 3}
   - {fileID: 8300000, guid: 0cb739d03d97e704386ee4625aeca238, type: 3}

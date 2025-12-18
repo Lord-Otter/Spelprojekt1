@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 6
   currentHealth: 0
-  canTakeDamage: 0
+  canTakeDamage: 1
   takeDamageCooldown: 0.5
   OnPlayerDiedEvent:
     m_PersistentCalls:
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7cf72ab7ec0910a4cbe172a2ddfed66c, type: 3}
   - {fileID: 8300000, guid: b3cab7223247ccb439851d977698f6d0, type: 3}
   - {fileID: 8300000, guid: 5f0b4dff408ba994299427873203870a, type: 3}
-  deathSoundVolume: 0.35
+  deathSoundVolume: 0.3
   deathSound: {fileID: 8300000, guid: 938f2cc833ab10f41b6c69344a4479dd, type: 3}
 --- !u!114 &3047200598040328223
 MonoBehaviour:
