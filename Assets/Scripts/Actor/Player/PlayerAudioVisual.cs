@@ -107,13 +107,21 @@ public class PlayerAudioVisual : MonoBehaviour
 
         legsRenderer.enabled = true;
 
-        //string moveDir = GetDirectionFromVelocity(moveVel);
-        //string legsAnim = $"run_{moveDir.ToLower()}_legs";
+        string moveDir = GetDirectionFromVelocity(moveVel);
+        bool movingOpposite = IsMovingOppositeOfAim(moveVel, aimController.aimAngle);
 
-        //PlayAnimation(legsAnimator, legsAnim);
+        string legsAnim;
 
-        //bool movingOpposite = IsMovingOppositeOfAim(moveVel, aimController.aimAngle);
-        //legsAnimator.speed = movingOpposite ? -1f : 1f;
+        if (movingOpposite)
+        {
+            legsAnim = $"back_{moveDir}_legs";
+        }
+        else
+        {
+            legsAnim = $"run_{moveDir}_legs";
+        }
+
+PlayAnimation(legsAnimator, legsAnim);
 
         /*
         // If idle
@@ -175,7 +183,7 @@ public class PlayerAudioVisual : MonoBehaviour
         PlayAnimation(legsAnimator, newAnimLegs);*/
     }
 
-
+    
 
     private void PlayAnimation(Animator animator, string animName)
     {
@@ -191,9 +199,30 @@ public class PlayerAudioVisual : MonoBehaviour
     {
         angle = Mathf.Repeat(angle + 360f, 360f);
 
-        if (angle >= 45f && angle < 135f) return "Up";
-        if (angle >= 135f && angle < 225f) return "Left";
-        if (angle >= 225f && angle < 315f) return "Down";
-        return "Right";
+        if (angle >= 45f && angle < 135f) return "up";
+        if (angle >= 135f && angle < 225f) return "left";
+        if (angle >= 225f && angle < 315f) return "down";
+        return "right";
+    }
+
+    private string GetDirectionFromVelocity(Vector2 vel)
+    {
+        if (Mathf.Abs(vel.x) >= Mathf.Abs(vel.y))
+            return vel.x >= 0 ? "right" : "left";
+        else
+            return vel.y >= 0 ? "up" : "down";
+    }
+
+    private bool IsMovingOppositeOfAim(Vector2 velocity, float aimAngle)
+    {
+        Vector2 aimDir = new Vector2(
+            Mathf.Cos(aimAngle * Mathf.Deg2Rad),
+            Mathf.Sin(aimAngle * Mathf.Deg2Rad)
+        );
+
+        velocity.Normalize();
+        float dot = Vector2.Dot(aimDir, velocity);
+
+        return dot < -0.1f; // moving against aim
     }
 }
