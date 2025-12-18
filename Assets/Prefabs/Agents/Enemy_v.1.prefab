@@ -156,7 +156,7 @@ MonoBehaviour:
   maxShootTime: 4
   projectileDamage: 0
   projectileSpeed: 3
-  shootSoundsVolume: 0.5
+  shootSoundsVolume: 0.3
   shootSounds:
   - {fileID: 8300000, guid: df43816db73be0d4989a8d79fd26be83, type: 3}
   - {fileID: 8300000, guid: 141a74d776e2aa9478ee3d9cbf79665c, type: 3}
@@ -196,7 +196,7 @@ MonoBehaviour:
   maxHealth: 250
   currentHealth: 0
   canTakeDamage: 0
-  hurtSoundsVolume: 0.4
+  hurtSoundsVolume: 0.3
   hurtSounds:
   - {fileID: 8300000, guid: 421398cb7d2b6e343a8447f9b2be30a4, type: 3}
   - {fileID: 8300000, guid: 641ce5dab2280234ca6b5f49a5061c3c, type: 3}
