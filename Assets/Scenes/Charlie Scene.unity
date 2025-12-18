@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -216}
+  m_AnchoredPosition: {x: 0, y: -24.5}
   m_SizeDelta: {x: 1100, y: 663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103129352
@@ -1028,6 +1028,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2084541522}
   - {fileID: 103129351}
   - {fileID: 1155116786}
   - {fileID: 1253705497}
@@ -1147,23 +1148,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 103129352}
+  imageBox: {fileID: 2084541523}
   nextButton: {fileID: 1253705498}
   dialogue:
-  - "1884-05-19    You were killed by the town\u2019s sheriff. It was deliberate,
-    on purpose, no mistaking it. You had been a menace to the town for far too long,
-    stealing horses, robbing the bank, hell you even murdered a guy, and had probably
-    seen more days inside of a cell than outside of one. He simply got tired of your
-    shit after years of dealing with you. "
+  - "1884-05-19  You were killed by the town\u2019s sheriff. It was deliberate, on
+    purpose, no mistaking it."
+  - You had been a menace to the town for far too long, stealing horses, robbing
+    the bank, hell you even murdered a guy, and had probably seen more days inside
+    of a cell than outside of one.
+  - 'He simply got tired of your shit after years of dealing with you. '
   - "But somehow, you\u2019re still here. Not alive, but not quite dead either. You
-    find yourself in some kind of limbo- something in-between. You\u2019re standing
-    in a saloon, but it\u2019s not one you\u2019re familiar with. There are no chairs,
-    tables, or even a bar. Just an empty floor. In your hands is a deck of playing
-    cards. It\u2019s never been used before, still pristine in your dirty hands.
-    You pick up the first card in the deck. As you hold it between your grimy fingers,
-    it lights up your face with a dim glow. It calls to you. "
+    find yourself in some kind of limbo- something in-between."
+  - "You\u2019re standing in a saloon, but it\u2019s not one you\u2019re familiar
+    with."
+  - There are no chairs, tables, or even a bar. Just an empty floor. In your hands
+    is a deck of playing cards.
+  - "It\u2019s never been used before, still pristine in your dirty hands. "
+  - You pick up the first card in the deck. As you hold it between your grimy fingers,
+    it lights up your face with a dim glow. It calls to you.
   - "Suddenly, a figure stands before you. It\u2019s impossible to determine the
     shape of it, but it\u2019s moving towards you. The deck in your hands. It\u2019s
-    your weapon.  "
+    your weapon."
+  images:
+  - {fileID: 3614124142995797474, guid: 83fe5b530091f304eb8e007b31d0a121, type: 3}
+  - {fileID: 3614124142995797474, guid: 83fe5b530091f304eb8e007b31d0a121, type: 3}
+  - {fileID: 3614124142995797474, guid: 83fe5b530091f304eb8e007b31d0a121, type: 3}
+  - {fileID: 5308448175360178355, guid: 2c0c3d25c5ff7ab47ac17c49362ddc8a, type: 3}
+  - {fileID: 5308448175360178355, guid: 2c0c3d25c5ff7ab47ac17c49362ddc8a, type: 3}
+  - {fileID: 5308448175360178355, guid: 2c0c3d25c5ff7ab47ac17c49362ddc8a, type: 3}
+  - {fileID: 5308448175360178355, guid: 2c0c3d25c5ff7ab47ac17c49362ddc8a, type: 3}
+  - {fileID: 5308448175360178355, guid: 2c0c3d25c5ff7ab47ac17c49362ddc8a, type: 3}
+  - {fileID: 7024648501981196136, guid: 69a78d190c7da0c4d88552a9347c1725, type: 3}
   onStartDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -1197,6 +1212,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2084541521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084541522}
+  - component: {fileID: 2084541524}
+  - component: {fileID: 2084541523}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2084541522
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084541521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1380316708}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2084541523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084541521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 3614124142995797474, guid: 83fe5b530091f304eb8e007b31d0a121, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2084541524
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084541521}
+  m_CullTransparentMesh: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

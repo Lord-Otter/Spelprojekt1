@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class Dialogue : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI textBox;
+    [SerializeField] private Image imageBox;
     [SerializeField] private Button nextButton;
     [SerializeField] List<string> dialogue;
+    [SerializeField] List<Sprite> images;
 
     [SerializeField] private UnityEvent onStartDialogue;
     [SerializeField] private UnityEvent onEndDialogue;
@@ -30,6 +32,7 @@ public class Dialogue : MonoBehaviour
         if (currentIndex < dialogue.Count)
         {
             textBox.text = dialogue[currentIndex];
+            imageBox.sprite = images[currentIndex];
         }
         // If we are at the end of the list: run the onEndDialogue-event, reset the index (so that the dialogue can be restarted) and remove this dialog from the next-button
         else
