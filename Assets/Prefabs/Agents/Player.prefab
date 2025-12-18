@@ -1083,10 +1083,13 @@ MonoBehaviour:
   maxHealth: 6
   currentHealth: 0
   canTakeDamage: 1
+  gameOverScreen: {fileID: 9214047767799123488, guid: 6325000fa2ddd93438a791a8452bad25, type: 3}
   takeDamageCooldown: 0.5
   OnPlayerDiedEvent:
     m_PersistentCalls:
       m_Calls: []
+  shakeDuration: 0.25
+  shakeMagnitude: 0.4
   hurtSoundsVolume: 0.25
   hurtSounds:
   - {fileID: 8300000, guid: 7cf72ab7ec0910a4cbe172a2ddfed66c, type: 3}
