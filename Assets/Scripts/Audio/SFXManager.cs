@@ -7,6 +7,8 @@ public class SFXManager : MonoBehaviour
     public static SFXManager instance;
 
     [SerializeField] private AudioSource SFXObject;
+    [SerializeField] [Range(-3, 3)] private float maxRandomSoundPitch;
+    [SerializeField][Range(-3, 3)] private float minRandomSoundPitch;
 
     private void Awake()
     {
@@ -63,6 +65,9 @@ public class SFXManager : MonoBehaviour
 
         // assign volume
         audioSource.volume = volume;
+
+        // Randomize pitch
+        audioSource.pitch = Random.Range(minRandomSoundPitch, maxRandomSoundPitch);
 
         // Play sound
         audioSource.Play();
