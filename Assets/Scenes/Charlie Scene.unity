@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -52}
+  m_AnchoredPosition: {x: 0, y: -216}
   m_SizeDelta: {x: 1100, y: 663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103129352
@@ -178,15 +178,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e50bb10e69176b54382c6aaaddbd7024, type: 2}
+  m_sharedMaterial: {fileID: -2550205056004646418, guid: e50bb10e69176b54382c6aaaddbd7024, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291348680
-  m_fontColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+    rgba: 4279440147
+  m_fontColor: {r: 0.0754717, g: 0.07297971, b: 0.07297971, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
