@@ -886,13 +886,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   torsoRenderer: {fileID: 0}
   legsRenderer: {fileID: 0}
-  footstepsVolume: 0.3
+  footstepsVolume: 0.25
   footsteps:
-  - {fileID: 8300000, guid: bfd201b08ed655345b6ff0b0f542f17f, type: 3}
-  - {fileID: 8300000, guid: 5768db100c7a0be43941ed82b39c0d26, type: 3}
-  - {fileID: 8300000, guid: c8fe82058d6a6b74c995a374a8d2ceb9, type: 3}
-  - {fileID: 8300000, guid: 1ebaad9aaf87e714092540829de1823f, type: 3}
-  - {fileID: 8300000, guid: de37869f33327ce4d8a941d74a126197, type: 3}
+  - {fileID: 8300000, guid: 5de80af3fdfaf394ca88c7f6350bf45a, type: 3}
+  - {fileID: 8300000, guid: c1cb72f179a1d704998e6c2985bec23f, type: 3}
+  - {fileID: 8300000, guid: e4265738fdaae3f4ca1de20892c998ed, type: 3}
+  - {fileID: 8300000, guid: 03c8dfda59927654f9ec0a84b29f499e, type: 3}
+  - {fileID: 8300000, guid: d9f2b84691185624389400f7c1f21603, type: 3}
   footStepCooldown: 0.3
   torsoAnimator: {fileID: 0}
   legsAnimator: {fileID: 0}
