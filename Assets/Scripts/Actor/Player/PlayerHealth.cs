@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using Spelprojekt1;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 
 
 public class PlayerHealth : HealthHandler
 {
+    private CinemachineImpulseSource damageImpulse;
+
     [SerializeField] private float takeDamageCooldown;
     private float takeDamageTimer;
 
@@ -29,6 +32,8 @@ public class PlayerHealth : HealthHandler
     protected override void Start()
     {
         base.Start();
+        damageImpulse = GameObject.Find("PlayerDamageImpulse").GetComponent<CinemachineImpulseSource>();
+
         canTakeDamage = true;
         
         GetData();
@@ -105,6 +110,7 @@ public class PlayerHealth : HealthHandler
     {
         // Update UI
         // Play damage effects. Screen, particles, sprite, animation, etc.
+        damageImpulse.GenerateImpulse();
 
         // Play damage sound effects.
         SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume);
@@ -131,4 +137,29 @@ public class PlayerHealth : HealthHandler
         // Stop other game processes like enemies.
         // Stopping enemy AI, spawning and showing game over screen can be a function.
     }
+
+    /*private void TriggerDamageShake()
+    {
+        if (damageImpulse == null)
+            return;
+
+        // Direction: push camera AWAY from hit
+        Vector2 hitDirection = Vector2.zero;
+
+        // Example: enemy hit the player
+        // Replace with actual attacker position if available
+        if (lastDamageSource != null)
+        {
+            hitDirection = (transform.position - lastDamageSource.position).normalized;
+        }
+        else
+        {
+            hitDirection = Random.insideUnitCircle.normalized;
+        }
+
+        // Impulse wants Vector3
+        Vector3 impulseDir = new Vector3(hitDirection.x, hitDirection.y, 0f);
+
+        damageImpulse.GenerateImpulse(impulseDir);
+    }*/
 }
