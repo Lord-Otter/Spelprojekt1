@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Spelprojekt1;
 using Unity.Cinemachine;
@@ -7,7 +8,7 @@ using UnityEngine.Events;
 
 public class PlayerHealth : HealthHandler
 {
-    private CinemachineImpulseSource damageImpulse;
+    [SerializeField] private Canvas gameOverScreen;
 
     [SerializeField] private float takeDamageCooldown;
     private float takeDamageTimer;
@@ -16,6 +17,10 @@ public class PlayerHealth : HealthHandler
 
     public event System.Action<int> OnHealthChanged;
     public UnityEvent OnPlayerDiedEvent;
+
+    [Header("Camera Shake")]
+    [SerializeField] private float shakeDuration;
+    [SerializeField] private float shakeMagnitude;
 
     [Header("Audio")]
     [SerializeField] [Range(0, 1)] private float hurtSoundsVolume;
@@ -32,7 +37,6 @@ public class PlayerHealth : HealthHandler
     protected override void Start()
     {
         base.Start();
-        damageImpulse = GameObject.Find("PlayerDamageImpulse").GetComponent<CinemachineImpulseSource>();
 
         canTakeDamage = true;
         
@@ -110,7 +114,7 @@ public class PlayerHealth : HealthHandler
     {
         // Update UI
         // Play damage effects. Screen, particles, sprite, animation, etc.
-        damageImpulse.GenerateImpulse();
+        //CameraShaker.Instance.ShakeOnce(1, 1, 0.25f, 0.25f);
 
         // Play damage sound effects.
         SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume);
@@ -133,33 +137,11 @@ public class PlayerHealth : HealthHandler
         // Play game over music
         // Do some time scale effects.
         // Disable player control
+
         // Display game over screen
+        Instantiate(gameOverScreen);
+
         // Stop other game processes like enemies.
         // Stopping enemy AI, spawning and showing game over screen can be a function.
     }
-
-    /*private void TriggerDamageShake()
-    {
-        if (damageImpulse == null)
-            return;
-
-        // Direction: push camera AWAY from hit
-        Vector2 hitDirection = Vector2.zero;
-
-        // Example: enemy hit the player
-        // Replace with actual attacker position if available
-        if (lastDamageSource != null)
-        {
-            hitDirection = (transform.position - lastDamageSource.position).normalized;
-        }
-        else
-        {
-            hitDirection = Random.insideUnitCircle.normalized;
-        }
-
-        // Impulse wants Vector3
-        Vector3 impulseDir = new Vector3(hitDirection.x, hitDirection.y, 0f);
-
-        damageImpulse.GenerateImpulse(impulseDir);
-    }*/
 }
