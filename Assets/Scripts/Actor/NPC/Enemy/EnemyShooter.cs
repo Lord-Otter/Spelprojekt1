@@ -61,6 +61,7 @@ namespace Spelprojekt1
         {
             stateTimer -= Time.deltaTime;
             RotateAimerTowardsPlayer();
+            
             switch (currentState)
             {
                 case ShooterState.Ready:

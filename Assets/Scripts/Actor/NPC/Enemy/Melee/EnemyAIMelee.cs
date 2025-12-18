@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 namespace Spelprojekt1
 {
-    public class EnemyAI : MonoBehaviour
+    public class EnemyAIMelee : MonoBehaviour
     {
         private Transform player;
         private Rigidbody2D rb;
@@ -79,9 +79,9 @@ namespace Spelprojekt1
         public void ApplyKnockback(Vector2 knockbackDirection, float knockbackForce, float duration)
         {
             isKnockBack = true;
-            knockbackTimer = duration;
+            knockbackTimer = duration * 1.5f;
 
-            rb.linearVelocity = knockbackDirection * knockbackForce;
+            rb.linearVelocity = knockbackDirection * knockbackForce * 1.5f;
         }
 
         private void OnSightStateChanged(bool inSight)

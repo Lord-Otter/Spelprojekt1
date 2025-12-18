@@ -19,7 +19,7 @@ namespace Spelprojekt1
         private PlayerShooter shooter;
         private Rigidbody2D rigidBody;
         private Collider2D hurtBox;
-        [SerializeField] private CapsuleCollider2D collisionBox;
+        [SerializeField] private CapsuleCollider2D[] collisionBoxes;
 
         private Vector2 inputDirection;
 
@@ -64,7 +64,7 @@ namespace Spelprojekt1
 
             rigidBody = GetComponent<Rigidbody2D>();
             hurtBox = GetComponent<Collider2D>();
-            collisionBox = GetComponentInChildren<CapsuleCollider2D>();
+            collisionBoxes = GetComponentsInChildren<CapsuleCollider2D>();
         }
 
         void Start()
@@ -167,7 +167,8 @@ namespace Spelprojekt1
 
             SetMovementLock(true); // Disable player movement
             hurtBox.enabled = false; // Disable hurtBox
-            collisionBox.excludeLayers = LayerMask.GetMask("Enemy"); // Exclude "Enemy" Layer from Collisions
+            collisionBoxes[0].excludeLayers = LayerMask.GetMask("Enemy"); // Exclude "Enemy" Layer from Collisions
+            collisionBoxes[1].excludeLayers = LayerMask.GetMask("Enemy"); // Exclude "Enemy" Layer from Collisions
 
             shooter.ApplyStun(dashDuration);
         }
@@ -180,7 +181,8 @@ namespace Spelprojekt1
             {
                 SetMovementLock(false); // Enable player movement
                 hurtBox.enabled = true; // Enable hurtBox
-                collisionBox.excludeLayers &= ~LayerMask.GetMask("Enemy"); // Stop Excluding "Enemy Layer from Collision
+                collisionBoxes[0].excludeLayers &= ~LayerMask.GetMask("Enemy"); // Stop Excluding "Enemy Layer from Collision
+                collisionBoxes[1].excludeLayers &= ~LayerMask.GetMask("Enemy"); // Stop Excluding "Enemy Layer from Collision
 
                 dashCooldownTimer = dashCooldown;
                 State = inputDirection.sqrMagnitude > 0.01f ? MoveState.Move : MoveState.Idle;
