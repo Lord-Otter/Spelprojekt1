@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerAudioVisual : MonoBehaviour
 {
     private Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer torsoRenderer;
+    [SerializeField] private SpriteRenderer legsRenderer;
 
     [Header("Audio")]
     [SerializeField] [Range(0, 1)] private float footstepsVolume;
@@ -13,7 +15,8 @@ public class PlayerAudioVisual : MonoBehaviour
     [SerializeField] private float footStepCooldown;
 
     [Header("Animation")]
-    private Animator animator;
+    [SerializeField] private Animator torsoAnimator;
+    [SerializeField] private Animator legsAnimator;
     private string currentAnimation;
     private string lastDirection = "Down";
     private const float deadzone = 0.1f;
@@ -21,10 +24,13 @@ public class PlayerAudioVisual : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        torsoRenderer = transform.Find("Visual").transform.Find("Torso").GetComponent<SpriteRenderer>();
+        legsRenderer = transform.Find("Visual").transform.Find("Legs").GetComponent<SpriteRenderer>();
 
         audioSource = GetComponent<AudioSource>();
 
-        animator = GetComponent<Animator>();
+        torsoAnimator = transform.Find("Visual").transform.Find("Torso").GetComponent<Animator>();
+        legsAnimator = transform.Find("Visual").transform.Find("Legs").GetComponent<Animator>();
     }
 
     void Update()
@@ -70,26 +76,32 @@ public class PlayerAudioVisual : MonoBehaviour
         // If idle
         if (vel.magnitude < deadzone)
         {
-            PlayAnimation("Idle_Placeholder");
+            PlayAnimation(torsoAnimator, "idle");
+            legsRenderer.enabled = false;
             return;
         }
+
+        legsRenderer.enabled = true;
 
         float absX = Mathf.Abs(vel.x);
         float absY = Mathf.Abs(vel.y);
 
-        string newAnim = "";
+        string newAnimTorso = "";
+        string newAnimLegs = "";
 
         // --- PRIORITY 1: LEFT / RIGHT ---
         if (absX >= absY)  
         {
             if (vel.x > 0)
             {
-                newAnim = "Run_Right";
+                newAnimTorso = "run_right_torso";
+                newAnimLegs = "run_right_legs";
                 lastDirection = "Right";
             }
             else
             {
-                newAnim = "Run_Left";
+                newAnimTorso = "run_left_torso";
+                newAnimLegs = "run_left_legs";
                 lastDirection = "Left";
             }
         }
@@ -98,25 +110,29 @@ public class PlayerAudioVisual : MonoBehaviour
         {
             if (vel.y > 0)
             {
-                newAnim = "Run_Up";
+                newAnimTorso = "run_up_torso";
+                newAnimLegs = "run_up_legs";
                 lastDirection = "Up";
             }
             else
             {
-                newAnim = "Run_Down";
+                newAnimTorso = "run_down_torso";
+                newAnimLegs = "run_down_legs";
                 lastDirection = "Down";
             }
         }
 
         if(vel.magnitude < 0.1f)
         {
-            PlayAnimation($"Idle_PlaceHolder");
+            PlayAnimation(torsoAnimator, "idle");
+            legsRenderer.enabled = false;
         }
 
-        PlayAnimation(newAnim);
+        PlayAnimation(torsoAnimator, newAnimTorso);
+        PlayAnimation(legsAnimator, newAnimLegs);
     }
 
-    private void PlayAnimation(string animName)
+    private void PlayAnimation(Animator animator, string animName)
     {
         if (currentAnimation == animName)
             return;
