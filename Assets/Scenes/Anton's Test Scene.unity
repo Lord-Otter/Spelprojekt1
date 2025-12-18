@@ -4978,8 +4978,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 6b34fae20d627184b9c01dc882d201bc, type: 3}
     - target: {fileID: 7414265707590945919, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
-      propertyPath: hurtSounds.Array.size
-      value: 3
+      propertyPath: canTakeDamage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7414265707590945919, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
       propertyPath: deathSounds.Array.size
@@ -5874,6 +5874,10 @@ PrefabInstance:
     - target: {fileID: 967611885315125264, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
       propertyPath: m_Name
       value: Enemy_v.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721648643182183245, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
+      propertyPath: canTakeDamage
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1848599134598774347, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
       propertyPath: m_Enabled

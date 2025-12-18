@@ -196,12 +196,12 @@ MonoBehaviour:
   maxHealth: 250
   currentHealth: 0
   canTakeDamage: 0
-  hurtSoundsVolume: 0.6
+  hurtSoundsVolume: 0.4
   hurtSounds:
   - {fileID: 8300000, guid: 421398cb7d2b6e343a8447f9b2be30a4, type: 3}
   - {fileID: 8300000, guid: 641ce5dab2280234ca6b5f49a5061c3c, type: 3}
   - {fileID: 8300000, guid: b93820ead6c065c4dbf355a0b6fc8324, type: 3}
-  deathSoundsVolume: 0.8
+  deathSoundsVolume: 0.3
   deathSounds:
   - {fileID: 8300000, guid: d48bc244b8a83b64fafdba92c1f8fb89, type: 3}
   - {fileID: 8300000, guid: 409e446630e60814a8cbb8ab51f54278, type: 3}
