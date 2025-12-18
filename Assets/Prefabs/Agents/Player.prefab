@@ -1003,11 +1003,11 @@ MonoBehaviour:
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
   shotNormalSFXVolume: 0.3
   shotNormalSFX:
-  - {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
-  - {fileID: 8300000, guid: 0ed152c24970dbe408a6b104d7bb9ace, type: 3}
-  - {fileID: 8300000, guid: e93098d7e9abed944b97baf19f220d80, type: 3}
-  - {fileID: 8300000, guid: 0cd06cd58454b0d448a7e89bd37751ab, type: 3}
-  - {fileID: 8300000, guid: 56b3673528d4970489d7babeb61c5a53, type: 3}
+  - {fileID: 8300000, guid: 8296301d3a842cc4db7b31470751d216, type: 3}
+  - {fileID: 8300000, guid: c5df732e027b3bf48b1c2a711172efba, type: 3}
+  - {fileID: 8300000, guid: 3b9692dbd7e1b404f82d53fe5bd1087c, type: 3}
+  - {fileID: 8300000, guid: 055d7a4d4fb4fe64396b13dc9130a346, type: 3}
+  - {fileID: 8300000, guid: 3e60be81ce664b64991c37d2fb6c5c7d, type: 3}
   shotCritSFXVolume: 0.6
   shotCritSFX: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
   fullChargeSFXVolume: 0.3
