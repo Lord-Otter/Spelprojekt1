@@ -20,7 +20,8 @@ public class PlayerAudioVisual : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator torsoAnimator;
     [SerializeField] private Animator legsAnimator;
-    private string currentAnimation;
+    private string currentTorsoAnimation;
+    private string currentLegsAnimation;
     private string lastDirection = "Down";
     private const float deadzone = 0.1f;
 
@@ -81,23 +82,43 @@ public class PlayerAudioVisual : MonoBehaviour
         bool isMoving = moveVel.magnitude > deadzone;
         bool isCharging = playerShooter.State == PlayerShooter.ShootState.Charging;
 
-        string aimDir = GetDirectionFromAngle(aimController.aimAngle);
+        string torsoDir;
+
+        if (isCharging)
+        {
+            torsoDir = GetDirectionFromAngle(aimController.aimAngle);
+        }
+        else if (isMoving)
+        {
+            torsoDir = GetDirectionFromVelocity(moveVel);
+        }
+        else
+        {
+            torsoDir = lastDirection;
+        }
+
+        if (isMoving)
+        {
+            lastDirection = torsoDir;
+        }
+
+        //string aimDir = GetDirectionFromAngle(aimController.aimAngle);
         string torsoAnim;
 
         if (isCharging)
         {
-            torsoAnim = $"attack_{aimDir.ToLower()}_torso";
+            torsoAnim = $"attack_{torsoDir}_torso";
         }
         else if (isMoving)
         {
-            torsoAnim = $"run_{aimDir.ToLower()}_torso";
+            torsoAnim = $"run_{torsoDir}_torso";
         }
         else
         {
             torsoAnim = "idle";
         }
 
-        PlayAnimation(torsoAnimator, torsoAnim);
+        PlayTorsoAnimation(torsoAnim);
 
         if (!isMoving)
         {
@@ -121,7 +142,7 @@ public class PlayerAudioVisual : MonoBehaviour
             legsAnim = $"run_{moveDir}_legs";
         }
 
-PlayAnimation(legsAnimator, legsAnim);
+        PlayLegsAnimation(legsAnim);
 
         /*
         // If idle
@@ -183,16 +204,32 @@ PlayAnimation(legsAnimator, legsAnim);
         PlayAnimation(legsAnimator, newAnimLegs);*/
     }
 
-    
+    private void PlayTorsoAnimation(string animName)
+    {
+        if (currentTorsoAnimation == animName)
+            return;
 
-    private void PlayAnimation(Animator animator, string animName)
+        currentTorsoAnimation = animName;
+        torsoAnimator.Play(animName);
+    }
+
+    private void PlayLegsAnimation(string animName)
+    {
+        if (currentLegsAnimation == animName)
+            return;
+
+        currentLegsAnimation = animName;
+        legsAnimator.Play(animName);
+    }
+
+    /*private void PlayAnimation(Animator animator, string animName)
     {
         if (currentAnimation == animName)
             return;
 
         currentAnimation = animName;
         animator.Play(animName);
-    }
+    }*/
     #endregion
 
     private string GetDirectionFromAngle(float angle)
