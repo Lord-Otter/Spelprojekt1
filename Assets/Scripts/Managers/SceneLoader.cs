@@ -4,16 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    
+    [SerializeField] private List<string> randomScenes = new List<string>();
 
     public void LoadGameScene(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
     }
 
-    public void LoadRandomGameScene(List<string> scenes)
+    public void LoadRandomGameScene()
     {
-        string sceneToLoad = scenes[Random.Range(0, scenes.Count)];
+        string sceneToLoad = randomScenes[Random.Range(0, randomScenes.Count)];
         SceneManager.LoadScene(sceneToLoad);
     }
 

@@ -5636,16 +5636,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_v.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1721648643182183245, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
-      propertyPath: canTakeDamage
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1848599134598774347, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2922334156580491320, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946262734745836155, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946262734745836155, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946262734745836155, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3315051179926777854, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
@@ -5688,6 +5696,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6078842629934393871, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
+      propertyPath: aimTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7980217663390722334, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -5696,6 +5708,10 @@ PrefabInstance:
       propertyPath: drawGizmos
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8340593287776134920, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 07ecccec979c7564e84e613232b21742, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
