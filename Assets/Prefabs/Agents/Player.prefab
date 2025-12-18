@@ -1001,7 +1001,7 @@ MonoBehaviour:
   flashDuration: 0.1
   chargeStartSFXVolume: 0.5
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
-  shotNormalSFXVolume: 0.3
+  shotNormalSFXVolume: 1
   shotNormalSFX:
   - {fileID: 8300000, guid: 8296301d3a842cc4db7b31470751d216, type: 3}
   - {fileID: 8300000, guid: c5df732e027b3bf48b1c2a711172efba, type: 3}

@@ -5106,6 +5106,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: shotNormalSFXVolume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: maxKnockbackDuration
       value: 0.1
       objectReference: {fileID: 0}
