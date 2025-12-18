@@ -87,9 +87,9 @@ MonoBehaviour:
   projectileSpeed: 10
   shootSoundsVolume: 0.5
   shootSounds:
-  - {fileID: 8300000, guid: 15ff31e9205a01d4fa9f2f12945a949b, type: 3}
-  - {fileID: 8300000, guid: 17733ae3a734a6143be5a8468217663a, type: 3}
-  - {fileID: 8300000, guid: 73f65d2a2133b3343a2bee4d988553d9, type: 3}
+  - {fileID: 8300000, guid: 3f075651151c93f44a5924c983eaadc7, type: 3}
+  - {fileID: 8300000, guid: 0cb739d03d97e704386ee4625aeca238, type: 3}
+  - {fileID: 8300000, guid: 6b34fae20d627184b9c01dc882d201bc, type: 3}
 --- !u!114 &1848599134598774347
 MonoBehaviour:
   m_ObjectHideFlags: 0

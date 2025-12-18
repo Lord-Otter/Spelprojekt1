@@ -4974,6 +4974,26 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3264741310248369080, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
+      propertyPath: 'shootSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f075651151c93f44a5924c983eaadc7, type: 3}
+    - target: {fileID: 3264741310248369080, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
+      propertyPath: 'shootSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0cb739d03d97e704386ee4625aeca238, type: 3}
+    - target: {fileID: 3264741310248369080, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
+      propertyPath: 'shootSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b34fae20d627184b9c01dc882d201bc, type: 3}
+    - target: {fileID: 7414265707590945919, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
+      propertyPath: hurtSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414265707590945919, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
+      propertyPath: deathSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7432782518848962168, guid: 2137d54d541e12647bab2c894ce7564e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.355864
@@ -5055,9 +5075,29 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 938f2cc833ab10f41b6c69344a4479dd, type: 3}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: deathSoundVolume
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hurtSoundsVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: 'hurtBoxes.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: shotCritSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: shotNormalSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
     - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: projectileRange
       value: 15
@@ -5066,6 +5106,30 @@ PrefabInstance:
       propertyPath: maxKnockbackDuration
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: footsteps.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bfd201b08ed655345b6ff0b0f542f17f, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5768db100c7a0be43941ed82b39c0d26, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c8fe82058d6a6b74c995a374a8d2ceb9, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ebaad9aaf87e714092540829de1823f, type: 3}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: 'footsteps.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: de37869f33327ce4d8a941d74a126197, type: 3}
     - target: {fileID: 3476416182017539262, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_Layer
       value: 7

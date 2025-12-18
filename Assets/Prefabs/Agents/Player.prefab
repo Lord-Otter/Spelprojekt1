@@ -742,7 +742,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3cab7223247ccb439851d977698f6d0, type: 3}
   - {fileID: 8300000, guid: 5f0b4dff408ba994299427873203870a, type: 3}
   deathSoundVolume: 1
-  deathSound: {fileID: 8300000, guid: a22953d81cf1a0c4ca067ea32ce5507b, type: 3}
+  deathSound: {fileID: 8300000, guid: 938f2cc833ab10f41b6c69344a4479dd, type: 3}
 --- !u!114 &3047200598040328223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,12 +757,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstepsVolume: 1
   footsteps:
-  - {fileID: 8300000, guid: 5cc2327940b5f9f43b7252f4c6c98ec6, type: 3}
-  - {fileID: 8300000, guid: c9217fb56d7d6d34498ea53cfb5b03ee, type: 3}
-  - {fileID: 8300000, guid: 24ce1f6ecafba7c4097b986d7d34d557, type: 3}
-  - {fileID: 8300000, guid: 9c7e8b9e8e125e544bbde6bcf9c4be3b, type: 3}
-  - {fileID: 8300000, guid: aa3bd8e64329ae94a810e3b39f2d9e3e, type: 3}
-  - {fileID: 8300000, guid: 10c9169b817bfc9488a22426c0b48956, type: 3}
+  - {fileID: 8300000, guid: bfd201b08ed655345b6ff0b0f542f17f, type: 3}
+  - {fileID: 8300000, guid: 5768db100c7a0be43941ed82b39c0d26, type: 3}
+  - {fileID: 8300000, guid: c8fe82058d6a6b74c995a374a8d2ceb9, type: 3}
+  - {fileID: 8300000, guid: 1ebaad9aaf87e714092540829de1823f, type: 3}
+  - {fileID: 8300000, guid: de37869f33327ce4d8a941d74a126197, type: 3}
   footStepCooldown: 0.3
 --- !u!114 &7458199729491798877
 MonoBehaviour:
@@ -870,9 +869,9 @@ MonoBehaviour:
   chargeStartSFXVolume: 1
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
   shotNormalSFXVolume: 0.75
-  shotNormalSFX: {fileID: 8300000, guid: 001234d4378b3f24db08866c41834149, type: 3}
+  shotNormalSFX: {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
   shotCritSFXVolume: 1
-  shotCritSFX: {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
+  shotCritSFX: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
   fullChargeSFXVolume: 0.5
   fullChargeSFX: {fileID: 8300000, guid: de7d2a5e835b66f439a9e00e084c0ecc, type: 3}
 --- !u!114 &7526024727622985597
