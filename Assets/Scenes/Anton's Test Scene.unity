@@ -5073,18 +5073,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 938f2cc833ab10f41b6c69344a4479dd, type: 3}
-    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: 'hurtBoxes.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: shotNormalSFX
       value: 
@@ -5096,6 +5084,10 @@ PrefabInstance:
     - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: maxKnockbackDuration
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: throwLockTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3476416182017539262, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_Layer

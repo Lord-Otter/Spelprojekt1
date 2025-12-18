@@ -6,9 +6,10 @@ public class PlayerAudioVisual : MonoBehaviour
 {
     private PlayerShooter playerShooter;
     private AimController aimController;
+    private PlayerMovement playerMovement;
     private Rigidbody2D rb;
-    [SerializeField] private SpriteRenderer torsoRenderer;
-    [SerializeField] private SpriteRenderer legsRenderer;
+    private SpriteRenderer torsoRenderer;
+    private SpriteRenderer legsRenderer;
 
     [Header("Audio")]
     [SerializeField] [Range(0, 1)] private float footstepsVolume;
@@ -18,8 +19,8 @@ public class PlayerAudioVisual : MonoBehaviour
     [SerializeField] private float footStepCooldown;
 
     [Header("Animation")]
-    [SerializeField] private Animator torsoAnimator;
-    [SerializeField] private Animator legsAnimator;
+    private Animator torsoAnimator;
+    private Animator legsAnimator;
     private string currentTorsoAnimation;
     private string currentLegsAnimation;
     private string lastDirection = "Down";
@@ -29,6 +30,7 @@ public class PlayerAudioVisual : MonoBehaviour
     {
         playerShooter = GetComponent<PlayerShooter>();
         aimController = GetComponent<AimController>();
+        playerMovement = GetComponent<PlayerMovement>();
 
         rb = GetComponent<Rigidbody2D>();
         torsoRenderer = transform.Find("Visual").transform.Find("Torso").GetComponent<SpriteRenderer>();
@@ -78,6 +80,12 @@ public class PlayerAudioVisual : MonoBehaviour
     #region Animation
     private void HandleAnimation()
     {
+        if (playerMovement.State == PlayerMovement.MoveState.Dash)
+        {
+            HandleDashAnimation();
+            return;
+        }
+
         Vector2 moveVel = rb.linearVelocity;
         bool isMoving = moveVel.magnitude > deadzone;
         bool isCharging = playerShooter.State == PlayerShooter.ShootState.Charging;
@@ -120,7 +128,7 @@ public class PlayerAudioVisual : MonoBehaviour
 
         PlayTorsoAnimation(torsoAnim);
 
-        if (!isMoving)
+        if (!isMoving && !isCharging)
         {
             legsRenderer.enabled = false;
             return;
@@ -128,21 +136,31 @@ public class PlayerAudioVisual : MonoBehaviour
 
         legsRenderer.enabled = true;
 
-        string moveDir = GetDirectionFromVelocity(moveVel);
-        bool movingOpposite = IsMovingOppositeOfAim(moveVel, aimController.aimAngle);
+        legsAnimator.speed = isCharging ? 0.5f : 1f;
 
-        string legsAnim;
-
-        if (movingOpposite)
+        if (isCharging && !isMoving)
         {
-            legsAnim = $"back_{moveDir}_legs";
+            string idleDir = GetDirectionFromAngle(aimController.aimAngle);
+            PlayLegsAnimation($"idle_{idleDir}_legs");
+            return;
+        }
+
+        string moveDir = GetDirectionFromVelocity(moveVel);
+
+        if (isCharging)
+        {
+            bool movingOpposite = IsMovingOppositeOfAim(moveVel, aimController.aimAngle);
+
+            string legsAnim = movingOpposite
+                ? $"back_{moveDir}_legs"
+                : $"run_{moveDir}_legs";
+
+            PlayLegsAnimation(legsAnim);
         }
         else
         {
-            legsAnim = $"run_{moveDir}_legs";
+            PlayLegsAnimation($"run_{moveDir}_legs");
         }
-
-        PlayLegsAnimation(legsAnim);
 
         /*
         // If idle
@@ -261,5 +279,25 @@ public class PlayerAudioVisual : MonoBehaviour
         float dot = Vector2.Dot(aimDir, velocity);
 
         return dot < -0.1f; // moving against aim
+    }
+
+    private void HandleDashAnimation()
+    {
+        // Disable legs during dash
+        legsRenderer.enabled = false;
+
+        Vector2 dashDir = rb.linearVelocity;
+
+        if (dashDir.sqrMagnitude < 0.01f)
+            return;
+
+        string dir = GetDirectionFromVelocity(dashDir);
+        string dashAnim = $"dash_{dir}";
+
+        if (currentTorsoAnimation == dashAnim)
+            return;
+
+        currentTorsoAnimation = dashAnim;
+        torsoAnimator.Play(dashAnim);
     }
 }
