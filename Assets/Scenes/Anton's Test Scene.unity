@@ -5082,21 +5082,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 938f2cc833ab10f41b6c69344a4479dd, type: 3}
     - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: deathSoundVolume
-      value: 0.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: hurtSoundsVolume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: 'hurtBoxes.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: shotCritSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
     - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: shotNormalSFX
       value: 
@@ -5104,10 +5092,6 @@ PrefabInstance:
     - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: projectileRange
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: shotNormalSFXVolume
-      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: maxKnockbackDuration
