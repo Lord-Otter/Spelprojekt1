@@ -999,18 +999,18 @@ MonoBehaviour:
   headOffset: -0.5
   shaftOffset: -0.79
   flashDuration: 0.1
-  chargeStartSFXVolume: 0.8
+  chargeStartSFXVolume: 0.5
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
-  shotNormalSFXVolume: 0.4
+  shotNormalSFXVolume: 0.3
   shotNormalSFX:
   - {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
   - {fileID: 8300000, guid: 0ed152c24970dbe408a6b104d7bb9ace, type: 3}
   - {fileID: 8300000, guid: e93098d7e9abed944b97baf19f220d80, type: 3}
   - {fileID: 8300000, guid: 0cd06cd58454b0d448a7e89bd37751ab, type: 3}
   - {fileID: 8300000, guid: 56b3673528d4970489d7babeb61c5a53, type: 3}
-  shotCritSFXVolume: 0.75
+  shotCritSFXVolume: 0.6
   shotCritSFX: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
-  fullChargeSFXVolume: 0.51
+  fullChargeSFXVolume: 0.3
   fullChargeSFX: {fileID: 8300000, guid: de7d2a5e835b66f439a9e00e084c0ecc, type: 3}
 --- !u!114 &7526024727622985597
 MonoBehaviour:
