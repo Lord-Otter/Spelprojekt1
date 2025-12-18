@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -80,7 +81,7 @@ namespace Spelprojekt1
         [SerializeField] [Range(0, 1)] private float chargeStartSFXVolume;
         [SerializeField] private AudioClip chargeStartSFX;
         [SerializeField] [Range(0, 1)] private float shotNormalSFXVolume;
-        [SerializeField] private AudioClip shotNormalSFX;
+        [SerializeField] private List<AudioClip> shotNormalSFX;
         [SerializeField] [Range(0, 1)] private float shotCritSFXVolume;
         [SerializeField] private AudioClip shotCritSFX;
         [SerializeField] [Range(0, 1)] private float fullChargeSFXVolume;
@@ -331,7 +332,7 @@ namespace Spelprojekt1
             }
             else
             {
-                SFXManager.instance.PlaySFXClip(shotNormalSFX, transform, shotNormalSFXVolume);
+                SFXManager.instance.PlayRandomSFXClip(shotNormalSFX, transform, shotNormalSFXVolume);
             }
 
             // Instantiate Projectile

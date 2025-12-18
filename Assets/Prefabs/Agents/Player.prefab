@@ -584,6 +584,134 @@ MonoBehaviour:
   stickMaxDistanceY: 1.75
   stickYBias: 1
   stickSpeed: 2.5
+--- !u!1 &6713046527161903415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7569942846778967757}
+  - component: {fileID: 7042522102462903195}
+  - component: {fileID: 1701892165450681016}
+  - component: {fileID: 5659964270980900453}
+  m_Layer: 0
+  m_Name: CinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7569942846778967757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713046527161903415}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7551704989850069933}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7042522102462903195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713046527161903415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 8578675626271505909}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 34
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!114 &1701892165450681016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713046527161903415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraDistance: 10
+  DeadZoneDepth: 0
+  Composition:
+    ScreenPosition: {x: 0, y: 0}
+    DeadZone:
+      Enabled: 0
+      Size: {x: 0.2, y: 0.2}
+    HardLimits:
+      Enabled: 0
+      Size: {x: 0.8, y: 0.8}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 0, z: 0}
+  Damping: {x: 0, y: 0, z: 0}
+  Lookahead:
+    Enabled: 1
+    Time: 0
+    Smoothing: 0
+    IgnoreY: 0
+--- !u!114 &5659964270980900453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713046527161903415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundingShape2D: {fileID: 0}
+  Damping: 0.5
+  SlowingDistance: 5
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0
+    Padding: 0
+  m_LegacyMaxWindowSize: -2
 --- !u!1 &7747187642374400978
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +843,7 @@ Transform:
   - {fileID: 6342644754734724773}
   - {fileID: 8124438448034666009}
   - {fileID: 4025647713205520305}
+  - {fileID: 7569942846778967757}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1968600153998333994
@@ -755,6 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57330ed4de56a9b4d82bc1f8461e2b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torsoRenderer: {fileID: 0}
+  legsRenderer: {fileID: 0}
   footstepsVolume: 0.3
   footsteps:
   - {fileID: 8300000, guid: bfd201b08ed655345b6ff0b0f542f17f, type: 3}
@@ -763,6 +894,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1ebaad9aaf87e714092540829de1823f, type: 3}
   - {fileID: 8300000, guid: de37869f33327ce4d8a941d74a126197, type: 3}
   footStepCooldown: 0.3
+  torsoAnimator: {fileID: 0}
+  legsAnimator: {fileID: 0}
 --- !u!114 &7458199729491798877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,7 +1002,10 @@ MonoBehaviour:
   chargeStartSFXVolume: 1
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
   shotNormalSFXVolume: 0.75
-  shotNormalSFX: {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
+  shotNormalSFX:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   shotCritSFXVolume: 0.75
   shotCritSFX: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
   fullChargeSFXVolume: 0.51

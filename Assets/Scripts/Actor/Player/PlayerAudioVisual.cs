@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using Spelprojekt1;
 using UnityEngine;
 
 public class PlayerAudioVisual : MonoBehaviour
 {
+    private PlayerShooter playerShooter;
+    private AimController aimController;
     private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer torsoRenderer;
     [SerializeField] private SpriteRenderer legsRenderer;
@@ -23,6 +26,9 @@ public class PlayerAudioVisual : MonoBehaviour
 
     void Awake()
     {
+        playerShooter = GetComponent<PlayerShooter>();
+        aimController = GetComponent<AimController>();
+
         rb = GetComponent<Rigidbody2D>();
         torsoRenderer = transform.Find("Visual").transform.Find("Torso").GetComponent<SpriteRenderer>();
         legsRenderer = transform.Find("Visual").transform.Find("Legs").GetComponent<SpriteRenderer>();
@@ -71,8 +77,45 @@ public class PlayerAudioVisual : MonoBehaviour
     #region Animation
     private void HandleAnimation()
     {
-        Vector2 vel = rb.linearVelocity;
-        
+        Vector2 moveVel = rb.linearVelocity;
+        bool isMoving = moveVel.magnitude > deadzone;
+        bool isCharging = playerShooter.State == PlayerShooter.ShootState.Charging;
+
+        string aimDir = GetDirectionFromAngle(aimController.aimAngle);
+        string torsoAnim;
+
+        if (isCharging)
+        {
+            torsoAnim = $"attack_{aimDir.ToLower()}_torso";
+        }
+        else if (isMoving)
+        {
+            torsoAnim = $"run_{aimDir.ToLower()}_torso";
+        }
+        else
+        {
+            torsoAnim = "idle";
+        }
+
+        PlayAnimation(torsoAnimator, torsoAnim);
+
+        if (!isMoving)
+        {
+            legsRenderer.enabled = false;
+            return;
+        }
+
+        legsRenderer.enabled = true;
+
+        //string moveDir = GetDirectionFromVelocity(moveVel);
+        //string legsAnim = $"run_{moveDir.ToLower()}_legs";
+
+        //PlayAnimation(legsAnimator, legsAnim);
+
+        //bool movingOpposite = IsMovingOppositeOfAim(moveVel, aimController.aimAngle);
+        //legsAnimator.speed = movingOpposite ? -1f : 1f;
+
+        /*
         // If idle
         if (vel.magnitude < deadzone)
         {
@@ -93,7 +136,7 @@ public class PlayerAudioVisual : MonoBehaviour
         if (absX >= absY)  
         {
             if (vel.x > 0)
-            {
+            {      
                 newAnimTorso = "run_right_torso";
                 newAnimLegs = "run_right_legs";
                 lastDirection = "Right";
@@ -129,8 +172,10 @@ public class PlayerAudioVisual : MonoBehaviour
         }
 
         PlayAnimation(torsoAnimator, newAnimTorso);
-        PlayAnimation(legsAnimator, newAnimLegs);
+        PlayAnimation(legsAnimator, newAnimLegs);*/
     }
+
+
 
     private void PlayAnimation(Animator animator, string animName)
     {
@@ -141,4 +186,14 @@ public class PlayerAudioVisual : MonoBehaviour
         animator.Play(animName);
     }
     #endregion
+
+    private string GetDirectionFromAngle(float angle)
+    {
+        angle = Mathf.Repeat(angle + 360f, 360f);
+
+        if (angle >= 45f && angle < 135f) return "Up";
+        if (angle >= 135f && angle < 225f) return "Left";
+        if (angle >= 225f && angle < 315f) return "Down";
+        return "Right";
+    }
 }
