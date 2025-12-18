@@ -999,9 +999,9 @@ MonoBehaviour:
   headOffset: -0.5
   shaftOffset: -0.79
   flashDuration: 0.1
-  chargeStartSFXVolume: 1
+  chargeStartSFXVolume: 0.8
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
-  shotNormalSFXVolume: 0.75
+  shotNormalSFXVolume: 0.4
   shotNormalSFX:
   - {fileID: 8300000, guid: 8e0f814eabdbb8d4492eee3a7548faac, type: 3}
   - {fileID: 8300000, guid: 0ed152c24970dbe408a6b104d7bb9ace, type: 3}
