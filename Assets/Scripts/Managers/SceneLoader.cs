@@ -1,5 +1,4 @@
-using System.Collections.Generic; 
-using Microsoft.Unity.VisualStudio.Editor; 
+using System.Collections.Generic;
 using UnityEngine; using UnityEngine.SceneManagement; 
 public class SceneLoader : MonoBehaviour 
 { 
