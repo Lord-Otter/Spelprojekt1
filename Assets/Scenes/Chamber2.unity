@@ -3264,6 +3264,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1320674242}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGameScene
+      objectReference: {fileID: 0}
     - target: {fileID: 3626103937230966781, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7050,6 +7058,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+--- !u!114 &1320674242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+  m_PrefabInstance: {fileID: 1320674241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a850b31aee0d81f44a8a8be326871631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1352017478
 GameObject:
   m_ObjectHideFlags: 0

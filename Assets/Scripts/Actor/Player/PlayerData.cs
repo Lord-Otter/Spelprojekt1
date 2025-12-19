@@ -23,6 +23,7 @@ namespace Spelprojekt1
         public void ResetRun()
         {
             stats.Reset();
+            stats.currentHealth = 6;
         }
     }
 }
