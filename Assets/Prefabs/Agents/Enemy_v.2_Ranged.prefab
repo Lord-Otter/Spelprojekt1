@@ -110,7 +110,7 @@ MonoBehaviour:
   sightWidth: 0.2
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 2112
+    m_Bits: 2048
   endReachedDistanceInSight: 5
   endReachedDistanceOutOfSight: 2
 --- !u!114 &7980217663390722334

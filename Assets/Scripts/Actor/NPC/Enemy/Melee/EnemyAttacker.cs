@@ -150,6 +150,8 @@ namespace Spelprojekt1
             if(hasAttacked)
                 return;
 
+            SFXManager.instance.PlayRandomSFXClip(shootSounds, transform, shootSoundsVolume);
+
             aiPath.enabled = false;
             rb.linearVelocity = Vector2.zero;
 

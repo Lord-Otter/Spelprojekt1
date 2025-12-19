@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974b46e4deb139645a6d1e422305fa71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneLoader: {fileID: 0}
   spawnMode: 1
   spawnPoints: []
   spawnArea: {fileID: 1878712617173782390}
@@ -70,13 +71,13 @@ MonoBehaviour:
   maxSpawnAttempts: 20
   spawnPointPrefab: {fileID: 5867278344323585633, guid: d0b044fc9ce13e44caf37a613ef72273, type: 3}
   baseEnemiesPerWave: 3
-  enemiesPerWave: 3
+  enemiesPerWave: 1
   enemyIncreasePerWave: 1
   spawnDelay: 0.25
   delayBetweenWaves: 3
   maxWaves: 3
   currentWave: 0
-  spawnWarningTime: 3
+  spawnWarningTime: 1
   enemyPrefabs:
   - {fileID: 4558438187167674206, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
   - {fileID: 967611885315125264, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
