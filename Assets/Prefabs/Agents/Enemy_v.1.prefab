@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1114776526189084264}
   - component: {fileID: 3466077684706408392}
   - component: {fileID: 6903597275669056727}
+  - component: {fileID: 2946695340602082975}
   m_Layer: 8
   m_Name: Enemy_v.1
   m_TagString: Enemy
@@ -150,12 +151,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80664cde82531f349be82d7a8d47d16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   projectilePrefab: {fileID: 7407424971226695597, guid: 673ee27374b0d33418d4754c375b4a6d, type: 3}
   firePoint: {fileID: 4150731801605890273}
-  minShootTime: 2
-  maxShootTime: 4
   projectileDamage: 0
   projectileSpeed: 3
+  minShootTime: 2
+  maxShootTime: 4
+  aimTime: 0
+  holdingTime: 0
   shootSoundsVolume: 0.3
   shootSounds:
   - {fileID: 8300000, guid: df43816db73be0d4989a8d79fd26be83, type: 3}
@@ -280,6 +284,30 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.75
+--- !u!114 &2946695340602082975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978245863105396949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288366f3bbcd2c349bcba8c8eaf0fa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 0
+  attackRange: 5
+  attackMoveSpeed: 0
+  attackDuration: 0
+  minAttackCooldown: 2
+  maxAttackCooldown: 5
+  telegraphingTime: 0
+  shootSoundsVolume: 0.3
+  shootSounds:
+  - {fileID: 8300000, guid: df43816db73be0d4989a8d79fd26be83, type: 3}
+  - {fileID: 8300000, guid: 141a74d776e2aa9478ee3d9cbf79665c, type: 3}
+  - {fileID: 8300000, guid: 1cb067b978cf32543ac47812e75fc777, type: 3}
 --- !u!1 &8191002989545352064
 GameObject:
   m_ObjectHideFlags: 0

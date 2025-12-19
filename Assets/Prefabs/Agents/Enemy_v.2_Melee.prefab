@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 5589271416774634574}
   - component: {fileID: 2046471503786190278}
   - component: {fileID: 4022668585450787755}
+  - component: {fileID: 8485315989270470347}
   m_Layer: 8
   m_Name: Enemy_v.2_Melee
   m_TagString: Enemy
@@ -91,9 +92,9 @@ MonoBehaviour:
   canTakeDamage: 1
   hurtSoundsVolume: 0.3
   hurtSounds:
-  - {fileID: 8300000, guid: 3a291ee0d9434cf47bbf83cf33ff2860, type: 3}
-  - {fileID: 8300000, guid: e2c810c904c4ffb42b63135cddd3740f, type: 3}
-  - {fileID: 8300000, guid: c1b026049e037894292f6eb7421953ec, type: 3}
+  - {fileID: 8300000, guid: 421398cb7d2b6e343a8447f9b2be30a4, type: 3}
+  - {fileID: 8300000, guid: 641ce5dab2280234ca6b5f49a5061c3c, type: 3}
+  - {fileID: 8300000, guid: b93820ead6c065c4dbf355a0b6fc8324, type: 3}
   deathSoundsVolume: 0.3
   deathSounds:
   - {fileID: 8300000, guid: d48bc244b8a83b64fafdba92c1f8fb89, type: 3}
@@ -118,8 +119,11 @@ MonoBehaviour:
   minAttackCooldown: 2
   maxAttackCooldown: 5
   telegraphingTime: 0.5
-  shootSoundsVolume: 0
-  shootSounds: []
+  shootSoundsVolume: 0.45
+  shootSounds:
+  - {fileID: 8300000, guid: df43816db73be0d4989a8d79fd26be83, type: 3}
+  - {fileID: 8300000, guid: 141a74d776e2aa9478ee3d9cbf79665c, type: 3}
+  - {fileID: 8300000, guid: 1cb067b978cf32543ac47812e75fc777, type: 3}
 --- !u!114 &4929721924108302974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +329,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0.032945633, y: 0}
   m_Size: {x: 0.21, y: 0.19}
   m_Direction: 0
+--- !u!114 &8485315989270470347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558438187167674206}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80664cde82531f349be82d7a8d47d16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  projectileDamage: 0
+  projectileSpeed: 0
+  minShootTime: 1
+  maxShootTime: 3
+  aimTime: 0
+  holdingTime: 0
+  shootSoundsVolume: 0.3
+  shootSounds:
+  - {fileID: 8300000, guid: df43816db73be0d4989a8d79fd26be83, type: 3}
+  - {fileID: 8300000, guid: 141a74d776e2aa9478ee3d9cbf79665c, type: 3}
+  - {fileID: 8300000, guid: 1cb067b978cf32543ac47812e75fc777, type: 3}
 --- !u!1 &6634913467528142964
 GameObject:
   m_ObjectHideFlags: 0
