@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5141224000709351587, guid: ec14804dabdd80b4b80593bbc320e5cb, type: 3}
+      propertyPath: baseEnemiesPerWave
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6679291511273535479, guid: ec14804dabdd80b4b80593bbc320e5cb, type: 3}
       propertyPath: pauseMenuPanel
       value: 

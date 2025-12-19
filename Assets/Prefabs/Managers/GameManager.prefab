@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5139942030649523152}
   - component: {fileID: 8834721075739126541}
   - component: {fileID: 5141224000709351587}
+  - component: {fileID: 1878712617173782390}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDataPrefab: {fileID: 1083099476366089979, guid: 1c9c2a232760aa8499ffda9ab719534e, type: 3}
+  enemyRunDataPrefab: {fileID: 4258989343637287343, guid: bc753870f0872b141a950b3ec0c8a6c9, type: 3}
 --- !u!114 &5141224000709351587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,9 +60,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974b46e4deb139645a6d1e422305fa71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cornerA: {x: -4, y: -10.5}
-  cornerB: {x: 14, y: 1.75}
-  minSpawnTime: 2
-  maxSpawnTime: 4
-  enemyPrefab: {fileID: 967611885315125264, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
-  maxEnemies: 10
+  spawnMode: 1
+  spawnPoints: []
+  spawnArea: {fileID: 1878712617173782390}
+  blockedSpawnLayers:
+    serializedVersion: 2
+    m_Bits: 2112
+  spawnCheckRadius: 0.4
+  maxSpawnAttempts: 20
+  spawnPointPrefab: {fileID: 5867278344323585633, guid: d0b044fc9ce13e44caf37a613ef72273, type: 3}
+  baseEnemiesPerWave: 3
+  enemiesPerWave: 3
+  enemyIncreasePerWave: 1
+  spawnDelay: 0.25
+  delayBetweenWaves: 3
+  maxWaves: 3
+  currentWave: 0
+  spawnWarningTime: 3
+  enemyPrefabs:
+  - {fileID: 4558438187167674206, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
+  - {fileID: 967611885315125264, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
+  enemiesKilled: 0
+--- !u!60 &1878712617173782390
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379072696627834370}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 15.436743, y: 4.6103964}
+      - {x: 15.823385, y: 21.907982}
+      - {x: 3.9298587, y: 21.956326}
+      - {x: 3.7569437, y: 32.631035}
+      - {x: -3.9171429, y: 32.121933}
+      - {x: -4.1136065, y: 22.232277}
+      - {x: -14.983168, y: 21.048496}
+      - {x: -15.471801, y: 4.585999}
+      - {x: -3.6198807, y: 4.312253}
+      - {x: -3.4347253, y: -4.9904256}
+      - {x: -14.041154, y: -4.7585955}
+      - {x: -14.749772, y: -21.126516}
+      - {x: -3.6316662, y: -20.636452}
+      - {x: -3.8398383, y: -31.463509}
+      - {x: 3.535127, y: -31.46436}
+      - {x: 3.6424503, y: -21.049093}
+      - {x: 15.158876, y: -21.30691}
+      - {x: 14.80473, y: -5.5015936}
+      - {x: 3.6870646, y: -4.1235247}
+      - {x: 3.7920618, y: 4.4844365}
+  m_UseDelaunayMesh: 0

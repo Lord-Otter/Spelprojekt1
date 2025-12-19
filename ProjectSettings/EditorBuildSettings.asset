@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/MainMenu.unity
     guid: 9f09319c7f26b444c97510f5e17c4a7f
   - enabled: 1
-    path: Assets/Scenes/Chamber 1.unity
+    path: Assets/Scenes/Chamber1.unity
     guid: edf95d8c07c220f49bb878e07ec1e8c0
   - enabled: 1
-    path: Assets/Scenes/Chamber 2.unity
+    path: Assets/Scenes/Chamber2.unity
     guid: a14db18885f60ae4d98a53d53a585f6a
   - enabled: 1
-    path: Assets/Scenes/Chamber 3.unity
+    path: Assets/Scenes/Chamber3.unity
     guid: e7eb12e4684d3be41b19fe6fd2c83818
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
