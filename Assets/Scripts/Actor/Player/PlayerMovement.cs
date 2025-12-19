@@ -225,5 +225,10 @@ namespace Spelprojekt1
         {
             dashCooldownTimer -= Time.deltaTime;
         }
+
+        public void DisableMovementOnDeath()
+        {
+            MovementLocked = true;
+        }
     }
 }
