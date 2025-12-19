@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a850b31aee0d81f44a8a8be326871631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackScreenCanvas: {fileID: 5431127046005595081, guid: 7cd169768fa067d45b46e61f4855ec41, type: 3}
   randomScenes:
-  - Chamber 1
-  - Chamber 2
-  - Chamber 3
+  - Chamber1
+  - Chamber2
+  - Chamber3
