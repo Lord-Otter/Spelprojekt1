@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Milla-MainMenu.unity
     guid: 1a54331d8ea0685468b9e56d3283c4d2
   - enabled: 1
+    path: Assets/Scenes/Charlie Scene.unity
+    guid: 3b730f8f0e98ce34790fd0af2d237f2c
+  - enabled: 1
     path: Assets/Scenes/Chamber1.unity
     guid: edf95d8c07c220f49bb878e07ec1e8c0
   - enabled: 1
