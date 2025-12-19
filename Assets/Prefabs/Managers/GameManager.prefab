@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5139942030649523152}
   - component: {fileID: 8834721075739126541}
+  - component: {fileID: 6485170785353126550}
   - component: {fileID: 5141224000709351587}
   - component: {fileID: 1878712617173782390}
   m_Layer: 0
@@ -48,6 +49,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDataPrefab: {fileID: 1083099476366089979, guid: 1c9c2a232760aa8499ffda9ab719534e, type: 3}
   enemyRunDataPrefab: {fileID: 4258989343637287343, guid: bc753870f0872b141a950b3ec0c8a6c9, type: 3}
+--- !u!114 &6485170785353126550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379072696627834370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bc9a886f773c743a9291f72230fa60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 5141224000709351587}
+  waveText: {fileID: 0}
+  totalEnemiesText: {fileID: 0}
+  enemiesLeftText: {fileID: 0}
 --- !u!114 &5141224000709351587
 MonoBehaviour:
   m_ObjectHideFlags: 0

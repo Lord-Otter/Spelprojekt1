@@ -49,6 +49,11 @@ public class EnemySpawner : MonoBehaviour
     private int currentEnemies = 0;
     [SerializeField] private int enemiesKilled = 0;
 
+    public int CurrentWave => currentWave;
+    public int MaxWaves => maxWaves;
+    public int EnemiesPerWave => enemiesPerWave;
+    public int CurrentEnemies => currentEnemies;
+
     private void Awake()
     {
         sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();

@@ -3828,6 +3828,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &406510451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 558953236277478402, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+  m_PrefabInstance: {fileID: 1746743301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &502225550
 GameObject:
   m_ObjectHideFlags: 0
@@ -7908,6 +7919,18 @@ PrefabInstance:
       propertyPath: randomScenes.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+      propertyPath: waveText
+      value: 
+      objectReference: {fileID: 2013616392}
+    - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+      propertyPath: enemiesLeftText
+      value: 
+      objectReference: {fileID: 1086710617}
+    - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+      propertyPath: totalEnemiesText
+      value: 
+      objectReference: {fileID: 406510451}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8029,6 +8052,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a850b31aee0d81f44a8a8be326871631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1086710617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1729439678969604247, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+  m_PrefabInstance: {fileID: 1746743301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1746743301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8037,6 +8071,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1568402684324850498, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1596467403096114724, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8076,6 +8114,10 @@ PrefabInstance:
     - target: {fileID: 5463527359453766003, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_Name
       value: -----CANVASES-----
+      objectReference: {fileID: 0}
+    - target: {fileID: 6098514062555354494, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_Name
+      value: HUDCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 7432622855895408465, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8191,6 +8233,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de0e9c3b1651bf4ab053816c889d4d6, type: 3}
+--- !u!114 &2013616392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7692285392325026488, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+  m_PrefabInstance: {fileID: 1746743301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2040236416
 GameObject:
   m_ObjectHideFlags: 0
