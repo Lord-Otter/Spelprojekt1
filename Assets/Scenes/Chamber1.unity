@@ -6490,6 +6490,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a850b31aee0d81f44a8a8be326871631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &377194523 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6944093994950478265, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+  m_PrefabInstance: {fileID: 1144360919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21738c3efabb3b488ecf7e545efb968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &581892906
 GameObject:
   m_ObjectHideFlags: 0
@@ -10630,6 +10641,14 @@ PrefabInstance:
     - target: {fileID: 1596467403096114724, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294861255481982331, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 377194523}
+    - target: {fileID: 2294861255481982331, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleNoClip
       objectReference: {fileID: 0}
     - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
