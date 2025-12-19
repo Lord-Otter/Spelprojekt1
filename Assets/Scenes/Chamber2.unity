@@ -3329,6 +3329,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+--- !u!114 &136451856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7281092143531423749, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+  m_PrefabInstance: {fileID: 136451855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &136451857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8847985032149521552, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+  m_PrefabInstance: {fileID: 136451855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &136451858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1714721698589487658, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+  m_PrefabInstance: {fileID: 136451855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &273682069 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1134454586220653999, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
@@ -7000,6 +7033,18 @@ PrefabInstance:
       propertyPath: 'randomScenes.Array.data[1]'
       value: Chamber3
       objectReference: {fileID: 0}
+    - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+      propertyPath: waveText
+      value: 
+      objectReference: {fileID: 136451858}
+    - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+      propertyPath: enemiesLeftText
+      value: 
+      objectReference: {fileID: 136451856}
+    - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+      propertyPath: totalEnemiesText
+      value: 
+      objectReference: {fileID: 136451857}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
