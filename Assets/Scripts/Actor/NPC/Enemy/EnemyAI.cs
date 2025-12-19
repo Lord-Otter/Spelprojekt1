@@ -30,8 +30,8 @@ namespace Spelprojekt1
         [SerializeField] private LayerMask obstacleLayer;
 
         [Header("Pathfinding")]
-        [SerializeField] private float endReachedDistanceInSight = 5f;
-        [SerializeField] private float endReachedDistanceOutOfSight = 2f;
+        [SerializeField] protected float endReachedDistanceInSight = 5f;
+        [SerializeField] protected float endReachedDistanceOutOfSight = 2f;
         private bool playerInSightLastFrame;
         
 

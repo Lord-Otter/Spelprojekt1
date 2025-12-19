@@ -84,6 +84,15 @@ namespace Spelprojekt1
                 enemyAI.ApplyKnockback(knockbackDirection, knockbackForce, knockbackDuration);
             }
 
+            if(other.TryGetComponent(out EnemyAIMelee enemyAIMelee))
+            {
+                float angleInRadians = Mathf.Deg2Rad * transform.eulerAngles.z;
+
+                Vector2 knockbackDirection = new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians)).normalized;
+
+                enemyAIMelee.ApplyKnockback(knockbackDirection, knockbackForce, knockbackDuration);
+            }
+
             if (!canPierce)
             {
                 Destroy(gameObject);

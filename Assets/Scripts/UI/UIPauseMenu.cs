@@ -46,12 +46,16 @@ namespace Spelprojekt1
 
         public void TogglePause()
         {
+            //GameObject blackScreen = GameObject.Find("ScreenFadeCanvas");
+
             if (CurrentState == PauseState.Gameplay)
             {
+                //blackScreen.SetActive(false);
                 SetState(PauseState.Paused);
             }
             else
             {
+                //blackScreen.SetActive(true);
                 SetState(PauseState.Gameplay);
             }
         }

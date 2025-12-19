@@ -130,7 +130,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: Milla-MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1210497931007245139
@@ -1008,3 +1008,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a850b31aee0d81f44a8a8be326871631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomScenes: []
