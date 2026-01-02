@@ -40,7 +40,7 @@ namespace Spelprojekt1
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out HealthHandler health))
+            if (other.TryGetComponent(out HealthHandler health) && other.CompareTag("Player"))
             {
                 health.TakeDamage(1);
             }

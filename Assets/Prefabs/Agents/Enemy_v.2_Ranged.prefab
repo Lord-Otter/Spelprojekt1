@@ -83,7 +83,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7407424971226695597, guid: 673ee27374b0d33418d4754c375b4a6d, type: 3}
   firePoint: {fileID: 1685880545041600307}
   projectileDamage: 1
-  projectileSpeed: 10
+  projectileSpeed: 7.5
   minShootTime: 1
   maxShootTime: 3
   aimTime: 0.5

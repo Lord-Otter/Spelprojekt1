@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 2046471503786190278}
   - component: {fileID: 4022668585450787755}
   m_Layer: 8
-  m_Name: Enemy_v.2_Melee
+  m_Name: Enemy_v.2_Normal_Melee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,7 +405,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 108
-  m_Sprite: {fileID: -4901880851292666066, guid: b204b0664b68e4d4e9cfca2c8792dc22, type: 3}
+  m_Sprite: {fileID: -5172245601092400642, guid: 4b9d3b3a60978d142a6f38d2668fccc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -426,7 +426,7 @@ Animator:
   m_GameObject: {fileID: 6634913467528142964}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 754b5e8fb44917f4fbba94970edf371e, type: 2}
+  m_Controller: {fileID: 9100000, guid: bacc3e71257291b488e0662512b32b01, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

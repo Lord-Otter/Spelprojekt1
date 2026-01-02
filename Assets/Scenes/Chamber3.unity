@@ -8200,6 +8200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: -----MANAGERS-----
       objectReference: {fileID: 0}
+    - target: {fileID: 5137380855381012777, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5949608093514104158, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8255,7 +8259,7 @@ PrefabInstance:
     - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
       propertyPath: totalEnemiesText
       value: 
-      objectReference: {fileID: 1746743303}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8445,17 +8449,6 @@ PrefabInstance:
 --- !u!114 &1746743302 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7281092143531423749, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-  m_PrefabInstance: {fileID: 1746743301}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1746743303 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8847985032149521552, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
   m_PrefabInstance: {fileID: 1746743301}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
