@@ -89,6 +89,8 @@ MonoBehaviour:
   maxHealth: 250
   currentHealth: 0
   canTakeDamage: 1
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
   hurtSoundsVolume: 0.3
   hurtSounds:
   - {fileID: 8300000, guid: 421398cb7d2b6e343a8447f9b2be30a4, type: 3}
@@ -384,7 +386,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e300571e1dee0864b86074552714db41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

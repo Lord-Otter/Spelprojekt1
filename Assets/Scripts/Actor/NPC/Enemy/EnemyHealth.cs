@@ -23,6 +23,7 @@ namespace Spelprojekt1
 
         protected override void HandleDamage()
         {
+            base.HandleDamage();
             // Play Damage SFX
             SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume);
 

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 9199390105603642524}
   - component: {fileID: 8249117555724314513}
   m_Layer: 8
-  m_Name: Enemy_v.2_Ranged
+  m_Name: Enemy_v.2_Normal_Ranged
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,6 +57,8 @@ MonoBehaviour:
   maxHealth: 250
   currentHealth: 0
   canTakeDamage: 1
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
   hurtSoundsVolume: 0.3
   hurtSounds:
   - {fileID: 8300000, guid: 3a291ee0d9434cf47bbf83cf33ff2860, type: 3}
@@ -417,7 +419,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e300571e1dee0864b86074552714db41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

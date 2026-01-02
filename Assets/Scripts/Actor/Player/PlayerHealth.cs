@@ -112,6 +112,7 @@ public class PlayerHealth : HealthHandler
 
     protected override void HandleDamage()
     {
+        base.HandleDamage();
         // Update UI
         // Play damage effects. Screen, particles, sprite, animation, etc.
         //CameraShaker.Instance.ShakeOnce(1, 1, 0.25f, 0.25f);

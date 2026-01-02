@@ -255,7 +255,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e300571e1dee0864b86074552714db41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -563,7 +563,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e300571e1dee0864b86074552714db41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -990,7 +990,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 5
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1209,6 +1209,8 @@ MonoBehaviour:
   maxHealth: 6
   currentHealth: 0
   canTakeDamage: 1
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashTime: 0.25
   gameOverScreen: {fileID: 9214047767799123488, guid: 6325000fa2ddd93438a791a8452bad25, type: 3}
   takeDamageCooldown: 0.5
   OnPlayerDiedEvent:
