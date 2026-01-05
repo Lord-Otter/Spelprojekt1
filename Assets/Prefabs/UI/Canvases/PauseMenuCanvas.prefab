@@ -2547,9 +2547,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadGameScene
+      - m_Target: {fileID: 7557266368879171259}
+        m_TargetAssemblyTypeName: Spelprojekt1.UIPauseMenu, Assembly-CSharp
+        m_MethodName: ExitToMainMenu
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2557,6 +2557,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Milla-MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7557266368879171259}
+        m_TargetAssemblyTypeName: Spelprojekt1.UIPauseMenu, Assembly-CSharp
+        m_MethodName: OpenGameplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5413551959538653477}
+        m_TargetAssemblyTypeName: Unstuck, Assembly-CSharp
+        m_MethodName: EnableNoClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6477778914403112101
@@ -3105,7 +3129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21738c3efabb3b488ecf7e545efb968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliders: []
   onTextObject: {fileID: 4856612958120235926}
   offTextObject: {fileID: 1820702945347115635}
 --- !u!223 &2196620497835638937
@@ -3129,7 +3152,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &8623188358578721964
 MonoBehaviour:

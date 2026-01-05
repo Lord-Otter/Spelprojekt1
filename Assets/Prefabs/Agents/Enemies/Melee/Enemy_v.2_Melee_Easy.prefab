@@ -20,9 +20,13 @@ PrefabInstance:
       propertyPath: telegraphingTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1459426494609731555, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
+      propertyPath: maxHealth
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 4558438187167674206, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
       propertyPath: m_Name
-      value: Enemy_v.2_Easy_Melee
+      value: Enemy_v.2_Melee_Easy
       objectReference: {fileID: 0}
     - target: {fileID: 6289026639856963167, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
       propertyPath: m_Controller

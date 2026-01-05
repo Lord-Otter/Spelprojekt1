@@ -1317,7 +1317,7 @@ MonoBehaviour:
   drag: 100
   chargeMoveSpeedMultiplier: 0.5
   dashSpeed: 15
-  dashDuration: 0.2
+  dashDuration: 0.25
   dashCooldown: 0.5
   excludeLayersDuringDash:
     serializedVersion: 2
