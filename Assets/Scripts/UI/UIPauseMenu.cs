@@ -110,11 +110,12 @@ namespace Spelprojekt1
             SetState(PauseState.ConfirmExit);
         }
 
-        public void ExitToMainMenu()
+        public void ExitToMainMenu(string sceneName)
         {
             Time.timeScale = 1f;
             SetState(PauseState.Gameplay);
-            SceneManager.LoadScene("MainMenu");
+            //SceneManager.LoadScene("MainMenu");
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadGameScene(sceneName);
         }
 
         private void CloseAllMenus()

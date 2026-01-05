@@ -25,6 +25,7 @@ namespace Spelprojekt1
 
         [Tooltip("Maximum time between shots")]
         public float maxShootTime = 3f;
+        [SerializeField] private float attackRange;
 
         private ShooterState currentState = ShooterState.Ready;
         [SerializeField] private float aimTime;
@@ -61,11 +62,13 @@ namespace Spelprojekt1
         {
             stateTimer -= Time.deltaTime;
             RotateAimerTowardsPlayer();
+
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
             
             switch (currentState)
             {
                 case ShooterState.Ready:
-                    if (enemyAI.IsPlayerInSight())
+                    if (enemyAI.IsPlayerInSight() && distanceToPlayer <= attackRange)
                     {
                         TransitionToAiming();
                     }

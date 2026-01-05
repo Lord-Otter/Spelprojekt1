@@ -6479,17 +6479,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &220326949 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-  m_PrefabInstance: {fileID: 973871359}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a850b31aee0d81f44a8a8be326871631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &377194523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6944093994950478265, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
@@ -8939,6 +8928,17 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &772628739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4872439434459809319, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+  m_PrefabInstance: {fileID: 1144360919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9563f0f7d232c42a18084b7b8057e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &801760895
 GameObject:
   m_ObjectHideFlags: 0
@@ -9016,7 +9016,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 14
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16
@@ -10659,9 +10659,41 @@ PrefabInstance:
       value: ToggleNoClip
       objectReference: {fileID: 0}
     - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 220326949}
+      objectReference: {fileID: 772628739}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OpenGameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Spelprojekt1.UIPauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Spelprojekt1.UIPauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3626103937230966781, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10739,7 +10771,8 @@ PrefabInstance:
       value: SetSFXVolume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4251463151802621345, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
