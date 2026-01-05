@@ -3284,6 +3284,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: -----CANVASES-----
       objectReference: {fileID: 0}
+    - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1320674242}
+    - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadGameScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Milla-MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7432622855895408465, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

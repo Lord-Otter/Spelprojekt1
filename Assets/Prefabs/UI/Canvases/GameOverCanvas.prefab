@@ -121,10 +121,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5691814761701317580}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadGameScene
-        m_Mode: 5
+      - m_Target: {fileID: 8997089423778878750}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_text: GAME OVER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e50bb10e69176b54382c6aaaddbd7024, type: 2}
-  m_sharedMaterial: {fileID: -2550205056004646418, guid: e50bb10e69176b54382c6aaaddbd7024, type: 2}
+  m_sharedMaterial: {fileID: -1654332535720435620, guid: e50bb10e69176b54382c6aaaddbd7024, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -905,7 +905,6 @@ GameObject:
   - component: {fileID: 9214047767799123488}
   - component: {fileID: 8839258326796456977}
   - component: {fileID: 3438283626970788773}
-  - component: {fileID: 5691814761701317580}
   m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
@@ -954,7 +953,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 8
   m_TargetDisplay: 0
 --- !u!114 &8839258326796456977
 MonoBehaviour:
@@ -996,17 +995,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5691814761701317580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8997089423778878750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a850b31aee0d81f44a8a8be326871631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blackScreenCanvas: {fileID: 0}
-  randomScenes: []

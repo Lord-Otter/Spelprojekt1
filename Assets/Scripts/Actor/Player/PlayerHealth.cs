@@ -140,7 +140,6 @@ public class PlayerHealth : HealthHandler
         // Disable player control
 
         // Display game over screen
-        Instantiate(gameOverScreen);
 
         // Stop other game processes like enemies.
         // Stopping enemy AI, spawning and showing game over screen can be a function.
