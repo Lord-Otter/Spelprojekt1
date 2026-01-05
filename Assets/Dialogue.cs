@@ -32,7 +32,7 @@ public class Dialogue : MonoBehaviour
         if (currentIndex < dialogue.Count)
         {
             textBox.text = dialogue[currentIndex];
-            //imageBox.sprite = images[currentIndex];
+            imageBox.sprite = images[currentIndex];
         }
         // If we are at the end of the list: run the onEndDialogue-event, reset the index (so that the dialogue can be restarted) and remove this dialog from the next-button
         else

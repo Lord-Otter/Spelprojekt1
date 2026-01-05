@@ -1997,7 +1997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 103129352}
-  imageBox: {fileID: 0}
+  imageBox: {fileID: 437627771}
   nextButton: {fileID: 1253705498}
   dialogue:
   - "1884-05-19  You were killed by the town\u2019s sheriff. It was deliberate, on
