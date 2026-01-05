@@ -47,6 +47,7 @@ public class EnemyRunData : MonoBehaviour
     {
         enemiesKilled = 0;
         scenesCleared = 0;
+        extraEnemiesNextScene = 0;
         totalWavesCleared = 0;
     }
 

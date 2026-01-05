@@ -6,5 +6,6 @@ public class StartButton : MonoBehaviour
     public void StartGame()
     {
         PlayerData.Instance.ResetRun();
+        EnemyRunData.Instance.ResetRun();
     }
 }
