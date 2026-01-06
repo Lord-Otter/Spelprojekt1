@@ -11,8 +11,10 @@ namespace Spelprojekt1
         [SerializeField] private List<AudioClip> deathSounds;
 
         [Header("Damage Particles Settings")]
-        [SerializeField] private ParticleSystem damageParticles;
-        private ParticleSystem damageParticlesInstance;
+        [SerializeField] private ParticleSystem damageParticlesBlood;
+        [SerializeField] private ParticleSystem damageParticlesImpact;
+        private ParticleSystem damageParticlesBloodInstance;
+        private ParticleSystem damageParticlesImpactInstance;
 
         private Transform playerPosition;
 
@@ -68,7 +70,8 @@ namespace Spelprojekt1
             float angle = Mathf.Atan2(-toPlayer.y, -toPlayer.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0, 0, angle);
 
-            damageParticlesInstance = Instantiate(damageParticles, spawnPosition, rotation);
+            damageParticlesBloodInstance = Instantiate(damageParticlesBlood, spawnPosition, rotation);
+            damageParticlesImpactInstance = Instantiate(damageParticlesImpact, spawnPosition, rotation);
         }
     }
 }

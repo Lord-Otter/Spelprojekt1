@@ -28,6 +28,14 @@ PrefabInstance:
       propertyPath: damageParticles
       value: 
       objectReference: {fileID: 5842305034937279613, guid: dfd866b5a5f56e242b17a1383ed1e09c, type: 3}
+    - target: {fileID: 1459426494609731555, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
+      propertyPath: damageParticlesBlood
+      value: 
+      objectReference: {fileID: 5842305034937279613, guid: dfd866b5a5f56e242b17a1383ed1e09c, type: 3}
+    - target: {fileID: 1459426494609731555, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
+      propertyPath: damageParticlesImpact
+      value: 
+      objectReference: {fileID: 4454557171084147023, guid: 9e73ef1c7de02d74b9c0e37bfcbef2e8, type: 3}
     - target: {fileID: 4558438187167674206, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
       propertyPath: m_Name
       value: Enemy_v.2_Melee_Easy

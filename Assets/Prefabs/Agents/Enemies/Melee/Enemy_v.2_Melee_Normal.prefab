@@ -101,7 +101,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d48bc244b8a83b64fafdba92c1f8fb89, type: 3}
   - {fileID: 8300000, guid: 409e446630e60814a8cbb8ab51f54278, type: 3}
   - {fileID: 8300000, guid: 78c977749f6d7af4e910caba22007790, type: 3}
-  damageParticles: {fileID: 5842305034937279613, guid: dfd866b5a5f56e242b17a1383ed1e09c, type: 3}
+  damageParticlesBlood: {fileID: 5842305034937279613, guid: dfd866b5a5f56e242b17a1383ed1e09c, type: 3}
+  damageParticlesImpact: {fileID: 4454557171084147023, guid: 9e73ef1c7de02d74b9c0e37bfcbef2e8, type: 3}
 --- !u!114 &684698214028208158
 MonoBehaviour:
   m_ObjectHideFlags: 0
