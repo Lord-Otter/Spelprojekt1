@@ -10,15 +10,21 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] List<string> dialogue;
     [SerializeField] List<Sprite> images;
+    [SerializeField] AudioSource test;
+    [SerializeField] List<AudioClip> voice;
 
     [SerializeField] private UnityEvent onStartDialogue;
     [SerializeField] private UnityEvent onEndDialogue;
 
     private int currentIndex = -1;
-
+    public void Start()
+    {
+        test = GetComponent<AudioSource>();
+    }
 
     public void NextDialogue()
     {
+        test.Play();
         // If dialogue wasn't started: run the onStartDialogue-event, and add this dialogue to the Next-Button
         if (currentIndex < 0)
         {
@@ -33,6 +39,7 @@ public class Dialogue : MonoBehaviour
         {
             textBox.text = dialogue[currentIndex];
             imageBox.sprite = images[currentIndex];
+            test.clip = voice[currentIndex];
         }
         // If we are at the end of the list: run the onEndDialogue-event, reset the index (so that the dialogue can be restarted) and remove this dialog from the next-button
         else
