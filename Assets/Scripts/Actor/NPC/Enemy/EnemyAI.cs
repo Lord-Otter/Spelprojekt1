@@ -11,7 +11,7 @@ namespace Spelprojekt1
         private Rigidbody2D rb;
         private Seeker seeker;
         private AIPath aiPath;
-        private Path path;
+        //private Path path;
         private AIDestinationSetter aiDestinationSetter;
 
         //[SerializeField] private float speed = 200f; // Unused part of path following
@@ -20,8 +20,8 @@ namespace Spelprojekt1
 
         //[SerializeField] private float nextWaypointDistance = 3f; // Unused part of path following
         
-        int currentWaypoint = 0;
-        bool reachedEndOfPath = false;
+        //int currentWaypoint = 0;
+        //bool reachedEndOfPath = false;
 
         [Header("Line of Sight Settings")]
         [SerializeField] private float sightRange = 10f;

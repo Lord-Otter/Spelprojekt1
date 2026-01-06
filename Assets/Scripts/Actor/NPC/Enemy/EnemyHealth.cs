@@ -9,9 +9,17 @@ namespace Spelprojekt1
         [SerializeField] private List<AudioClip> hurtSounds;
         [SerializeField] [Range(0, 1)] private float deathSoundsVolume;
         [SerializeField] private List<AudioClip> deathSounds;
+
+        [Header("Damage Particles Settings")]
+        [SerializeField] private ParticleSystem damageParticles;
+        private ParticleSystem damageParticlesInstance;
+
+        private Transform playerPosition;
+
         protected override void Start()
         {
             base.Start();
+            playerPosition = GameObject.Find("Player").GetComponent<Transform>();
             canTakeDamage = true;
         }
 
@@ -28,6 +36,8 @@ namespace Spelprojekt1
             SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume);
 
             // Play damage flash and/or animation
+            SpawnDamageParticles();
+
             // Stagger or knockback or canceling attacks or any other feedback
             
         }
@@ -35,6 +45,8 @@ namespace Spelprojekt1
         protected override void HandleDeath()
         {
             SFXManager.instance.PlayRandomSFXClip(deathSounds, transform, deathSoundsVolume);
+            
+            SpawnDamageParticles();
 
             Destroy(gameObject);
         }
@@ -45,6 +57,18 @@ namespace Spelprojekt1
             {
                 health.TakeDamage(1);
             }
+        }
+
+        private void SpawnDamageParticles()
+        {
+            Vector2 toPlayer = (playerPosition.position - transform.position).normalized;
+
+            Vector3 spawnPosition = transform.position + (Vector3)(toPlayer * 1f) + new Vector3(0, 0, -0.5f);
+
+            float angle = Mathf.Atan2(-toPlayer.y, -toPlayer.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+
+            damageParticlesInstance = Instantiate(damageParticles, spawnPosition, rotation);
         }
     }
 }

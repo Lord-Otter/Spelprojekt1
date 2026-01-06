@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 1459426494609731555, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
+      propertyPath: damageParticles
+      value: 
+      objectReference: {fileID: 5842305034937279613, guid: dfd866b5a5f56e242b17a1383ed1e09c, type: 3}
     - target: {fileID: 4558438187167674206, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
       propertyPath: m_Name
       value: Enemy_v.2_Melee_Easy

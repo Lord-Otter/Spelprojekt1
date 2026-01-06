@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -49,6 +50,8 @@ namespace Spelprojekt1
         {
             if(!canTakeDamage)
                 return;
+            
+            Debug.Log("HIT!");
 
             currentHealth -= damage;
             if(currentHealth > 0)
@@ -84,7 +87,6 @@ namespace Spelprojekt1
                 for (int i = 0; i < materials.Length; i++)
                 {
                     materials[i].SetFloat("_FlashAmount", currentFlashAmount);
-                    Debug.Log("Flash");
                 }
 
                 yield return null;
