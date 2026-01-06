@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -22,6 +23,8 @@ namespace Spelprojekt1
         [SerializeField] private LayerMask pierceableLayers;
         
         private Rigidbody2D rb;
+        private SpriteRenderer spriteRenderer;
+        private CircleCollider2D collider;
         private Vector2 direction = new Vector2(0, 1);
         private Vector2 startPosition;
 
@@ -44,6 +47,8 @@ namespace Spelprojekt1
         void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            collider = GetComponent<CircleCollider2D>();
         }
 
         void Update()
@@ -51,7 +56,7 @@ namespace Spelprojekt1
             float traveledDistance = Vector2.Distance(startPosition, transform.position);
             if (traveledDistance >= range)
             {
-                Destroy(gameObject);
+                StartCoroutine(HandleDestruction(this.gameObject));
             }
         }
 
@@ -95,8 +100,19 @@ namespace Spelprojekt1
 
             if (!canPierce)
             {
-                Destroy(gameObject);
+                StartCoroutine(HandleDestruction(gameObject));
             }
+        }
+
+        private IEnumerator HandleDestruction(GameObject gameObject)
+        {
+            spriteRenderer.enabled = false;
+            rb.linearVelocity = Vector2.zero;
+            collider.enabled = false;
+
+            yield return new WaitForSeconds(3);
+
+            Destroy(gameObject);
         }
     }
 }
