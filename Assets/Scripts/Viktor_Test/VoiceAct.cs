@@ -5,42 +5,59 @@ using UnityEngine.UI;
 
 public class VoiceAct : MonoBehaviour
 {
+    [Header("UI References")]
     [SerializeField] private TMPro.TextMeshProUGUI textBox;
     [SerializeField] private Image imageBox;
     [SerializeField] private Button nextButton;
+
+    [Header("Content")]
     [SerializeField] List<string> dialogue;
     [SerializeField] List<Sprite> images;
+    [SerializeField] List<AudioClip> voiceClips; // New list for audio files
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource voiceSource; // Reference to the AudioSource
+
+    [Header("Events")]
     [SerializeField] private UnityEvent onStartDialogue;
     [SerializeField] private UnityEvent onEndDialogue;
 
     private int currentIndex = -1;
 
-
     public void NextDialogue()
     {
-        // If dialogue wasn't started: run the onStartDialogue-event, and add this dialogue to the Next-Button
         if (currentIndex < 0)
         {
             onStartDialogue?.Invoke();
-        //    nextButton?.onClick.AddListener(NextDialogue);
         }
         
-        // Move to the next item in the list of dialogue-lines
+        // Stop the current voice clip if one is playing
+        if (voiceSource != null && voiceSource.isPlaying)
+        {
+            voiceSource.Stop();
+        }
+
         currentIndex++;
-        // If we're not at the end of the list yet: update text in text-box
+
         if (currentIndex < dialogue.Count)
         {
+            // Update Text and Image
             textBox.text = dialogue[currentIndex];
             imageBox.sprite = images[currentIndex];
+
+            // Play the corresponding voice clip
+            if (voiceSource != null && currentIndex < voiceClips.Count && voiceClips[currentIndex] != null)
+            {
+                voiceSource.clip = voiceClips[currentIndex];
+                voiceSource.Play();
+            }
         }
-        // If we are at the end of the list: run the onEndDialogue-event, reset the index (so that the dialogue can be restarted) and remove this dialog from the next-button
         else
         {
             textBox.text = "";
             onEndDialogue?.Invoke();
             currentIndex = -1;
-            nextButton?.onClick.RemoveListener(NextDialogue);
+            // Note: Keep nextButton listener management in your input manager or button click
         }
     }
 }
