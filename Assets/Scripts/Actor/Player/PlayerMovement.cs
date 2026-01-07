@@ -42,8 +42,10 @@ namespace Spelprojekt1
 
         [Header("Audio")]
         [SerializeField] [Range(0, 1)] private float dashSoundVolume;
+        [SerializeField] private bool dashDuckingTrigger = false;
         [SerializeField] private List<AudioClip> dashSounds;
         [SerializeField] [Range(0, 1)] private float fabricSoundVolume; // Test
+        [SerializeField] private bool fabricsDuckingTrigger = false;
         [SerializeField] private List<AudioClip> fabricSounds; // Test
 
         public bool MovementLocked { get; private set; }
@@ -157,8 +159,8 @@ namespace Spelprojekt1
             if(inputDirection.sqrMagnitude <= 0.01f)
                 return;
             
-            SFXManager.instance.PlayRandomSFXClip(dashSounds, transform, dashSoundVolume);
-            SFXManager.instance.PlayRandomSFXClip(fabricSounds, transform, fabricSoundVolume);
+            SFXManager.instance.PlayRandomSFXClip(dashSounds, transform, dashSoundVolume, dashDuckingTrigger);
+            SFXManager.instance.PlayRandomSFXClip(fabricSounds, transform, fabricSoundVolume, fabricsDuckingTrigger);
 
             State = MoveState.Dash;
             dashTimer = dashDuration;

@@ -78,12 +78,16 @@ namespace Spelprojekt1
         private AudioSource chargeSFXInstance;
 
         [SerializeField] [Range(0, 1)] private float chargeStartSFXVolume;
+        [SerializeField] private bool chargeStartDuckingTrigger = false;
         [SerializeField] private AudioClip chargeStartSFX;
         [SerializeField] [Range(0, 1)] private float shotNormalSFXVolume;
+        [SerializeField] private bool shotNormalDuckingTrigger = false;
         [SerializeField] private List<AudioClip> shotNormalSFX;
         [SerializeField] [Range(0, 1)] private float shotCritSFXVolume;
+        [SerializeField] private bool shotCritDuckingTrigger = false;
         [SerializeField] private AudioClip shotCritSFX;
         [SerializeField] [Range(0, 1)] private float fullChargeSFXVolume;
+        [SerializeField] private bool fullChargeDuckingTrigger = false;
         [SerializeField] private AudioClip fullChargeSFX;
 
         private bool wasCharging = false;
@@ -161,7 +165,7 @@ namespace Spelprojekt1
             {
                 if (!wasCharging) // Play charge up SFX while assigning the instance to a variable
                 {
-                    chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, chargeStartSFXVolume);
+                    chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, chargeStartSFXVolume, chargeStartDuckingTrigger);
                     wasCharging = true;
                 }
 
@@ -172,7 +176,7 @@ namespace Spelprojekt1
 
                 if(chargePercent >= 1 && !fullChargeReached)
                 {
-                    SFXManager.instance.PlaySFXClip(fullChargeSFX, transform, fullChargeSFXVolume);
+                    SFXManager.instance.PlaySFXClip(fullChargeSFX, transform, fullChargeSFXVolume, fullChargeDuckingTrigger);
                     fullChargeReached = true;
                 }
 
@@ -327,11 +331,11 @@ namespace Spelprojekt1
             // Play SFX
             if(projectileToUse == projectileCrit)
             {
-                SFXManager.instance.PlaySFXClip(shotCritSFX, transform, shotCritSFXVolume);
+                SFXManager.instance.PlaySFXClip(shotCritSFX, transform, shotCritSFXVolume, shotCritDuckingTrigger);
             }
             else
             {
-                SFXManager.instance.PlayRandomSFXClip(shotNormalSFX, transform, shotNormalSFXVolume);
+                SFXManager.instance.PlayRandomSFXClip(shotNormalSFX, transform, shotNormalSFXVolume, shotNormalDuckingTrigger);
             }
 
             // Instantiate Projectile

@@ -13,6 +13,7 @@ public class PlayerAudioVisual : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] [Range(0, 1)] private float footstepsVolume;
+    [SerializeField] private bool footstepsDuckingTrigger = false;
     [SerializeField] private List<AudioClip> footsteps;
     private AudioSource audioSource;
     private float footStepTimer;
@@ -57,7 +58,7 @@ public class PlayerAudioVisual : MonoBehaviour
             if(footStepTimer > footStepCooldown)
             {
                 //PlaySFX(footsteps[Random.Range(0, 6)]);
-                SFXManager.instance.PlayRandomSFXClip(footsteps, transform, footstepsVolume);
+                SFXManager.instance.PlayRandomSFXClip(footsteps, transform, footstepsVolume, footstepsDuckingTrigger);
 
                 footStepTimer = 0;
             }

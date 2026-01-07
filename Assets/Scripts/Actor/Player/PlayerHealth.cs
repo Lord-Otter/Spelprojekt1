@@ -24,8 +24,10 @@ public class PlayerHealth : HealthHandler
 
     [Header("Audio")]
     [SerializeField] [Range(0, 1)] private float hurtSoundsVolume;
+    [SerializeField] private bool hurtDuckingTrigger = false;
     [SerializeField] private List<AudioClip> hurtSounds;
     [SerializeField] [Range(0, 1)] private float deathSoundVolume;
+    [SerializeField] private bool deathDuckingTrigger = false;
     [SerializeField] private AudioClip deathSound;
 
     protected override void Awake()
@@ -118,7 +120,7 @@ public class PlayerHealth : HealthHandler
         //CameraShaker.Instance.ShakeOnce(1, 1, 0.25f, 0.25f);
 
         // Play damage sound effects.
-        SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume);
+        SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume, hurtDuckingTrigger);
 
         // Maybe do time scale effects. Maybe depending on the attack.
         // Make invulnerable for a few frames
@@ -130,7 +132,7 @@ public class PlayerHealth : HealthHandler
         // Play death animation / change to death sprite.
 
         // Play death sound effect.
-        SFXManager.instance.PlaySFXClip(deathSound, transform, deathSoundVolume, true);
+        SFXManager.instance.PlaySFXClip(deathSound, transform, deathSoundVolume, deathDuckingTrigger);
 
         // Disable hurt box
         hurtBox.enabled = false;
