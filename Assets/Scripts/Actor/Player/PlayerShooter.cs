@@ -78,16 +78,16 @@ namespace Spelprojekt1
         private AudioSource chargeSFXInstance;
 
         [SerializeField] [Range(0, 1)] private float chargeStartSFXVolume;
-        [SerializeField] private bool chargeStartDuckingTrigger = false;
+        [SerializeField] [Range(0,2 )] private int chargeStartDuckingLevel = 0;
         [SerializeField] private AudioClip chargeStartSFX;
         [SerializeField] [Range(0, 1)] private float shotNormalSFXVolume;
-        [SerializeField] private bool shotNormalDuckingTrigger = false;
+        [SerializeField] [Range(0,2 )] private int shotNormalDuckingLevel = 0;
         [SerializeField] private List<AudioClip> shotNormalSFX;
         [SerializeField] [Range(0, 1)] private float shotCritSFXVolume;
-        [SerializeField] private bool shotCritDuckingTrigger = false;
+        [SerializeField] [Range(0,2 )] private int shotCritDuckingLevel = 0;
         [SerializeField] private AudioClip shotCritSFX;
         [SerializeField] [Range(0, 1)] private float fullChargeSFXVolume;
-        [SerializeField] private bool fullChargeDuckingTrigger = false;
+        [SerializeField] [Range(0,2 )] private int fullChargeDuckingLevel = 0;
         [SerializeField] private AudioClip fullChargeSFX;
 
         private bool wasCharging = false;
@@ -165,7 +165,7 @@ namespace Spelprojekt1
             {
                 if (!wasCharging) // Play charge up SFX while assigning the instance to a variable
                 {
-                    chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, chargeStartSFXVolume, chargeStartDuckingTrigger);
+                    chargeSFXInstance = SFXManager.instance.PlaySFXClip(chargeStartSFX, transform, chargeStartSFXVolume, chargeStartDuckingLevel);
                     wasCharging = true;
                 }
 
@@ -176,7 +176,7 @@ namespace Spelprojekt1
 
                 if(chargePercent >= 1 && !fullChargeReached)
                 {
-                    SFXManager.instance.PlaySFXClip(fullChargeSFX, transform, fullChargeSFXVolume, fullChargeDuckingTrigger);
+                    SFXManager.instance.PlaySFXClip(fullChargeSFX, transform, fullChargeSFXVolume, fullChargeDuckingLevel);
                     fullChargeReached = true;
                 }
 
@@ -331,11 +331,11 @@ namespace Spelprojekt1
             // Play SFX
             if(projectileToUse == projectileCrit)
             {
-                SFXManager.instance.PlaySFXClip(shotCritSFX, transform, shotCritSFXVolume, shotCritDuckingTrigger);
+                SFXManager.instance.PlaySFXClip(shotCritSFX, transform, shotCritSFXVolume, shotCritDuckingLevel);
             }
             else
             {
-                SFXManager.instance.PlayRandomSFXClip(shotNormalSFX, transform, shotNormalSFXVolume, shotNormalDuckingTrigger);
+                SFXManager.instance.PlayRandomSFXClip(shotNormalSFX, transform, shotNormalSFXVolume, shotNormalDuckingLevel);
             }
 
             // Instantiate Projectile
