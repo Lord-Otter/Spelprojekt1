@@ -1167,7 +1167,7 @@ GameObject:
   - component: {fileID: 9176883794451047996}
   - component: {fileID: 6015469814070525856}
   m_Layer: 7
-  m_Name: Player
+  m_Name: PlayerBacjup
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,7 +1182,7 @@ Transform:
   m_GameObject: {fileID: 8422899888576234247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.1, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1264,16 +1264,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   shakeDuration: 0.25
   shakeMagnitude: 0.4
   hurtSoundsVolume: 0.25
-  hurtDuckingTrigger: 1
+  hurtDuckingTrigger: 0
   hurtSounds:
   - {fileID: 8300000, guid: 7cf72ab7ec0910a4cbe172a2ddfed66c, type: 3}
   - {fileID: 8300000, guid: b3cab7223247ccb439851d977698f6d0, type: 3}
   - {fileID: 8300000, guid: 5f0b4dff408ba994299427873203870a, type: 3}
   deathSoundVolume: 0.3
-  deathDuckingTrigger: 1
+  deathDuckingTrigger: 0
   deathSound: {fileID: 8300000, guid: 938f2cc833ab10f41b6c69344a4479dd, type: 3}
 --- !u!114 &3047200598040328223
 MonoBehaviour:
