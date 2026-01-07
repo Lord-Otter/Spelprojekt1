@@ -169,7 +169,7 @@ namespace Spelprojekt1
 
             SetMovementLock(true); // Disable player movement
             hurtBox.enabled = false; // Disable hurtBox
-            collisionBoxes[0].excludeLayers = LayerMask.GetMask("Enemy"); // Exclude "Enemy" Layer from Collisions
+            //collisionBoxes[0].excludeLayers = LayerMask.GetMask("Enemy"); // Exclude "Enemy" Layer from Collisions
             collisionBoxes[1].excludeLayers = LayerMask.GetMask("Enemy"); // Exclude "Enemy" Layer from Collisions
 
             shooter.ApplyStun(dashDuration);
@@ -183,7 +183,7 @@ namespace Spelprojekt1
             {
                 SetMovementLock(false); // Enable player movement
                 hurtBox.enabled = true; // Enable hurtBox
-                collisionBoxes[0].excludeLayers &= ~LayerMask.GetMask("Enemy"); // Stop Excluding "Enemy Layer from Collision
+                //collisionBoxes[0].excludeLayers &= ~LayerMask.GetMask("Enemy"); // Stop Excluding "Enemy Layer from Collision
                 collisionBoxes[1].excludeLayers &= ~LayerMask.GetMask("Enemy"); // Stop Excluding "Enemy Layer from Collision
 
                 dashCooldownTimer = dashCooldown;
