@@ -70,7 +70,7 @@ namespace Spelprojekt1
             switch (newState)
             {
                 case PauseState.Gameplay:
-                    Time.timeScale = 1f;
+                    Time.timeScale = cachedTimeScale;
                     playerInput.SwitchCurrentActionMap("Player");
                     break;
 
