@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4992047836260740308}
   - component: {fileID: 546266951400047987}
   m_Layer: 0
-  m_Name: SFXObject
+  m_Name: SFXDuckingTriggerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ AudioSource:
   m_GameObject: {fileID: 4232377216970766018}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7503114348779596927, guid: c1e58c49b9e18ee49a50579055684d94, type: 2}
+  OutputAudioMixerGroup: {fileID: 5937802888967618027, guid: c1e58c49b9e18ee49a50579055684d94, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
