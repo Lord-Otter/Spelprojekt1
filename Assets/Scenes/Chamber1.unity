@@ -10306,6 +10306,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1308369666187491076, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: hurtDuckingTrigger
       value: 0

@@ -18,6 +18,7 @@ namespace Spelprojekt1
         }
 
         public PauseState CurrentState { get; private set; }
+        private float cachedTimeScale = 1f;
 
         private PlayerInput playerInput;
 
@@ -46,24 +47,24 @@ namespace Spelprojekt1
 
         public void TogglePause()
         {
-            //GameObject blackScreen = GameObject.Find("ScreenFadeCanvas");
-
             if (CurrentState == PauseState.Gameplay)
             {
-                //blackScreen.SetActive(false);
                 SetState(PauseState.Paused);
             }
             else
             {
-                //blackScreen.SetActive(true);
                 SetState(PauseState.Gameplay);
             }
         }
 
         public void SetState(PauseState newState)
         {
-            CurrentState = newState;
+            if(newState == PauseState.Paused && CurrentState != PauseState.Paused)
+            {
+                cachedTimeScale = Time.timeScale;
+            }
 
+            CurrentState = newState;
             CloseAllMenus();
 
             switch (newState)
@@ -72,17 +73,17 @@ namespace Spelprojekt1
                     Time.timeScale = 1f;
                     playerInput.SwitchCurrentActionMap("Player");
                     break;
-                
+
                 case PauseState.Paused:
                     Time.timeScale = 0f;
                     playerInput.SwitchCurrentActionMap("UI");
                     pauseMenuPanel.SetActive(true);
                     break;
-                
+
                 case PauseState.Settings:
                     settingsMenuPanel.SetActive(true);
                     break;
-                
+
                 case PauseState.ConfirmExit:
                     confirmExitPanel.SetActive(true);
                     break;
@@ -114,7 +115,6 @@ namespace Spelprojekt1
         {
             Time.timeScale = 1f;
             SetState(PauseState.Gameplay);
-            //SceneManager.LoadScene("MainMenu");
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadGameScene(sceneName);
         }
 
@@ -124,72 +124,6 @@ namespace Spelprojekt1
             settingsMenuPanel.SetActive(false);
             confirmExitPanel.SetActive(false);       
         }
-
-        /*public void PauseGame()
-        {
-            if (IsPaused)
-            {
-                return;
-            }
-
-            IsPaused = true;
-            Time.timeScale = 0f;
-
-            playerInput.SwitchCurrentActionMap("UI");
-
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-
-            OpenPauseMenu();
-        }
-
-        public void ResumeGame()
-        {
-            if (!IsPaused)
-            {
-                return;
-            }
-
-            IsPaused = false;
-            Time.timeScale = 1f;
-
-            playerInput.SwitchCurrentActionMap("Player");
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
-            CloseAllMenus();
-        }
-
-        public void OpenPauseMenu()
-        {
-            CloseAllMenus();
-            pauseMenuPanel.SetActive(true);
-        }
-
-        public void OpenSettingsMenu()
-        {
-            CloseAllMenus();
-            settingsMenuPanel.SetActive(true);
-        }
-
-        public void OpenConfirmExitMenu()
-        {
-            CloseAllMenus();
-            confirmExitPanel.SetActive(true);
-        }
-
-        public void CloseAllMenus()
-        {
-            pauseMenuPanel.SetActive(false);
-            settingsMenuPanel.SetActive(false);
-            confirmExitPanel.SetActive(false);
-        }
-
-        public void ExitToMainMenu()
-        {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene("MainMenu");
-        }*/
     }
 }
 

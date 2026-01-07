@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: projectileSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7016178900100075915, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8340593287776134920, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
       propertyPath: m_Controller
       value: 
