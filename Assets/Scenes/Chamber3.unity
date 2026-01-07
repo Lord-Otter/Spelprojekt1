@@ -8468,6 +8468,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUDCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6587177395513581167, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587177395513581167, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587177395513581167, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7407424971226695597, guid: 42da8adc68aaaf6498fde2d044407101, type: 3}
+    - target: {fileID: 6587177395513581167, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587177395513581167, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Spelprojekt1.UIPauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
