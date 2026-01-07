@@ -24,7 +24,7 @@ public class Dialogue : MonoBehaviour
 
     public void NextDialogue()
     {
-        test.Play();
+        
         // If dialogue wasn't started: run the onStartDialogue-event, and add this dialogue to the Next-Button
         if (currentIndex < 0)
         {
@@ -49,5 +49,6 @@ public class Dialogue : MonoBehaviour
             currentIndex = -1;
             nextButton?.onClick.RemoveListener(NextDialogue);
         }
+        test.Play();
     }
 }
