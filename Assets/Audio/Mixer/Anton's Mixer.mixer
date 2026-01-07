@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-7870662750264729887
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8b2b0fe2583ad2141a8b3ecc4d316c8a
+  m_EffectName: Send
+  m_MixLevel: 37d1819a32cb9304f8701e63e96e595a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-6386871731861561761
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -14,6 +28,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-6249903883997680904
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SFXDuckingTrigger
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: ae37bff915469ea40a53e2bc3005e832
+  m_Children: []
+  m_Volume: 1c8f3d64977e5314b9ba8a11f5391ac9
+  m_Pitch: 4f5fdfb636b83cf479b0d36265796e67
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -2022227457675721380}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-3008504647168948805
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -33,6 +66,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-2022227457675721380
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: f1b9797fab563e3469f24a7998d7c6ff
+  m_EffectName: Attenuation
+  m_MixLevel: 1903208172671ba4190b1c0f07da64ef
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -55,11 +102,14 @@ AudioMixerController:
     name: musicVolume
   - guid: abe3e9d89bb3f8b479093dd2d81033c7
     name: SFXVolume
+  - guid: 1c8f3d64977e5314b9ba8a11f5391ac9
+    name: SFXDuckingTriggerVolume
   m_AudioMixerGroupViews:
   - guids:
     - 1548ad407b1f1f14b9f2d24d777443ba
     - 393ad3796e229f94e8d12ad7ceb4a573
     - 6d9a60446f909ca44bf4d2efa35921c5
+    - ae37bff915469ea40a53e2bc3005e832
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -75,6 +125,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -3008504647168948805}
   - {fileID: 2797817969131497644}
+  - {fileID: -6249903883997680904}
   m_Volume: 762aeea1f4e3e94428203c30f1d4ca5f
   m_Pitch: 7c182c5b8ed3d644da0807f2e756fd1f
   m_Send: 00000000000000000000000000000000
@@ -104,12 +155,16 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: Normal
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 38a3b767f066ad14cb75d00827fe78e7
   m_FloatValues:
+<<<<<<< Updated upstream
     abe3e9d89bb3f8b479093dd2d81033c7: -0.04203608
     dcd089ad05962a345b1f228f13408f41: -0.025777228
+=======
+    dcd089ad05962a345b1f228f13408f41: 0
+>>>>>>> Stashed changes
   m_TransitionOverrides: {}
 --- !u!243 &2797817969131497644
 AudioMixerGroupController:

@@ -27,6 +27,8 @@ public class PlayerHealth : HealthHandler
     [SerializeField] private List<AudioClip> hurtSounds;
     [SerializeField] [Range(0, 1)] private float deathSoundVolume;
     [SerializeField] private AudioClip deathSound;
+    public UnityEvent OnSoundEffectStartEvent;
+    public UnityEvent OnSoundEffectEndEvent;
 
     protected override void Awake()
     {
@@ -130,7 +132,7 @@ public class PlayerHealth : HealthHandler
         // Play death animation / change to death sprite.
 
         // Play death sound effect.
-        SFXManager.instance.PlaySFXClip(deathSound, transform, deathSoundVolume);
+        SFXManager.instance.PlaySFXClip(deathSound, transform, deathSoundVolume, true);
 
         // Disable hurt box
         hurtBox.enabled = false;
@@ -143,5 +145,10 @@ public class PlayerHealth : HealthHandler
 
         // Stop other game processes like enemies.
         // Stopping enemy AI, spawning and showing game over screen can be a function.
+    }
+
+    private void DuckingSoundEffect()
+    {
+        
     }
 }
