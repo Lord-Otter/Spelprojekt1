@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFXObject: {fileID: 546266951400047987, guid: ba24356c113ca5047a5a1e3c3298ee21, type: 3}
   SFXDuckingTriggerObject: {fileID: 546266951400047987, guid: 6fc6b5c32f1a22b4ea4316f9958d2375, type: 3}
+  HugeDuckingTriggerObject: {fileID: 546266951400047987, guid: 52b72e05af588a845b3430160836c500, type: 3}
   maxRandomSoundPitch: 1.1
   minRandomSoundPitch: 0.9
