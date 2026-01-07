@@ -130,7 +130,7 @@ public class PlayerHealth : HealthHandler
         // Play death animation / change to death sprite.
 
         // Play death sound effect.
-        SFXManager.instance.PlaySFXClip(deathSound, transform, deathSoundVolume);
+        SFXManager.instance.PlaySFXClip(deathSound, transform, deathSoundVolume, true);
 
         // Disable hurt box
         hurtBox.enabled = false;

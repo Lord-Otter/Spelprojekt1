@@ -7,6 +7,7 @@ public class SFXManager : MonoBehaviour
     public static SFXManager instance;
 
     [SerializeField] private AudioSource SFXObject;
+    [SerializeField] private AudioSource SFXDuckingTriggerObject;
     [SerializeField] [Range(-3, 3)] private float maxRandomSoundPitch;
     [SerializeField][Range(-3, 3)] private float minRandomSoundPitch;
 
@@ -39,9 +40,17 @@ public class SFXManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }*/
 
-    public AudioSource PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public AudioSource PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume, bool duckingTrigger = false)
     {
-        AudioSource audioSource = Instantiate(SFXObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource;
+        if(!duckingTrigger)
+        {
+            audioSource = Instantiate(SFXObject, spawnTransform.position, Quaternion.identity);
+        }
+        else
+        {
+            audioSource = Instantiate(SFXDuckingTriggerObject, spawnTransform.position, Quaternion.identity);
+        }
 
         audioSource.clip = audioClip;
         audioSource.volume = volume;
@@ -52,13 +61,21 @@ public class SFXManager : MonoBehaviour
         return audioSource;
     }
 
-    public void PlayRandomSFXClip(List<AudioClip> audioClips, Transform spawnTransform, float volume)
+    public void PlayRandomSFXClip(List<AudioClip> audioClips, Transform spawnTransform, float volume, bool duckingTrigger = false)
     {
         // Assign a random index
         int random = Random.Range(0, audioClips.Count);
 
         // Spawn gameObject
-        AudioSource audioSource = Instantiate(SFXObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource;
+        if(!duckingTrigger)
+        {
+            audioSource = Instantiate(SFXObject, spawnTransform.position, Quaternion.identity);
+        }
+        else
+        {
+            audioSource = Instantiate(SFXDuckingTriggerObject, spawnTransform.position, Quaternion.identity);
+        }
 
         // Assign audioClip
         audioSource.clip = audioClips[random];
