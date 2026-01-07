@@ -1188,7 +1188,7 @@ PrefabInstance:
     - target: {fileID: 6859754613288561128, guid: 0510f913765cb6f40ad88714de29cb87, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: b58ad5c61eefb0942b15c076c7fb97f9, type: 3}
+      objectReference: {fileID: 8300000, guid: 5da08926af705dc49a6166b3ab16aa6f, type: 3}
     - target: {fileID: 6859754613288561128, guid: 0510f913765cb6f40ad88714de29cb87, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
