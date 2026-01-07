@@ -395,7 +395,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 7927
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1167,7 +1167,7 @@ GameObject:
   - component: {fileID: 9176883794451047996}
   - component: {fileID: 6015469814070525856}
   m_Layer: 7
-  m_Name: Player
+  m_Name: Player123123123
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,7 +1182,7 @@ Transform:
   m_GameObject: {fileID: 8422899888576234247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.1, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1264,24 +1264,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   shakeDuration: 0.25
   shakeMagnitude: 0.4
   hurtSoundsVolume: 0.25
-<<<<<<< HEAD
-  hurtDuckingTrigger: 1
-=======
   hurtDuckingTrigger: 0
->>>>>>> 0c7a32116527cf13ae3455ff29c3019c9eb1e43e
   hurtSounds:
   - {fileID: 8300000, guid: 7cf72ab7ec0910a4cbe172a2ddfed66c, type: 3}
   - {fileID: 8300000, guid: b3cab7223247ccb439851d977698f6d0, type: 3}
   - {fileID: 8300000, guid: 5f0b4dff408ba994299427873203870a, type: 3}
   deathSoundVolume: 0.3
-<<<<<<< HEAD
-  deathDuckingTrigger: 1
-=======
   deathDuckingTrigger: 0
->>>>>>> 0c7a32116527cf13ae3455ff29c3019c9eb1e43e
   deathSound: {fileID: 8300000, guid: 938f2cc833ab10f41b6c69344a4479dd, type: 3}
 --- !u!114 &3047200598040328223
 MonoBehaviour:
@@ -1295,11 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57330ed4de56a9b4d82bc1f8461e2b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  footstepsVolume: 0.113
-=======
   footstepsVolume: 0.045
->>>>>>> 0c7a32116527cf13ae3455ff29c3019c9eb1e43e
   footstepsDuckingTrigger: 0
   footsteps:
   - {fileID: 8300000, guid: 5de80af3fdfaf394ca88c7f6350bf45a, type: 3}
@@ -1413,13 +1413,8 @@ MonoBehaviour:
   headOffset: -0.5
   shaftOffset: -0.79
   flashDuration: 0.1
-<<<<<<< HEAD
-  chargeStartSFXVolume: 0.379
-  chargeStartDuckingTrigger: 1
-=======
   chargeStartSFXVolume: 0.35
   chargeStartDuckingTrigger: 0
->>>>>>> 0c7a32116527cf13ae3455ff29c3019c9eb1e43e
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
   shotNormalSFXVolume: 1
   shotNormalDuckingTrigger: 0
@@ -1429,19 +1424,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3b9692dbd7e1b404f82d53fe5bd1087c, type: 3}
   - {fileID: 8300000, guid: 055d7a4d4fb4fe64396b13dc9130a346, type: 3}
   - {fileID: 8300000, guid: 3e60be81ce664b64991c37d2fb6c5c7d, type: 3}
-<<<<<<< HEAD
-  shotCritSFXVolume: 0.409
-  shotCritDuckingTrigger: 1
-  shotCritSFX: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
-  fullChargeSFXVolume: 0.399
-  fullChargeDuckingTrigger: 1
-=======
   shotCritSFXVolume: 0.3
   shotCritDuckingTrigger: 0
   shotCritSFX: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
   fullChargeSFXVolume: 0.25
   fullChargeDuckingTrigger: 0
->>>>>>> 0c7a32116527cf13ae3455ff29c3019c9eb1e43e
   fullChargeSFX: {fileID: 8300000, guid: de7d2a5e835b66f439a9e00e084c0ecc, type: 3}
 --- !u!114 &7526024727622985597
 MonoBehaviour:
