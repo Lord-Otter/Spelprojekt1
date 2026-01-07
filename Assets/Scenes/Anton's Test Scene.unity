@@ -4855,6 +4855,14 @@ PrefabInstance:
       propertyPath: maxKnockbackDuration
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: shotCritDuckingTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689884120353818552, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: fullChargeDuckingTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3047200598040328223, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: throwLockTime
       value: 5
@@ -4946,6 +4954,10 @@ PrefabInstance:
     - target: {fileID: 8422899888576234247, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496476262272340701, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: dashSoundVolume
+      value: 0.261
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

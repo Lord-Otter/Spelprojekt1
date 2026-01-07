@@ -1267,11 +1267,13 @@ MonoBehaviour:
   shakeDuration: 0.25
   shakeMagnitude: 0.4
   hurtSoundsVolume: 0.25
+  hurtDuckingTrigger: 1
   hurtSounds:
   - {fileID: 8300000, guid: 7cf72ab7ec0910a4cbe172a2ddfed66c, type: 3}
   - {fileID: 8300000, guid: b3cab7223247ccb439851d977698f6d0, type: 3}
   - {fileID: 8300000, guid: 5f0b4dff408ba994299427873203870a, type: 3}
   deathSoundVolume: 0.3
+  deathDuckingTrigger: 1
   deathSound: {fileID: 8300000, guid: 938f2cc833ab10f41b6c69344a4479dd, type: 3}
 --- !u!114 &3047200598040328223
 MonoBehaviour:
@@ -1285,7 +1287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57330ed4de56a9b4d82bc1f8461e2b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsVolume: 0.045
+  footstepsVolume: 0.113
+  footstepsDuckingTrigger: 0
   footsteps:
   - {fileID: 8300000, guid: 5de80af3fdfaf394ca88c7f6350bf45a, type: 3}
   - {fileID: 8300000, guid: c1cb72f179a1d704998e6c2985bec23f, type: 3}
@@ -1335,11 +1338,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3328
   dashSoundVolume: 0.35
+  dashDuckingTrigger: 0
   dashSounds:
   - {fileID: 8300000, guid: 1862449f9e6d0624c9b9fb5c5581c6cc, type: 3}
   - {fileID: 8300000, guid: 74190e6dc21512249bd8222bcb7669cc, type: 3}
   - {fileID: 8300000, guid: 26666dd08910a00468d191e881d9b14a, type: 3}
   fabricSoundVolume: 0.55
+  fabricsDuckingTrigger: 0
   fabricSounds:
   - {fileID: 8300000, guid: 2d9db51db425ffb40893217d5920d0c0, type: 3}
   - {fileID: 8300000, guid: 0d0784db62dd8364ab10021b25cde0ad, type: 3}
@@ -1396,18 +1401,22 @@ MonoBehaviour:
   headOffset: -0.5
   shaftOffset: -0.79
   flashDuration: 0.1
-  chargeStartSFXVolume: 0.35
+  chargeStartSFXVolume: 0.379
+  chargeStartDuckingTrigger: 1
   chargeStartSFX: {fileID: 8300000, guid: 8782992f5dae5a64983ebbd20d6420e0, type: 3}
   shotNormalSFXVolume: 1
+  shotNormalDuckingTrigger: 0
   shotNormalSFX:
   - {fileID: 8300000, guid: 8296301d3a842cc4db7b31470751d216, type: 3}
   - {fileID: 8300000, guid: c5df732e027b3bf48b1c2a711172efba, type: 3}
   - {fileID: 8300000, guid: 3b9692dbd7e1b404f82d53fe5bd1087c, type: 3}
   - {fileID: 8300000, guid: 055d7a4d4fb4fe64396b13dc9130a346, type: 3}
   - {fileID: 8300000, guid: 3e60be81ce664b64991c37d2fb6c5c7d, type: 3}
-  shotCritSFXVolume: 0.3
+  shotCritSFXVolume: 0.409
+  shotCritDuckingTrigger: 1
   shotCritSFX: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
-  fullChargeSFXVolume: 0.25
+  fullChargeSFXVolume: 0.399
+  fullChargeDuckingTrigger: 1
   fullChargeSFX: {fileID: 8300000, guid: de7d2a5e835b66f439a9e00e084c0ecc, type: 3}
 --- !u!114 &7526024727622985597
 MonoBehaviour:
