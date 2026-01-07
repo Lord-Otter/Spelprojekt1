@@ -10,6 +10,7 @@ public class SoundMixerManager : MonoBehaviour
     private const string MASTER_KEY = "MasterVolume";
     private const string SFX_KEY = "SFXVolume";
     private const string SFXDUCKINGTRIGGER_KEY = "SFXDuckingTriggerVolume";
+    private const string HUGEDUCKINGTRIGGER_KEY = "HugeDuckingTriggerVolume";
     private const string MUSIC_KEY = "MusicVolume";
 
     private void Awake()
@@ -39,6 +40,9 @@ public class SoundMixerManager : MonoBehaviour
 
         audioMixer.SetFloat("SFXDuckingTriggerVolume", Mathf.Log10(level) * 20f);
         PlayerPrefs.SetFloat(SFXDUCKINGTRIGGER_KEY, level);
+
+        audioMixer.SetFloat("HugeDuckingTriggerVolume", Mathf.Log10(level) * 20f);
+        PlayerPrefs.SetFloat(HUGEDUCKINGTRIGGER_KEY, level);
     }
 
     public void SetMusicVolume(float level)
