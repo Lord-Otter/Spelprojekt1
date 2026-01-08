@@ -24,8 +24,6 @@ public class PlayerHealth : HealthHandler
     [SerializeField] private Color firstFlashColor = Color.red;
 
     private Coroutine iFramesFlashCoroutine;
-    private SpriteRenderer[] spriteRenderers;
-    private Material[] materials;
 
     [Header("Camera Shake")]
     [SerializeField] private float shakeDuration;
@@ -44,14 +42,6 @@ public class PlayerHealth : HealthHandler
         base.Awake();
         cameraTarget = GetComponentInChildren<CameraTargetBehaviour>();
         hurtBox = GetComponent<Collider2D>();
-
-        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-        materials = new Material[spriteRenderers.Length];
-
-        for (int i = 0; i < spriteRenderers.Length; i++)
-        {
-            materials[i] = spriteRenderers[i].material;
-        }
     }
 
     protected override void Start()
