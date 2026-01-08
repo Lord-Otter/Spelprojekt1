@@ -9,7 +9,7 @@ namespace Spelprojekt1
         [SerializeField] private Animator animator;
 
         private string currentAnimation;
-        private string lastDirection = "down";
+        //private string lastDirection = "down";
         private const float deadzone = 0.1f;
 
         [Header("Shooting Settings")]

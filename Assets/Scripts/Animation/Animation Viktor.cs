@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Animation : MonoBehaviour
+public class AnimationViktor : MonoBehaviour
 {
     
     private Animator viktorsAnimator;

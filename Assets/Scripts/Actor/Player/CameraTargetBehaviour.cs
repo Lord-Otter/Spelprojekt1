@@ -22,6 +22,16 @@ namespace Spelprojekt1
         [SerializeField] private float stickYBias = 1.0f;
         [SerializeField] private float stickSpeed = 15f;
 
+        [Header("Camera Shake")]
+        [SerializeField] private float defaultShakeFrequency = 25f;
+
+        private float shakeTimer;
+        private float shakeDuration;
+        private float shakeAmplitude;
+        private float shakeFrequency;
+
+        private float noiseSeedX;
+        private float noiseSeedY;
 
         private Camera mainCamera;
 
@@ -67,7 +77,35 @@ namespace Spelprojekt1
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.position, stickSpeed * Time.deltaTime);
             }
-            
+
+            Vector3 shakeOffset = Vector3.zero;
+
+            if (shakeTimer > 0f)
+            {
+                shakeTimer -= Time.deltaTime;
+
+                float time = Time.time * shakeFrequency;
+
+                float x = (Mathf.PerlinNoise(noiseSeedX, time) - 0.5f) * 2f;
+                float y = (Mathf.PerlinNoise(noiseSeedY, time) - 0.5f) * 2f;
+
+                float fade = shakeTimer / shakeDuration;
+
+                shakeOffset = new Vector3(x, y, 0f) * shakeAmplitude * fade;
+            }
+
+            transform.position += shakeOffset;
+        }
+
+        public void Shake(float amplitude, float duration, float frequency = -1f)
+        {
+            shakeAmplitude = amplitude;
+            shakeDuration = duration;
+            shakeTimer = duration;
+            shakeFrequency = frequency > 0f ? frequency : defaultShakeFrequency;
+
+            noiseSeedX = UnityEngine.Random.value * 100f;
+            noiseSeedY = UnityEngine.Random.value * 100f;
         }
     }
 }

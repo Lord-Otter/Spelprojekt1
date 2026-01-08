@@ -21,7 +21,7 @@ namespace Spelprojekt1
         //[SerializeField] private float nextWaypointDistance = 3f; // Unused part of path following
         
         int currentWaypoint = 0;
-        bool reachedEndOfPath = false;
+        //bool reachedEndOfPath = false;
 
         [Header("Line of Sight Settings")]
         //[SerializeField] private float sightRange = 10f;

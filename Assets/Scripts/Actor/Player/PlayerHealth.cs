@@ -8,8 +8,8 @@ using UnityEngine.Events;
 
 public class PlayerHealth : HealthHandler
 {
-    [SerializeField] private Canvas gameOverScreen;
-
+    //[SerializeField] private Canvas gameOverScreen;
+    private CameraTargetBehaviour cameraTarget;
     [SerializeField] private float takeDamageCooldown;
     private float takeDamageTimer;
 
@@ -33,6 +33,7 @@ public class PlayerHealth : HealthHandler
     protected override void Awake()
     {
         base.Awake();
+        cameraTarget = GetComponentInChildren<CameraTargetBehaviour>();
         hurtBox = GetComponent<Collider2D>();
     }
 
@@ -78,6 +79,8 @@ public class PlayerHealth : HealthHandler
         PlayerData.Instance.stats.currentHealth = currentHealth; // Save health to pass along in new scenes
 
         OnHealthChanged?.Invoke(currentHealth);
+
+        cameraTarget.Shake(0.1f, 0.5f, 30f);
 
         if(currentHealth > 0)
         {

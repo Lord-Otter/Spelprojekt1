@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int maxWaves;
     [SerializeField] private int currentWave;
     //[SerializeField] private int wavesCleared;
-    private bool isSpawningWave;
+    //private bool isSpawningWave;
 
     [Header("Spawn Warning")]
     [SerializeField] private float spawnWarningTime = 1f;
@@ -108,7 +108,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        isSpawningWave = true;
+        //isSpawningWave = true;
 
         int enemiesToSpawn = enemiesPerWave;
 
@@ -157,7 +157,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnDelay);
         }
 
-        isSpawningWave = false;
+        //isSpawningWave = false;
     }
 
     private Vector2 GetValidRandomPosition(List<Vector2> usedPositions)

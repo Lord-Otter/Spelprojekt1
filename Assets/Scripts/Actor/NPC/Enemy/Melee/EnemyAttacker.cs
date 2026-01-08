@@ -13,7 +13,7 @@ namespace Spelprojekt1
         private SpriteRenderer spriteRenderer;
 
         private string currentAnimation;
-        private string lastDirection = "down";
+        //private string lastDirection = "down";
         private const float deadzone = 0.1f;
 
         [Header("Attack Settings")]

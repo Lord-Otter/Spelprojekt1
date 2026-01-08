@@ -59,7 +59,7 @@ namespace Spelprojekt1
 
         public void SetState(PauseState newState)
         {
-            if(newState == PauseState.Paused && CurrentState != PauseState.Paused)
+            if (newState == PauseState.Paused && CurrentState == PauseState.Gameplay)
             {
                 cachedTimeScale = Time.timeScale;
             }

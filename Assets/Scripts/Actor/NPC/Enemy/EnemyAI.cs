@@ -24,7 +24,7 @@ namespace Spelprojekt1
         //bool reachedEndOfPath = false;
 
         [Header("Line of Sight Settings")]
-        [SerializeField] private float sightRange = 10f;
+        //[SerializeField] private float sightRange = 10f;
         [SerializeField] private float sightHeight = 0.2f;
         [SerializeField] private float sightWidth = 0.2f;
         [SerializeField] private LayerMask obstacleLayer;
