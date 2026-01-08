@@ -12,7 +12,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] List<Sprite> images;
     [SerializeField] AudioSource test;
     [SerializeField] List<AudioClip> voice;
-
+    [SerializeField] Image imagewindow; 
     [SerializeField] private UnityEvent onStartDialogue;
     [SerializeField] private UnityEvent onEndDialogue;
 
@@ -29,6 +29,7 @@ public class Dialogue : MonoBehaviour
         if (currentIndex < 0)
         {
             onStartDialogue?.Invoke();
+            imagewindow.enabled = true;
         //    nextButton?.onClick.AddListener(NextDialogue);
         }
         
@@ -48,6 +49,7 @@ public class Dialogue : MonoBehaviour
             onEndDialogue?.Invoke();
             currentIndex = -1;
             nextButton?.onClick.RemoveListener(NextDialogue);
+            imagewindow.enabled = false;
         }
         test.Play();
     }
