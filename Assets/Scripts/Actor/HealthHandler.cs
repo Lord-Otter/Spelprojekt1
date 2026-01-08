@@ -14,7 +14,7 @@ namespace Spelprojekt1
         [Header("Damage Flash Settings")]
         private SpriteRenderer[] spriteRenderers;
         private Material[] materials;
-        [SerializeField] private Color flashColor = Color.white;
+        [SerializeField] protected Color flashColor = Color.white;
         [SerializeField] private float flashTime = 0.25f;
 
         private Coroutine damageFlashCoroutine;
