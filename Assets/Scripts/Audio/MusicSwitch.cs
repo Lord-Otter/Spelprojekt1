@@ -1,40 +1,74 @@
 using UnityEngine;
+using System.Collections;
 
 public class MusicSwitch : MonoBehaviour
 {
-    public static MusicSwitch instance; // Singleton reference
+    public static MusicSwitch instance;
 
-    [Header("Music Sources")]
-    public AudioSource introSource;
-    public AudioSource loopSource;
+    [Header("Audio Settings")]
+    public AudioSource musicPlayer;
+    public AudioClip introClip;
+    public AudioClip loopClip;
 
     void Awake()
     {
-        // Check if a music manager already exists
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Keep this alive!
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("<color=green>MusicManager created and marked as DontDestroyOnLoad.</color>");
         }
         else
         {
-            Destroy(gameObject); // Destroy the new one if one already exists
+            Debug.Log("<color=yellow>Duplicate MusicManager detected in new scene. Destroying duplicate.</color>");
+            Destroy(gameObject);
             return;
         }
     }
-
+    
     void Start()
     {
-        // Ensure this only runs for the original instance
-        if(instance == this)
+        if (instance == this && !musicPlayer.isPlaying) 
         {
-            introSource.Play();
-            Invoke(nameof(PlayLoop), introSource.clip.length);
+            if (introClip != null)
+            {
+                Debug.Log("Starting Intro Clip: " + introClip.name);
+                musicPlayer.clip = introClip;
+                musicPlayer.loop = false;
+                musicPlayer.Play();
+                
+                // Start the timer to switch to loop
+                StartCoroutine(WaitForLoop(introClip.length));
+            }
+            else if (loopClip != null)
+            {
+                Debug.Log("No Intro found, jumping straight to Loop.");
+                PlayLoop();
+            }
         }
+    }
+
+    IEnumerator WaitForLoop(float delay)
+    {
+        Debug.Log("Waiting " + delay + " seconds for intro to finish...");
+        yield return new WaitForSecondsRealtime(delay);
+        
+        Debug.Log("<color=cyan>Intro finished! Switching to Loop now.</color>");
+        PlayLoop();
     }
 
     void PlayLoop()
     {
-        loopSource.Play();
+        if (loopClip != null)
+        {
+            musicPlayer.clip = loopClip;
+            musicPlayer.loop = true; 
+            musicPlayer.Play();
+            Debug.Log("Now playing Loop Clip: " + loopClip.name);
+        }
+        else
+        {
+            Debug.LogError("Loop Clip is missing in the Inspector!");
+        }
     }
 }

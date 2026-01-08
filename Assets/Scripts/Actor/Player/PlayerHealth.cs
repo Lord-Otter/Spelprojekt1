@@ -18,6 +18,13 @@ public class PlayerHealth : HealthHandler
     public event System.Action<int> OnHealthChanged;
     public UnityEvent OnPlayerDiedEvent;
 
+    [Header("I-Frames Flash")]
+    [SerializeField] private float blinkInterval = 0.1f;
+    [SerializeField] private float iFrameFlashAmount = 0.25f;
+    [SerializeField] private Color firstFlashColor = Color.red;
+
+    private Coroutine iFramesFlashCoroutine;
+
     [Header("Camera Shake")]
     [SerializeField] private float shakeDuration;
     [SerializeField] private float shakeMagnitude;
@@ -61,6 +68,7 @@ public class PlayerHealth : HealthHandler
             takeDamageTimer -= Time.deltaTime;
             if(takeDamageTimer <= 0)
             {
+                StopIFramesFlashing();
                 canTakeDamage = true;
             }
         }
@@ -80,9 +88,6 @@ public class PlayerHealth : HealthHandler
 
         OnHealthChanged?.Invoke(currentHealth);
 
-        cameraTarget.Shake(0.1f, 0.5f, 30f);
-        TimeManager.Instance.StartTimeScaleRecovery("exp", 1f);
-
         if(currentHealth > 0)
         {
             HandleDamage(); // Maybe make this a coroutine for a sequence of events.
@@ -92,22 +97,37 @@ public class PlayerHealth : HealthHandler
             HandleDeath(); // Maybe make this a coroutine for a sequence of events.
         }
 
-        takeDamageTimer = takeDamageCooldown;
-        canTakeDamage = false;
+        //takeDamageTimer = takeDamageCooldown;
+        //canTakeDamage = false;
     }
 
     protected override void HandleDamage()
     {
         base.HandleDamage();
+
         // Update UI
         // Play damage effects. Screen, particles, sprite, animation, etc.
-        //CameraShaker.Instance.ShakeOnce(1, 1, 0.25f, 0.25f);
+
+        // Shake Camera
+        cameraTarget.Shake(amplitude: 0.2f, duration: 0.5f, frequency: 30f);
+
+        // Slow down time
+        TimeManager.Instance.StartTimeScaleRecovery("exp", 0.25f);
 
         // Play damage sound effects.
         SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume, hurtDuckingLevel);
 
         // Maybe do time scale effects. Maybe depending on the attack.
+
         // Make invulnerable for a few frames
+        takeDamageTimer = takeDamageCooldown;
+        canTakeDamage = false;
+
+        // Play IFrames flashing
+        if(iFramesFlashCoroutine != null)
+            StopCoroutine(iFramesFlashCoroutine);
+        
+        iFramesFlashCoroutine = StartCoroutine(IFramesFlashing());
     }
 
     protected override void HandleDeath()
@@ -121,13 +141,57 @@ public class PlayerHealth : HealthHandler
         // Disable hurt box
         hurtBox.enabled = false;
 
+        // Shake Camera
+        cameraTarget.Shake(amplitude: 0.5f, duration: 0.5f, frequency: 100f);
+
+        // Slow down time
+        TimeManager.Instance.StartTimeScaleRecovery("lin", 5f);
+
         // Play game over music
-        // Do some time scale effects.
         // Disable player control
 
         // Display game over screen
 
         // Stop other game processes like enemies.
         // Stopping enemy AI, spawning and showing game over screen can be a function.
+    }
+
+    private IEnumerator IFramesFlashing()
+    {
+        for (int i = 0; i < materials.Length; i++)
+        {
+            materials[i].SetColor("_FlashColor", firstFlashColor);
+            materials[i].SetFloat("_FlashAmount", iFrameFlashAmount);
+        }
+
+        yield return new WaitForSeconds(blinkInterval);
+
+        for (int i = 0; i < materials.Length; i++)
+            materials[i].SetColor("_FlashColor", Color.white);
+
+        bool flashOn = false;
+
+        while (!canTakeDamage)
+        {
+            float amount = flashOn ? iFrameFlashAmount : 0f;
+
+            for (int i = 0; i < materials.Length; i++)
+                materials[i].SetFloat("_FlashAmount", amount);
+
+            flashOn = !flashOn;
+            yield return new WaitForSeconds(blinkInterval);
+        }
+    }
+
+    private void StopIFramesFlashing()
+    {
+        if (iFramesFlashCoroutine != null)
+        {
+            StopCoroutine(iFramesFlashCoroutine);
+            iFramesFlashCoroutine = null;
+        }
+
+        for (int i = 0; i < materials.Length; i++)
+            materials[i].SetFloat("_FlashAmount", 0f);
     }
 }

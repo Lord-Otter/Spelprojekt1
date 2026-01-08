@@ -22,7 +22,7 @@ public class SoundMixerManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         LoadVolumes();
     }

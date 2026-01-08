@@ -33,6 +33,8 @@ namespace Spelprojekt1
         private float noiseSeedX;
         private float noiseSeedY;
 
+        private Vector3 basePosition;
+
         private Camera mainCamera;
 
         void Awake()
@@ -40,19 +42,20 @@ namespace Spelprojekt1
             mainCamera = Camera.main;
             player = transform.parent;
             aimController = GetComponentInParent<AimController>();
+
+            basePosition = transform.position;
         }
 
         void LateUpdate()
         {
             Vector3 targetPosition = player.position;
 
-            if(aimController.CurrentMode == AimController.RotationMode.MouseAim)
+            if (aimController.CurrentMode == AimController.RotationMode.MouseAim)
             {
                 Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 mouseWorldPos.z = 0f;
 
                 Vector3 offset = mouseWorldPos - player.position;
-
                 offset.y *= mouseYBias;
                 offset *= mouseMultiplier;
 
@@ -61,30 +64,46 @@ namespace Spelprojekt1
 
                 targetPosition += offset;
 
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, mouseSpeed * Time.deltaTime);
+                basePosition = Vector3.MoveTowards(
+                    basePosition,
+                    targetPosition,
+                    mouseSpeed * Time.deltaTime
+                );
             }
-            else if(aimController.CurrentMode == AimController.RotationMode.StickAim)
+            else if (aimController.CurrentMode == AimController.RotationMode.StickAim)
             {
                 Vector2 stick = aimController.inputHandler.aimStick;
 
-                Vector3 offset = new Vector3( stick.x * stickMaxDistanceX,  stick.y * stickMaxDistanceY * stickYBias, 0f);
+                Vector3 offset = new Vector3(
+                    stick.x * stickMaxDistanceX,
+                    stick.y * stickMaxDistanceY * stickYBias,
+                    0f
+                );
 
                 targetPosition += offset;
 
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, stickSpeed * Time.deltaTime);
+                basePosition = Vector3.MoveTowards(
+                    basePosition,
+                    targetPosition,
+                    stickSpeed * Time.deltaTime
+                );
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.position, stickSpeed * Time.deltaTime);
+                basePosition = Vector3.MoveTowards(
+                    basePosition,
+                    player.position,
+                    stickSpeed * Time.deltaTime
+                );
             }
 
             Vector3 shakeOffset = Vector3.zero;
 
             if (shakeTimer > 0f)
             {
-                shakeTimer -= Time.unscaledDeltaTime;
+                shakeTimer -= Time.deltaTime;
 
-                float time = Time.unscaledTime * shakeFrequency;
+                float time = Time.time * shakeFrequency;
 
                 float x = (Mathf.PerlinNoise(noiseSeedX, time) - 0.5f) * 2f;
                 float y = (Mathf.PerlinNoise(noiseSeedY, time) - 0.5f) * 2f;
@@ -94,7 +113,7 @@ namespace Spelprojekt1
                 shakeOffset = new Vector3(x, y, 0f) * shakeAmplitude * fade;
             }
 
-            transform.position += shakeOffset;
+            transform.position = basePosition + shakeOffset;
         }
 
         public void Shake(float amplitude, float duration, float frequency = -1f)
