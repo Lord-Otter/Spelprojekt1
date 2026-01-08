@@ -12,8 +12,8 @@ namespace Spelprojekt1
         [SerializeField] protected bool canTakeDamage;
 
         [Header("Damage Flash Settings")]
-        private SpriteRenderer[] spriteRenderers;
-        private Material[] materials;
+        protected SpriteRenderer[] spriteRenderers;
+        protected Material[] materials;
         [SerializeField] protected Color flashColor = Color.white;
         [SerializeField] private float flashTime = 0.25f;
 
@@ -46,7 +46,7 @@ namespace Spelprojekt1
             
         }
 
-        public virtual void TakeDamage(int damage) // Maybe add knockback, stuns, or other effects that come from taking damage.
+        public virtual void TakeDamage(int damage)
         {
             if(!canTakeDamage)
                 return;
