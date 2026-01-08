@@ -59,6 +59,7 @@ public class SceneLoader : MonoBehaviour
         yield return new WaitForSeconds(postFadeDelay);
         Application.Quit();
 
+        yield return new WaitForSeconds(1);
         yield return Fade(1f, 0f); // Remove black screen incase the game doesn't quit.
     }
 
