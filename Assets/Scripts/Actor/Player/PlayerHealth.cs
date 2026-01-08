@@ -80,9 +80,6 @@ public class PlayerHealth : HealthHandler
 
         OnHealthChanged?.Invoke(currentHealth);
 
-        cameraTarget.Shake(0.2f, 0.5f, 30f);
-        TimeManager.Instance.StartTimeScaleRecovery("exp", 0.25f);
-
         if(currentHealth > 0)
         {
             HandleDamage(); // Maybe make this a coroutine for a sequence of events.
@@ -101,7 +98,12 @@ public class PlayerHealth : HealthHandler
         base.HandleDamage();
         // Update UI
         // Play damage effects. Screen, particles, sprite, animation, etc.
-        //CameraShaker.Instance.ShakeOnce(1, 1, 0.25f, 0.25f);
+
+        // Shake Camera
+        cameraTarget.Shake(amplitude: 0.2f, duration: 0.5f, frequency: 30f);
+
+        // Slow down time
+        TimeManager.Instance.StartTimeScaleRecovery("exp", 0.25f);
 
         // Play damage sound effects.
         SFXManager.instance.PlayRandomSFXClip(hurtSounds, transform, hurtSoundsVolume, hurtDuckingLevel);
@@ -120,6 +122,12 @@ public class PlayerHealth : HealthHandler
 
         // Disable hurt box
         hurtBox.enabled = false;
+
+        // Shake Camera
+        cameraTarget.Shake(amplitude: 0.5f, duration: 0.5f, frequency: 100f);
+
+        // Slow down time
+        TimeManager.Instance.StartTimeScaleRecovery("lin", 5f);
 
         // Play game over music
         // Do some time scale effects.
