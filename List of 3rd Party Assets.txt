@@ -1,5 +1,5 @@
-NavMeshPlush by h8man: https://github.com/h8man/NavMeshPlus
-	Desc: Scripts to make pathfinding easier.
-	
 A* Pathfinding Project by Aron Grandberg: https://arongranberg.com/astar/
 	Desc: Package for pathfinding.
+	
+Old Newspaper Types by Manfred Klein: https://www.dafont.com/oldnewspapertypes.font
+	Desc: Font
