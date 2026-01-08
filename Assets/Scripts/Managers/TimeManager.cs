@@ -24,7 +24,7 @@ namespace Spelprojekt1
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
 
             targetTimeScale = defaultTimeScale;
             currentTimeScale = targetTimeScale;
