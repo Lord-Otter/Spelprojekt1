@@ -81,7 +81,7 @@ public class PlayerHealth : HealthHandler
         OnHealthChanged?.Invoke(currentHealth);
 
         cameraTarget.Shake(0.2f, 0.5f, 30f);
-        TimeManager.Instance.StartTimeScaleRecovery("exp", 0.5f);
+        TimeManager.Instance.StartTimeScaleRecovery("exp", 0.25f);
 
         if(currentHealth > 0)
         {
