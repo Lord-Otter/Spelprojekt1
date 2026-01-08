@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57330ed4de56a9b4d82bc1f8461e2b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsVolume: 0.084
+  footstepsVolume: 0.06
   footstepsDuckingLevel: 0
   footsteps:
   - {fileID: 8300000, guid: 5de80af3fdfaf394ca88c7f6350bf45a, type: 3}
