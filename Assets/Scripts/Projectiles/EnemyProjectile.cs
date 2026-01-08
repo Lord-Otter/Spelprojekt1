@@ -36,7 +36,7 @@ namespace Spelprojekt1
             direction = dir.normalized;
         }
 
-        private void OnTriggerStay2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if ((hitLayers.value & (1 << other.gameObject.layer)) == 0)
                 return;
@@ -44,9 +44,12 @@ namespace Spelprojekt1
             if (other.TryGetComponent(out HealthHandler health))
             {
                 health.TakeDamage(damage);
+                Destroy(gameObject);
             }
-
-            Destroy(gameObject);
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
