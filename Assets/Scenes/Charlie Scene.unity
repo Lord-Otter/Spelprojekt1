@@ -798,6 +798,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7826917000629346314, guid: 9a772dc5f1b35304f802ed07e539599f, type: 3}
+      propertyPath: randomScenes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826917000629346314, guid: 9a772dc5f1b35304f802ed07e539599f, type: 3}
+      propertyPath: 'randomScenes.Array.data[1]'
+      value: Chamber2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826917000629346314, guid: 9a772dc5f1b35304f802ed07e539599f, type: 3}
+      propertyPath: 'randomScenes.Array.data[2]'
+      value: Chamber3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
