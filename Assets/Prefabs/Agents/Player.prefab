@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3588402491197454439}
   - component: {fileID: 5799170863385520979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 8528048525714451225}
   m_Layer: 7
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 4025647713205520305}
   - component: {fileID: 9098045140755989696}
   - component: {fileID: 1308369666187491076}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PhysicalCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 2050605540522836634}
   m_Layer: 7
   m_Name: Torso
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 7009841608359501953}
   m_Layer: 7
   m_Name: ArrowShaft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -931,6 +931,7 @@ MonoBehaviour:
   stickMaxDistanceY: 1.75
   stickYBias: 1
   stickSpeed: 2.5
+  defaultShakeFrequency: 25
 --- !u!1 &6713046527161903415
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +944,7 @@ GameObject:
   - component: {fileID: 7042522102462903195}
   - component: {fileID: 1701892165450681016}
   - component: {fileID: 5659964270980900453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1072,7 @@ GameObject:
   - component: {fileID: 6677177588514054879}
   m_Layer: 7
   m_Name: ArrowHead
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1211,7 +1212,6 @@ MonoBehaviour:
   canTakeDamage: 1
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashTime: 0.25
-  gameOverScreen: {fileID: 9214047767799123488, guid: 6325000fa2ddd93438a791a8452bad25, type: 3}
   takeDamageCooldown: 1
   OnPlayerDiedEvent:
     m_PersistentCalls:

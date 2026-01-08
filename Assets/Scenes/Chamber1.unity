@@ -10302,10 +10302,74 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1152132467057935380, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347520200543034466, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[0].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[1].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[0].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[1].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: hitCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 1968600153998333994, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: OnPlayerDiedEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 1279824450}
+    - target: {fileID: 2905393268022529654, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127903922043012214, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254018612300053720, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713046527161903415, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7551704989850069933, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1
@@ -10345,6 +10409,10 @@ PrefabInstance:
     - target: {fileID: 7551704989850069933, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747187642374400978, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8422899888576234247, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_Name

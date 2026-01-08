@@ -81,6 +81,7 @@ public class PlayerHealth : HealthHandler
         OnHealthChanged?.Invoke(currentHealth);
 
         cameraTarget.Shake(0.1f, 0.5f, 30f);
+        TimeManager.Instance.StartTimeScaleRecovery("exp", 1f);
 
         if(currentHealth > 0)
         {
@@ -93,26 +94,6 @@ public class PlayerHealth : HealthHandler
 
         takeDamageTimer = takeDamageCooldown;
         canTakeDamage = false;
-
-
-
-        // Update UI. If this doesn't work then use code below and 
-
-        /*if(!canTakeDamage)
-                return;
-
-        currentHealth -= damage;
-
-        // Update UI code here
-
-        if(currentHealth > 0)
-        {
-            HandleDamage(); // Maybe make this a coroutine for a sequence of events.
-        }
-        else
-        {
-            HandleDeath(); // Maybe make this a coroutine for a sequence of events.
-        }*/
     }
 
     protected override void HandleDamage()

@@ -82,9 +82,9 @@ namespace Spelprojekt1
 
             if (shakeTimer > 0f)
             {
-                shakeTimer -= Time.deltaTime;
+                shakeTimer -= Time.unscaledDeltaTime;
 
-                float time = Time.time * shakeFrequency;
+                float time = Time.unscaledTime * shakeFrequency;
 
                 float x = (Mathf.PerlinNoise(noiseSeedX, time) - 0.5f) * 2f;
                 float y = (Mathf.PerlinNoise(noiseSeedY, time) - 0.5f) * 2f;

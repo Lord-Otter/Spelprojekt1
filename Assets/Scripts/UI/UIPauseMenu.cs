@@ -59,23 +59,18 @@ namespace Spelprojekt1
 
         public void SetState(PauseState newState)
         {
-            if (newState == PauseState.Paused && CurrentState == PauseState.Gameplay)
-            {
-                cachedTimeScale = Time.timeScale;
-            }
-
             CurrentState = newState;
             CloseAllMenus();
 
             switch (newState)
             {
                 case PauseState.Gameplay:
-                    Time.timeScale = cachedTimeScale;
+                    TimeManager.Instance.Resume();
                     playerInput.SwitchCurrentActionMap("Player");
                     break;
 
                 case PauseState.Paused:
-                    Time.timeScale = 0f;
+                    TimeManager.Instance.Pause();
                     playerInput.SwitchCurrentActionMap("UI");
                     pauseMenuPanel.SetActive(true);
                     break;
