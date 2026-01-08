@@ -731,6 +731,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6859754613288561128, guid: 0510f913765cb6f40ad88714de29cb87, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4813286580674447295, guid: 700c004de739f415bbfaacd0c1728e1a, type: 2}
     - target: {fileID: 6882083629392270148, guid: 0510f913765cb6f40ad88714de29cb87, type: 3}
       propertyPath: m_Name
       value: MusicManager
@@ -1308,11 +1312,11 @@ AudioSource:
   m_GameObject: {fileID: 1914309202}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7503114348779596927, guid: 700c004de739f415bbfaacd0c1728e1a, type: 2}
+  OutputAudioMixerGroup: {fileID: 4813286580674447295, guid: 700c004de739f415bbfaacd0c1728e1a, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.78
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
