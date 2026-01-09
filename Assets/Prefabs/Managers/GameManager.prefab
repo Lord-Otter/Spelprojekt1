@@ -86,11 +86,11 @@ MonoBehaviour:
     m_Bits: 2112
   spawnCheckRadius: 0.4
   maxSpawnAttempts: 20
-  spawnPointPrefab: {fileID: 5867278344323585633, guid: d0b044fc9ce13e44caf37a613ef72273, type: 3}
+  spawnPointPrefab: {fileID: 8274474059234972972, guid: 2ac13aad61b80ee48b79cd0bfa7fc447, type: 3}
   baseEnemiesPerWave: 3
   enemiesPerWave: 1
   enemyIncreasePerWave: 1
-  spawnDelay: 0.25
+  spawnDelay: 1
   delayBetweenWaves: 3
   maxWaves: 3
   currentWave: 0
