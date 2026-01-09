@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6455436920076285949}
   - component: {fileID: 9199390105603642524}
   - component: {fileID: 8249117555724314513}
+  - component: {fileID: 8165841304768155755}
   m_Layer: 8
   m_Name: Enemy_v.2_Ranged_Normal
   m_TagString: Enemy
@@ -110,7 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5ba916e60f84944bc0b2cb0a4d5507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRange: 10
   sightHeight: 0.2
   sightWidth: 0.2
   obstacleLayer:
@@ -303,6 +303,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 0.5}
   m_Direction: 0
+--- !u!114 &8165841304768155755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967611885315125264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999d000123c2da1469a7afdb7e6b17e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
 --- !u!1 &3818602715989586088
 GameObject:
   m_ObjectHideFlags: 0
