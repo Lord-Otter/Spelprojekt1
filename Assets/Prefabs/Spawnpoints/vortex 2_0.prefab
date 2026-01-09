@@ -110,7 +110,7 @@ MonoBehaviour:
   enemyPrefabsHard:
   - {fileID: 3646086808196994835, guid: 267ef7ab9f279604e967493f78fc8e97, type: 3}
   - {fileID: 1171672589202403724, guid: 58b00c9a245165c4d87211bd640159f8, type: 3}
-  spawnDelay: 2
+  spawnDelay: 1.5
   portalGrowthTime: 1
 --- !u!95 &8962079525191902601
 Animator:
