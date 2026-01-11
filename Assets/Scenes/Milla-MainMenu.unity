@@ -198,7 +198,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -603,7 +603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23.116089, y: 403.36478}
+  m_AnchoredPosition: {x: 60.15094, y: 403.36478}
   m_SizeDelta: {x: -2593.5679, y: -373.12952}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203518558
@@ -1458,8 +1458,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -168.83408, y: 201.21472}
-  m_SizeDelta: {x: -2209.6682, y: -777.42944}
+  m_AnchoredPosition: {x: 174.34076, y: -8.32019}
+  m_SizeDelta: {x: -2301.1187, y: -777.42944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1052486192
 MonoBehaviour:
@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEFT CLICK HOLD - ATTACK
+  m_text: "LEFT CLICK HOLD - \nATTACK"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e50bb10e69176b54382c6aaaddbd7024, type: 2}
   m_sharedMaterial: {fileID: -1654332535720435620, guid: e50bb10e69176b54382c6aaaddbd7024, type: 2}
@@ -2241,7 +2241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -574.33374, y: 403.36478}
+  m_AnchoredPosition: {x: -510.3838, y: 403.36478}
   m_SizeDelta: {x: -1398.6675, y: -373.12952}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503786989
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6784314, g: 0.6392157, b: 0.6, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
