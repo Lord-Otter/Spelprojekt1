@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chamber5.unity
     guid: 56634d95e272284478ba403b1911e321
+  - enabled: 1
+    path: Assets/Scenes/Chamber6.unity
+    guid: 7d11abba0cffc3f46a67c7b9e31679e2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
