@@ -19,7 +19,7 @@ public class EnemyRunData : MonoBehaviour
     [Header("Difficulty")]
     public int baseWavesPerScene = 3;
     [SerializeField] private int baseEnemiesFirstWave = 3;
-    [SerializeField][Tooltip("Lower value means faster ramp up")] private float difficultyRampSpeed = 20f;
+    [SerializeField][Tooltip("Lower value means faster ramp up")] private float difficultyRampSpeed = 40f;
 
     private void Awake()
     {
@@ -44,10 +44,10 @@ public class EnemyRunData : MonoBehaviour
         float mediumWeight = Mathf.Clamp01(Mathf.Sin(progress * Mathf.PI));
         float hardWeight   = Mathf.Lerp(0f, 1f, progress);
 
-        if (wave < 4)
+        if (wave < 6)
             mediumWeight = 0f;
 
-        if (wave < 7)
+        if (wave < 13)
             hardWeight = 0f;
 
         if (progress >= 0.6f)
