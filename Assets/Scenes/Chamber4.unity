@@ -4315,22 +4315,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9098045140755989696, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: m_Size.x
-      value: 0.412
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098045140755989696, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: m_Size.y
-      value: 0.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098045140755989696, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098045140755989696, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.055
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

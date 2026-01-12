@@ -376,8 +376,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.185}
-  m_Size: {x: 0.55, y: 1.05}
+  m_Offset: {x: 0.03, y: -0.055}
+  m_Size: {x: 0.412, y: 0.79}
   m_Direction: 0
 --- !u!70 &1308369666187491076
 CapsuleCollider2D:
@@ -1276,6 +1276,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  blinkInterval: 0.1
+  iFrameFlashAmount: 0.25
+  firstFlashColor: {r: 1, g: 0, b: 0, a: 1}
   shakeDuration: 0.25
   shakeMagnitude: 0.4
   hurtSoundsVolume: 0.281
