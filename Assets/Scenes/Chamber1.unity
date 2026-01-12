@@ -11932,22 +11932,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: randomScenes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: 'randomScenes.Array.data[0]'
-      value: Chamber2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: 'randomScenes.Array.data[1]'
-      value: Chamber3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: 'randomScenes.Array.data[2]'
-      value: Chamber4
-      objectReference: {fileID: 0}
     - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
       propertyPath: waveText
       value: 
@@ -12000,18 +11984,6 @@ PrefabInstance:
     - target: {fileID: 1596467403096114724, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVolume
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219919050121781371, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219919050121781371, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219919050121781371, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 2294861255481982331, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

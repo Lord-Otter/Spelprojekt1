@@ -7762,14 +7762,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: randomScenes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: 'randomScenes.Array.data[1]'
-      value: Chamber3
-      objectReference: {fileID: 0}
     - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
       propertyPath: waveText
       value: 
