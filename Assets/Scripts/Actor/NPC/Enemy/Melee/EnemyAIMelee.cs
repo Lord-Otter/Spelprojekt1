@@ -45,6 +45,13 @@ namespace Spelprojekt1
         private float stuckTimer;
         private bool isUnstucking;
         
+        [Header("Out of Bounds Handling")]
+        [SerializeField] private LayerMask floorLayer;
+        [SerializeField] private float floorCheckRadius = 0.1f;
+        [SerializeField] private float noFloorThreshold = 3f;
+
+        private float noFloorTimer;
+        private Vector2 lastFloorPosition;
 
         void Awake()
         {
@@ -87,6 +94,7 @@ namespace Spelprojekt1
             }
 
             StuckCheck();
+            FloorCheck();
         }
 
         public void ApplyKnockback(Vector2 knockbackDirection, float knockbackForce, float duration)
@@ -164,14 +172,49 @@ namespace Spelprojekt1
         {
             isUnstucking = true;
 
-            circleCollider.radius = unstuckRadius;
+            // circleCollider.radius = unstuckRadius; // Changing collider size
+            circleCollider.enabled = false; // Disabling collider
 
             yield return new WaitForSeconds(unstuckDuration);
 
-            circleCollider.radius = normalRadius;
+            // circleCollider.radius = normalRadius; // Changing collider size
+            circleCollider.enabled = true; // Enabling collider
 
             stuckTimer = 0f;
             isUnstucking = false;
+        }
+
+        private void FloorCheck()
+        {
+            bool onFloor = Physics2D.OverlapCircle(rb.position, 0.1f, floorLayer);
+
+            if (onFloor)
+            {
+                lastFloorPosition = rb.position;
+                noFloorTimer = 0f;
+            }
+            else
+            {
+                noFloorTimer += Time.deltaTime;
+
+                if(noFloorTimer >= noFloorThreshold)
+                {
+                    TeleportToLastFloor();
+                }
+            }
+        }
+
+        private void TeleportToLastFloor()
+        {
+            aiPath.enabled = false;
+            rb.linearVelocity = Vector2.zero;
+
+            transform.position = lastFloorPosition;
+
+            noFloorTimer = 0f;
+            stuckTimer = 0f;
+
+            aiPath.enabled = true;
         }
 
         void DrawBoxCast(Vector2 origin, Vector2 size, Vector2 direction, float distance, Color color)

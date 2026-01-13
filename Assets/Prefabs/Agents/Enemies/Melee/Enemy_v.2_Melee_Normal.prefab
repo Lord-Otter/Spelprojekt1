@@ -152,6 +152,11 @@ MonoBehaviour:
   unstuckRadius: 0.5
   normalRadius: 0.11
   unstuckDuration: 0.2
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  floorCheckRadius: 0.1
+  noFloorThreshold: 3
 --- !u!114 &5375373901542743559
 MonoBehaviour:
   m_ObjectHideFlags: 0

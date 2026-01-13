@@ -1401,6 +1401,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c30664b47a670ea4eb8d3405a2e2df7c, type: 3}
   - {fileID: 8300000, guid: c4af06ce82da88745a56590ab01a6ab6, type: 3}
   - {fileID: 8300000, guid: 4756ade8bc7b3774ba17566711d201ce, type: 3}
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  noFloorThreshold: 0.3
 --- !u!114 &3281295472151721429
 MonoBehaviour:
   m_ObjectHideFlags: 0
