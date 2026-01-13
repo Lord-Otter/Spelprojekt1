@@ -1,4 +1,6 @@
+using Spelprojekt1;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public enum EnemyDifficulty
 {
@@ -22,9 +24,11 @@ public class EnemyRunData : MonoBehaviour
     [SerializeField][Tooltip("Lower value means faster ramp up")] private float difficultyRampSpeed = 40f;
 
     [Header("Score")]
+    public int score;
     [SerializeField] private int scorePerEnemyKill = 10;
     [SerializeField] private int scorePerWaveCleared = 50;
     [SerializeField] private int scorePerSceneCleared = 100;
+    public float timePlayed;
 
     private void Awake()
     {
@@ -36,6 +40,11 @@ public class EnemyRunData : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        timePlayed += Time.deltaTime;
     }
 
     public EnemyDifficulty RollEnemyDifficulty()
@@ -86,11 +95,26 @@ public class EnemyRunData : MonoBehaviour
         enemiesKilled = 0;
         scenesCleared = 0;
         totalWavesCleared = 0;
+        score = 0;
+        timePlayed = 0;
+    }
+
+    public void OnEnemyKilled()
+    {
+        enemiesKilled++;
+        score += scorePerEnemyKill;
+    }
+
+    public void OnWaveCleared()
+    {
+        totalWavesCleared++;
+        score += scorePerWaveCleared;
     }
 
     public void OnSceneCleared()
     {
         scenesCleared++;
+        score += scorePerSceneCleared;
     }
 
     public void DebugDifficultyRoll()
@@ -120,5 +144,12 @@ public class EnemyRunData : MonoBehaviour
     {
         int sceneOffset = scenesCleared % 3;
         return baseEnemies + sceneOffset + (currentWave - 1);
+    }
+
+    public string GetFormattedTime()
+    {
+        int minutes = Mathf.FloorToInt(timePlayed / 60f);
+        int seconds = Mathf.FloorToInt(timePlayed % 60f);
+        return $"{minutes:00}:{seconds:00}";
     }
 }

@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &39561661 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7281092143531423749, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-  m_PrefabInstance: {fileID: 1144360919}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &111120652
 GameObject:
   m_ObjectHideFlags: 0
@@ -8903,7 +8892,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 1.7925926
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -11970,14 +11959,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: waveText
-      value: 
-      objectReference: {fileID: 1211976103}
-    - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: enemiesLeftText
-      value: 
-      objectReference: {fileID: 39561661}
     m_RemovedComponents:
     - {fileID: 2608965481924385619, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
     m_RemovedGameObjects: []
@@ -12022,6 +12003,10 @@ PrefabInstance:
     - target: {fileID: 1596467403096114724, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781722486748995956, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2294861255481982331, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -12074,6 +12059,10 @@ PrefabInstance:
     - target: {fileID: 3626103937230966781, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664245184359574954, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_Name
+      value: TimeText (TMP)
       objectReference: {fileID: 0}
     - target: {fileID: 5370933606065636718, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_AnchorMax.y
@@ -12181,17 +12170,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
---- !u!114 &1211976103 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1714721698589487658, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-  m_PrefabInstance: {fileID: 1144360919}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1279824450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1781722486748995956, guid: 61125b9938112a54283f0edf148f3c20, type: 3}

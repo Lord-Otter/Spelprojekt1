@@ -65,6 +65,7 @@ MonoBehaviour:
   waveText: {fileID: 0}
   totalEnemiesText: {fileID: 0}
   enemiesLeftText: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!114 &5141224000709351587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,9 +96,6 @@ MonoBehaviour:
   maxWaves: 3
   currentWave: 0
   spawnWarningTime: 1
-  enemyPrefabs:
-  - {fileID: 4558438187167674206, guid: 03ae5a7192f791b4f96d498e248e525b, type: 3}
-  - {fileID: 967611885315125264, guid: 95ee8fdb50cd7954bafd2f23743ee629, type: 3}
   enemiesKilled: 0
 --- !u!60 &1878712617173782390
 PolygonCollider2D:
