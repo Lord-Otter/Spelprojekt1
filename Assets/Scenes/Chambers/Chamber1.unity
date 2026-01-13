@@ -141,7 +141,6 @@ GameObject:
   - component: {fileID: 111120653}
   - component: {fileID: 111120655}
   - component: {fileID: 111120654}
-  - component: {fileID: 111120656}
   m_Layer: 13
   m_Name: floor
   m_TagString: Untagged
@@ -6480,27 +6479,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!65 &111120656
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111120652}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 77, y: 57, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &377194523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6944093994950478265, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
@@ -8835,6 +8813,7 @@ GameObject:
   - component: {fileID: 583559508}
   - component: {fileID: 583559511}
   - component: {fileID: 583559512}
+  - component: {fileID: 583559513}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8885,7 +8864,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 1.3148148
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8992,6 +8971,30 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &583559513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583559507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 135
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!114 &772628739 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4872439434459809319, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
@@ -10171,10 +10174,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1152132467057935380, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1347520200543034466, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_TagString
       value: Player
@@ -11932,22 +11931,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: randomScenes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: 'randomScenes.Array.data[0]'
-      value: Chamber2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: 'randomScenes.Array.data[1]'
-      value: Chamber3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: 'randomScenes.Array.data[2]'
-      value: Chamber4
-      objectReference: {fileID: 0}
     - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
       propertyPath: waveText
       value: 
@@ -12000,18 +11983,6 @@ PrefabInstance:
     - target: {fileID: 1596467403096114724, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVolume
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219919050121781371, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219919050121781371, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219919050121781371, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 2294861255481982331, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -12197,7 +12168,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3891798044692563081, guid: 7de0e9c3b1651bf4ab053816c889d4d6, type: 3}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAAAIIewL69E9hgIAAEIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zozAM/SsZnzcZvhpgb7s0TffQNtN0pxcuDojgCdiMbZqknfz3lQ0Emj3VfZKenp5EvgjjqoFMC7mWLH8SOZCfM2Le5MdsDD7Cie4F37JPGHLeWa5Lk0RtzivVTCDumjIlatCSZb/4vjLJDoItZ4WQ9SrfQyKUVggXtFKAISm0qeYIfc3ICf/MY1NyxpcXmtcnvmJndsFnBlyDnKS6i9gJ/SBa+qu5s+zLnIUfBnHsLyOvLw8WQej4rotJkSVqeVbRuoHcTDXy+dHibugdLZAjjiPXFnCcvM91bE4mqoqpXjjR58Yak9BGtTg2JuSMohFWrfGlBLYvtSGeFr8UhQLduyTp+Z5J9LNjJb9FZ3JN1aHT+EGr1vTxXNezsjrWp/8S5p3qQor6cWjsOqaJLll2eKXnjCo9WcMUvv+uvOVHWh3oroL3EvizWEvR8hyDWramtFXg3Y//XmdLSsgOI95JvQHbZjR/2PqwczPDxY5/SipW76z1QQdsK2ENt6cCEpfzBwXbQ1I9BaJGxV8Fb3Q/vbg+8MCk0hjqp+RG3k600qSSlfXMTNPqREgOFu5FN8Bppc8bpNG3O7yJTdreRB6o+bb65n1s+GRuSiw85jvOTWgjjtdlqVIcn0CVL62uGIdRtAk8o0+J4Lw7saknQ9m2lQXNJmX7luXfT4v47s4pAjcMgx1qWd7NaeRG4V0c5r5XeC51ib09xnFOWm06ob09uDU+knO8s+EnZ7aWtLHnnkt6XLPPWkwsZ7wQ20wC8JeO4SocJDbBDzNf5QwN2oLWjNt9k6+UVCI7QJ5eiVI76eqkJU1HlpQ07ENog6Qksb8xKTHw9ZY3Ej4YHE3zgexCLv8AUEsDBBQAAAgIAAAIIew1LLeubQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSsWGSQZqJobm5SZKhgYGZqW6ihaGFuamleYqxUZqRYaKhUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIewL69E9hgIAAEIFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIew1LLeubQAAAHgAAAAJACQAAAAAAAAAAAAAANMCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAiwMAAAAA
+      value: UEsDBBQAAAgIAAAIIeydSzmOhwIAAEgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxwIDprXUI6SEJE9rJxRdhr7EGWfJIcoBk+O9dyTZ2qS+W3369fbvyF+HSVJBapTeaZ88qA/J9RNyZfBv1xic4s4OSO/4Jnc87z2zhnJj3eWOWK8SpCzOqBKt5+kMehHMOEKwlz5Uu19kBYmWsQThnwgCatLIuWiL0NSJnfI1XLuSCp+nSnT7xtApGVzymIC3ogSudrILlLIwWs/U4WLRh4/lktQjCRRhGiEZtinASLoMZpQ7yyWqZClZWkLnO+pyzaDLv6keTcIVPRH2AxO5b38D7pEoIblryxF4qL07MKlNj6+iQcYZieMbURxTAD4V1qYfhr3luwLZaaXZ54BpVbfKSn6qRumTm2LD8YKJ2laaUTj2xJuvzfw7jhneuVfnUFaaBK2ILnh7f2CVlxg6GMYQfBty9Wicmjmwv4L0A+aI2WtUyQ6PVtQutDUwf+s9bb3EB6bHHG6p3YF318nez7ybverj69s+x4OXeix82wE4oL7lfGNA4nl9I2K+TaVMg6lj8MfCbHYZ71xoeuTYWTW2X0tHbq1o7V7L2mrluahsrLcHDLekKJBP2ssU09n6Gd7ZB2TvLI3M3rC3e2rqLcxfi4d4/CO5MW3W6DcsU6vQMpnitreASetLO8II6xUrKZsWGmnRhu1rnLB2EHWqe/btaZEb3QR7S5TLcI5fFfMwiGi3nq2U2m+ZTyijxu8cl9snEtiHayoNTk31yiXvW/XhGG80qv+6ZZqcN/yzVQHIuc7VLNYB8bTLciIPGIng1s3XGUaAdWMulnzf5SohQ6RGy5JYo8Z2uz1azpM+SkIp/KOuQhMT+T5MQB992eavhg8PJFe+SXcn1L1BLAwQUAAAICAAACCHsNSy3rm0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0krFhkkGaiaG5uUmSoYGBmaluooWhhbmppXmKsVGakWGioVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsnUs5jocCAABIBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsNSy3rm0AAAB4AAAACQAkAAAAAAAAAAAAAADUAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAIwDAAAAAA==
       objectReference: {fileID: 0}
     - target: {fileID: 5264321443044240687, guid: 7de0e9c3b1651bf4ab053816c889d4d6, type: 3}
       propertyPath: m_Name
@@ -13261,7 +13232,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2008629420}

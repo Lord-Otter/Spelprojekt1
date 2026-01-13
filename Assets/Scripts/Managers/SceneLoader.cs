@@ -29,7 +29,24 @@ public class SceneLoader : MonoBehaviour
     
     public void LoadRandomGameScene() 
     { 
-        string sceneToLoad = randomScenes[Random.Range(0, randomScenes.Count)];
+        if(randomScenes.Count <= 1)
+        {
+            Debug.Log("There are no game scenes to load");
+            return;
+        }
+            
+            
+        Scene currentScene = SceneManager.GetActiveScene();
+        string currentSceneName = currentScene.name;
+
+        string sceneToLoad;
+
+        do
+        {
+            sceneToLoad = randomScenes[Random.Range(0, randomScenes.Count)];
+        }
+        while (sceneToLoad == currentSceneName);
+
         StartCoroutine(FadeOutAndLoad(sceneToLoad));
     } 
     
