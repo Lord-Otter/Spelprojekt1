@@ -25,7 +25,7 @@ public class WaveUIManager : MonoBehaviour
             return;
 
         // Current wave
-        waveText.text = $"Wave: {spawner.CurrentWave}/{spawner.MaxWaves}";
+        waveText.text = $"Wave: {spawner.CurrentWave} / {spawner.MaxWaves}";
 
         // Total enemies in the current wave
         //totalEnemiesText.text = $" / {spawner.EnemiesPerWave}";
