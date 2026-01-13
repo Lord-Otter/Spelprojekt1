@@ -71,6 +71,8 @@ namespace Spelprojekt1
             stateTimer -= Time.deltaTime;            
 
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+            SetMovementAnimation();
             
             switch (currentState)
             {
@@ -189,8 +191,6 @@ namespace Spelprojekt1
             float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
 
             aimer.rotation = Quaternion.Euler(0f, 0f, angle);
-
-            SetMovementAnimation();
         }
 
         private void SetMovementAnimation()
