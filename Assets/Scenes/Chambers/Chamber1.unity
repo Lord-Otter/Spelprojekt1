@@ -8864,7 +8864,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 1.3148148
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -11930,10 +11930,6 @@ PrefabInstance:
     - target: {fileID: 5949608093514104158, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6386310509095406766, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
-      propertyPath: 'randomScenes.Array.data[4]'
-      value: Chamber4
       objectReference: {fileID: 0}
     - target: {fileID: 6479865323920571164, guid: 53cc7a25bb0a0904bb1fcf1bca955d8c, type: 3}
       propertyPath: waveText
