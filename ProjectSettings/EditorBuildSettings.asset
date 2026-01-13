@@ -12,25 +12,25 @@ EditorBuildSettings:
     path: Assets/Scenes/Charlie Scene.unity
     guid: 3b730f8f0e98ce34790fd0af2d237f2c
   - enabled: 1
-    path: Assets/Scenes/Chamber1.unity
+    path: Assets/Scenes/Chambers/Chamber1.unity
     guid: edf95d8c07c220f49bb878e07ec1e8c0
   - enabled: 1
-    path: Assets/Scenes/Chamber2.unity
+    path: Assets/Scenes/Chambers/Chamber2.unity
     guid: a14db18885f60ae4d98a53d53a585f6a
   - enabled: 1
-    path: Assets/Scenes/Chamber3.unity
+    path: Assets/Scenes/Chambers/Chamber3.unity
     guid: e7eb12e4684d3be41b19fe6fd2c83818
   - enabled: 1
-    path: Assets/Scenes/Chamber4.unity
+    path: Assets/Scenes/Chambers/Chamber4.unity
     guid: d0d820ce07d31cd47bc17d3433d81547
   - enabled: 1
-    path: Assets/Scenes/Chamber5.unity
+    path: Assets/Scenes/Chambers/Chamber5.unity
     guid: 56634d95e272284478ba403b1911e321
   - enabled: 1
-    path: Assets/Scenes/Chamber6.unity
+    path: Assets/Scenes/Chambers/Chamber6.unity
     guid: 7d11abba0cffc3f46a67c7b9e31679e2
   - enabled: 1
-    path: Assets/Scenes/Chamber7.unity
+    path: Assets/Scenes/Chambers/Chamber7.unity
     guid: d3dbe851218c4874293c559472a7c1de
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
