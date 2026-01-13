@@ -242,5 +242,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introSource: {fileID: 492363612313124484}
   loopSource: {fileID: 6859754613288561128}
-  introClip: {fileID: 8300000, guid: d12d24db2d9254547b93b4b33fc63ba9, type: 3}
+  introClip: {fileID: 8300000, guid: 9d3c6bd92aafd7c4bbae7f906df76262, type: 3}
   loopClip: {fileID: 8300000, guid: 2b389c81c932643ad89ea99411c6307a, type: 3}
