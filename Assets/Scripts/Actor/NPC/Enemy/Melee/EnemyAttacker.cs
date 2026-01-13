@@ -20,6 +20,9 @@ namespace Spelprojekt1
         private Transform aimer;
         private Transform player;
 
+        private Vector2 dirToPlayer;
+        bool hasGottenDirection = false;
+
         [SerializeField] private int attackDamage;
         [SerializeField] private float attackRange = 5f;
         [SerializeField] private float attackMoveSpeed;
@@ -65,15 +68,15 @@ namespace Spelprojekt1
 
         void Update()
         {
-            stateTimer -= Time.deltaTime;
-
-            RotateAimerTowardsPlayer();
+            stateTimer -= Time.deltaTime;            
 
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
             
             switch (currentState)
             {
                 case AttackState.Ready:
+                    RotateAimerTowardsPlayer();
+
                     if (enemyAIMelee.IsPlayerInSight() && distanceToPlayer <= attackRange)
                     {
                         TransitionToTelegraphing();
@@ -99,6 +102,8 @@ namespace Spelprojekt1
                     break;
 
                 case AttackState.Recovery:
+                    RotateAimerTowardsPlayer();
+
                     if (stateTimer <= 0f)
                     {
                         TransitionToReady();
@@ -116,6 +121,7 @@ namespace Spelprojekt1
         private void TransitionToAttacking()
         {
             hasAttacked = false;
+            hasGottenDirection = false;
             stateTimer = attackDuration;
             spriteRenderer.color = Color.white;
             rb.linearDamping = 0;
@@ -143,6 +149,12 @@ namespace Spelprojekt1
         {
             aiPath.enabled = false;
             rb.linearVelocity = Vector2.zero;
+
+            if (!hasGottenDirection)
+            {
+                dirToPlayer = (player.position - transform.position).normalized;
+                hasGottenDirection = true;
+            }
         }
 
         private void Attack()
@@ -155,13 +167,13 @@ namespace Spelprojekt1
             aiPath.enabled = false;
             rb.linearVelocity = Vector2.zero;
 
-            Vector2 directionToPlayer = (player.position - transform.position).normalized;
+            //Vector2 directionToPlayer = (player.position - transform.position).normalized;
 
             float offsetAngle = 0f;
 
             Vector2 offsetDirection = new Vector2(
-                directionToPlayer.x * Mathf.Cos(Mathf.Deg2Rad * offsetAngle) - directionToPlayer.y * Mathf.Sin(Mathf.Deg2Rad * offsetAngle),
-                directionToPlayer.x * Mathf.Sin(Mathf.Deg2Rad * offsetAngle) + directionToPlayer.y * Mathf.Cos(Mathf.Deg2Rad * offsetAngle)
+                dirToPlayer.x * Mathf.Cos(Mathf.Deg2Rad * offsetAngle) - dirToPlayer.y * Mathf.Sin(Mathf.Deg2Rad * offsetAngle),
+                dirToPlayer.x * Mathf.Sin(Mathf.Deg2Rad * offsetAngle) + dirToPlayer.y * Mathf.Cos(Mathf.Deg2Rad * offsetAngle)
             );
 
             rb.linearVelocity = offsetDirection * attackMoveSpeed;
