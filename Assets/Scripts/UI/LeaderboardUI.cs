@@ -1,16 +1,24 @@
+using TMPro;
 using UnityEngine;
+using System.Text;
+using System.Collections.Generic;
 
 public class LeaderboardUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TMP_Text leaderboardText;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        List<LeaderboardEntry> entries = LeaderboardManager.LoadLeaderboard();
+        StringBuilder sb = new StringBuilder();
+
+        int rank = 1;
+        foreach(LeaderboardEntry entry in entries)
+        {
+            sb.AppendLine($"{rank}. {entry.initials} - {entry.score}");
+            rank++;
+        }
+
+        leaderboardText.text = sb.ToString();
     }
 }
