@@ -6248,6 +6248,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 786411109}
     m_Modifications:
+    - target: {fileID: 1981415966244516223, guid: 0510f913765cb6f40ad88714de29cb87, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1967372071}
     - target: {fileID: 6015186264090435623, guid: 0510f913765cb6f40ad88714de29cb87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6301,6 +6305,11 @@ PrefabInstance:
 --- !u!4 &1967372069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6015186264090435623, guid: 0510f913765cb6f40ad88714de29cb87, type: 3}
+  m_PrefabInstance: {fileID: 1967372068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1967372071 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 492363612313124484, guid: 0510f913765cb6f40ad88714de29cb87, type: 3}
   m_PrefabInstance: {fileID: 1967372068}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1984996704
