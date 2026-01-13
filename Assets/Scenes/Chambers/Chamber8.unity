@@ -19436,10 +19436,6 @@ PrefabInstance:
       propertyPath: OnPlayerDiedEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 7042522102462903195, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
-      propertyPath: Lens.OrthographicSize
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7551704989850069933, guid: 39e49a5cd0afca849adbbb24fe08eb01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

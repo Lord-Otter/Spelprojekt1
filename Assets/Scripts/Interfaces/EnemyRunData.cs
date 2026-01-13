@@ -21,6 +21,11 @@ public class EnemyRunData : MonoBehaviour
     [SerializeField] private int baseEnemiesFirstWave = 3;
     [SerializeField][Tooltip("Lower value means faster ramp up")] private float difficultyRampSpeed = 40f;
 
+    [Header("Score")]
+    [SerializeField] private int scorePerEnemyKill = 10;
+    [SerializeField] private int scorePerWaveCleared = 50;
+    [SerializeField] private int scorePerSceneCleared = 100;
+
     private void Awake()
     {
         if (Instance != null)
