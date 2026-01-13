@@ -1467,7 +1467,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 055d7a4d4fb4fe64396b13dc9130a346, type: 3}
   - {fileID: 8300000, guid: 3e60be81ce664b64991c37d2fb6c5c7d, type: 3}
   shotCritSFXVolume: 0.251
-  shotCritDuckingLevel: 0
+  shotCritDuckingLevel: 1
   shotCritSFX: {fileID: 8300000, guid: 690057eea0eb63e4395535539434fbd5, type: 3}
   fullChargeSFXVolume: 0.25
   fullChargeDuckingLevel: 1
