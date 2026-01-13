@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6929918866213396341, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1654332535720435620, guid: e50bb10e69176b54382c6aaaddbd7024, type: 2}
     - target: {fileID: 7235326704661436984, guid: 563e3b698e0f4444cbead9b66ad8febb, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas

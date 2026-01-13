@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 3680899046374634029}
   - component: {fileID: 5589271416774634574}
   - component: {fileID: 2046471503786190278}
-  - component: {fileID: 4022668585450787755}
+  - component: {fileID: 6751424173468256560}
   - component: {fileID: -6944515455172908217}
   m_Layer: 8
   m_Name: Enemy_v.2_Melee_Normal
@@ -147,6 +147,16 @@ MonoBehaviour:
     m_Bits: 2112
   endReachedDistanceInSight: 1.5
   endReachedDistanceOutOfSight: 1.5
+  stucktimeTreshold: 3
+  minMovementDistance: 0.05
+  unstuckRadius: 0.5
+  normalRadius: 0.11
+  unstuckDuration: 0.2
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  floorCheckRadius: 0.1
+  noFloorThreshold: 3
 --- !u!114 &5375373901542743559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,8 +305,8 @@ CapsuleCollider2D:
   m_Offset: {x: 0.03294563, y: 0.057463408}
   m_Size: {x: 0.6566971, y: 0.9187851}
   m_Direction: 0
---- !u!70 &4022668585450787755
-CapsuleCollider2D:
+--- !u!58 &6751424173468256560
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -311,7 +321,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -329,9 +339,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.032945633, y: 0}
-  m_Size: {x: 0.21, y: 0.19}
-  m_Direction: 0
+  m_Offset: {x: 0.034, y: 0}
+  m_Radius: 0.11
 --- !u!114 &-6944515455172908217
 MonoBehaviour:
   m_ObjectHideFlags: 0

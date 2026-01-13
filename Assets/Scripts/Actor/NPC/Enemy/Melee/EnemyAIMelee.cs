@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.AI;
 using Pathfinding;
-using Unity.VisualScripting;
+using System.Collections;
 
 namespace Spelprojekt1
 {
@@ -9,6 +8,7 @@ namespace Spelprojekt1
     {
         private Transform player;
         private Rigidbody2D rb;
+        private CircleCollider2D circleCollider;
         private Seeker seeker;
         private AIPath aiPath;
         private Path path;
@@ -33,11 +33,30 @@ namespace Spelprojekt1
         [SerializeField] protected float endReachedDistanceInSight = 5f;
         [SerializeField] protected float endReachedDistanceOutOfSight = 2f;
         private bool playerInSightLastFrame;
+
+        [Header("Stuck Handling")]
+        [SerializeField] private float stucktimeTreshold = 3f;
+        [SerializeField] private float minMovementDistance = 0.05f;
+        [SerializeField] private float unstuckRadius = 0.5f;
+        [SerializeField] private float normalRadius = 0.11f;
+        [SerializeField] private float unstuckDuration = 0.2f;
+
+        private Vector2 lastPosition;
+        private float stuckTimer;
+        private bool isUnstucking;
         
+        [Header("Out of Bounds Handling")]
+        [SerializeField] private LayerMask floorLayer;
+        [SerializeField] private float floorCheckRadius = 0.1f;
+        [SerializeField] private float noFloorThreshold = 3f;
+
+        private float noFloorTimer;
+        private Vector2 lastFloorPosition;
 
         void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            circleCollider = GetComponent<CircleCollider2D>();
             seeker = GetComponent<Seeker>();
             aiPath = GetComponent<AIPath>();
             aiDestinationSetter = GetComponent<AIDestinationSetter>();
@@ -74,6 +93,8 @@ namespace Spelprojekt1
                 playerInSightLastFrame = playerInSight;
             }
 
+            StuckCheck();
+            FloorCheck();
         }
 
         public void ApplyKnockback(Vector2 knockbackDirection, float knockbackForce, float duration)
@@ -111,6 +132,89 @@ namespace Spelprojekt1
             DrawBoxCast(origin, boxSize, direction, distance, hit ? Color.red : Color.green);
 
             return hit.collider == null;
+        }
+
+        private bool IsVisibleFromCamera()
+        {
+            Camera cam = Camera.main;
+            Vector3 viewportPosition = cam.WorldToViewportPoint(transform.position);
+
+            return  viewportPosition.x > 0 && viewportPosition.x < 1 &&
+                    viewportPosition.y > 0 && viewportPosition.y < 1 &&
+                    viewportPosition.z > 0;
+        }
+
+        private void StuckCheck()
+        {
+            float distanceMoved = Vector2.Distance(rb.position, lastPosition);
+
+            if(IsVisibleFromCamera())
+                stuckTimer = 0;
+
+            if(distanceMoved < minMovementDistance)
+            {
+                stuckTimer += Time.deltaTime;
+            }
+            else
+            {
+                stuckTimer = 0f;
+            }
+
+            lastPosition = rb.position;
+
+            if(stuckTimer >= stucktimeTreshold && !isUnstucking)
+            {
+                StartCoroutine(UnstuckRoutine());
+            }
+        }
+
+        private IEnumerator UnstuckRoutine()
+        {
+            isUnstucking = true;
+
+            // circleCollider.radius = unstuckRadius; // Changing collider size
+            circleCollider.enabled = false; // Disabling collider
+
+            yield return new WaitForSeconds(unstuckDuration);
+
+            // circleCollider.radius = normalRadius; // Changing collider size
+            circleCollider.enabled = true; // Enabling collider
+
+            stuckTimer = 0f;
+            isUnstucking = false;
+        }
+
+        private void FloorCheck()
+        {
+            bool onFloor = Physics2D.OverlapCircle(rb.position, 0.1f, floorLayer);
+
+            if (onFloor)
+            {
+                lastFloorPosition = rb.position;
+                noFloorTimer = 0f;
+            }
+            else
+            {
+                noFloorTimer += Time.deltaTime;
+
+                if(noFloorTimer >= noFloorThreshold)
+                {
+                    TeleportToLastFloor();
+                }
+            }
+        }
+
+        private void TeleportToLastFloor()
+        {
+            aiPath.enabled = false;
+            rb.linearVelocity = Vector2.zero;
+
+            transform.position = lastFloorPosition;
+
+            noFloorTimer = 0f;
+            stuckTimer = 0f;
+
+            aiPath.enabled = true;
         }
 
         void DrawBoxCast(Vector2 origin, Vector2 size, Vector2 direction, float distance, Color color)

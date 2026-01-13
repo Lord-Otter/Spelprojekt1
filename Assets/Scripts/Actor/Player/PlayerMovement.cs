@@ -28,7 +28,7 @@ namespace Spelprojekt1
         [SerializeField] private float acceleration;
         [SerializeField] private float drag;
 
-        [Header("Chargin Movement Adjustment")]
+        [Header("Charging Movement Adjustment")]
         [SerializeField] private float chargeMoveSpeedMultiplier = 0.5f;
 
         [Header("Dash Settings")]
@@ -47,6 +47,13 @@ namespace Spelprojekt1
         [SerializeField] [Range(0, 1)] private float fabricSoundVolume; // Test
         [SerializeField] [Range(0,2 )] private int fabricsDuckingLevel = 0;
         [SerializeField] private List<AudioClip> fabricSounds; // Test
+
+        [Header("Out of Bounds Failsafe")]
+        [SerializeField] private LayerMask floorLayer;
+        [SerializeField] private float noFloorThreshold = 0.3f;
+
+        private float noFloorTimer;
+        private Vector2 lastFloorPosition;
 
         public bool MovementLocked { get; private set; }
 
@@ -72,10 +79,14 @@ namespace Spelprojekt1
         void Start()
         {
             State = MoveState.Idle;
+
+            lastFloorPosition = rigidBody.position;
         }
 
         void Update()
         {
+            FloorCheck();
+
             inputDirection = inputHandler.moveInput;
 
             UpdateCooldowns();
@@ -231,6 +242,35 @@ namespace Spelprojekt1
         public void DisableMovementOnDeath()
         {
             MovementLocked = true;
+        }
+
+        private void FloorCheck()
+        {
+            bool onFloor = Physics2D.OverlapCircle(rigidBody.position, 0.1f, floorLayer);
+
+            if (onFloor)
+            {
+                lastFloorPosition = rigidBody.position;
+                noFloorTimer = 0f;
+            }
+            else
+            {
+                noFloorTimer += Time.deltaTime;
+
+                if(noFloorTimer >= noFloorThreshold)
+                {
+                    TeleportToLastFloor();
+                }
+            }
+        }
+
+        private void TeleportToLastFloor()
+        {
+            rigidBody.linearVelocity = Vector2.zero;
+
+            transform.position = lastFloorPosition;
+
+            noFloorTimer = 0f;
         }
     }
 }

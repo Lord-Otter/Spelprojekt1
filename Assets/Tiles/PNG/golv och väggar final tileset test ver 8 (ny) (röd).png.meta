@@ -1,0 +1,859 @@
+fileFormatVersion: 2
+guid: b30d4f3b34626c446931f25d020cdfe8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1641716829109287445
+    second: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_0"
+  - first:
+      213: -7306525247358381403
+    second: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_1"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51af6d402cc88c610800000000000000
+      internalID: 1641716829109287445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_1"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a2d7c8cff10a9a90800000000000000
+      internalID: -7306525247358381403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_2"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d9cf9fe628d15640bf4d55c5f1b1c7c
+      internalID: 36378250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_3"
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efc069fbbb644914b870f53d1fba3338
+      internalID: 1354190843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_4"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ddda65701d41241b0e4180c9bb3330
+      internalID: 1122726720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_5"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61cf3ebedc6e7894c9194e820316eaad
+      internalID: 687754783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_6"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf6b5e36b4262864697de399d751f2e8
+      internalID: -1322774380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_7"
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2ef835fbf00fa48af72a449689f2a7
+      internalID: -1428184455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_8"
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295a19ee31856a54d9546e1767059d39
+      internalID: 1311308206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_9"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10bef491ede15db47b649ef5b6ee07f5
+      internalID: 756088427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_10"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86cb188b93a4ac54b8e7364a37fa7c65
+      internalID: -362041011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_11"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2429745da3dec884aad5030d5a17378c
+      internalID: -1525066905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_12"
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca8e1c0c23beae48a3b0f58cbeb80e6
+      internalID: 1473872443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_13"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94facad48becd52498a530b10dddb4a6
+      internalID: 601944688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_14"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198bf6d19445cc14094728dacd033bfd
+      internalID: -1713078056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_15"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c88824657149145ad29a56d7375cbf
+      internalID: -1310420704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_16"
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec079d330039554bab5c2b3c1a0109d
+      internalID: -1925800895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_17"
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6159e0846800f4682e05ee79228b58
+      internalID: -1827627469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_18"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aeb49ccaeb551741bf607991b5c2c03
+      internalID: 102995051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_19"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb999c86fa3aa14988f3f52164bd7b4
+      internalID: 1507539960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_20"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb981d2635e667a4198f6fc120b04cc7
+      internalID: 2063155800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_21"
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794b1e1317ed5654fb6834bff0738079
+      internalID: 1205569990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_22"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd42c1e96af1d54bbcc5211b38d9300
+      internalID: -1350726456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_23"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f4211d2a08e6441955ad52c937679f
+      internalID: 1747749056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_24"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b13481d6aa214843839550713b51503
+      internalID: -776231536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_25"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b585fae5fea9db64fa6d038d77dee7b6
+      internalID: 559480548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_26"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad289616508b1204caeacc6cda3a8046
+      internalID: 2076384374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_27"
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf0aa731fb0dc44c87ff14fceb46640
+      internalID: -1518377576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_28"
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ffae72c0c9be243bd23120c32ea20f
+      internalID: -559537968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_29"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a3bddc6521f9b440ad0dfadb50c9542
+      internalID: 1488905033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_30"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923803ef949932f49baa324911b85388
+      internalID: 384199168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_31"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47bf7dee9e021b438e5b7caf5a6b212
+      internalID: 414707132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2925faffdd47ce642b5a8336764964d1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_0": 1641716829109287445
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_1": -7306525247358381403
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_10": -362041011
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_11": -1525066905
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_12": 1473872443
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_13": 601944688
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_14": -1713078056
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_15": -1310420704
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_16": -1925800895
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_17": -1827627469
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_18": 102995051
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_19": 1507539960
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_2": 36378250
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_20": 2063155800
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_21": 1205569990
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_22": -1350726456
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_23": 1747749056
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_24": -776231536
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_25": 559480548
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_26": 2076384374
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_27": -1518377576
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_28": -559537968
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_29": 1488905033
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_3": 1354190843
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_30": 384199168
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_31": 414707132
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_4": 1122726720
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_5": 687754783
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_6": -1322774380
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_7": -1428184455
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_8": 1311308206
+      "golv och v\xE4ggar final tileset test ver 8 (ny) (r\xF6d)_9": 756088427
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitUntil(() => currentEnemies <= 0);
 
             // Increase enemies for next wave
-            runData.totalWavesCleared++;
+            runData.OnWaveCleared();
             enemiesPerWave = runData.GetEnemiesForWave(baseEnemiesPerWave, currentWave + 1);
 
         }
@@ -156,7 +156,8 @@ public class EnemySpawner : MonoBehaviour
         currentEnemies = Mathf.Max(0, currentEnemies - 1);
 
         enemiesKilled++;
-        EnemyRunData.Instance.enemiesKilled++;
+        EnemyRunData.Instance.OnEnemyKilled();
+
     }
 
     private Vector2 GetValidRandomPosition(List<Vector2> usedPositions)
