@@ -20237,6 +20237,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1234508666616970178, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284073183
+      objectReference: {fileID: 0}
     - target: {fileID: 1568402684324850498, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -20248,6 +20252,10 @@ PrefabInstance:
     - target: {fileID: 1596467403096114724, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714721698589487658, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284007646
       objectReference: {fileID: 0}
     - target: {fileID: 2516120542015522740, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -20281,6 +20289,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5369150630343344294, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369150630343344294, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369150630343344294, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369150630343344294, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 2533359615
+      objectReference: {fileID: 0}
     - target: {fileID: 5463527359453766003, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_Name
       value: -----CANVASES-----
@@ -20308,6 +20332,10 @@ PrefabInstance:
     - target: {fileID: 6587177395513581167, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: Spelprojekt1.UIPauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281092143531423749, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284073183
       objectReference: {fileID: 0}
     - target: {fileID: 7352579519085942139, guid: 61125b9938112a54283f0edf148f3c20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

@@ -45,6 +45,21 @@ public class SoundMixerManager : MonoBehaviour
         PlayerPrefs.SetFloat(HUGEDUCKINGTRIGGER_KEY, level);
     }
 
+    public float GetMasterVolume()
+    {
+        return PlayerPrefs.GetFloat(MASTER_KEY, 1f);
+    }
+
+    public float GetSFXVolume()
+    {
+        return PlayerPrefs.GetFloat(SFX_KEY, 1f);
+    }
+
+    public float GetMusicVolume()
+    {
+        return PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
+    }
+
     public void SetMusicVolume(float level)
     {
         audioMixer.SetFloat("musicVolume", Mathf.Log10(level) * 20f);
