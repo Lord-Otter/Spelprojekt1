@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Spelprojekt1
@@ -21,6 +21,8 @@ namespace Spelprojekt1
         [Header("Collision")]
         [SerializeField] private LayerMask hitLayers;
         [SerializeField] private LayerMask pierceableLayers;
+
+        private HashSet<HealthHandler> hitTargets = new HashSet<HealthHandler>();
         
         private Rigidbody2D rb;
         private SpriteRenderer spriteRenderer;
@@ -72,12 +74,15 @@ namespace Spelprojekt1
 
             if (other.TryGetComponent(out HealthHandler health))
             {
+                if (hitTargets.Contains(health))
+                    return;
+
+                hitTargets.Add(health);
+
                 health.TakeDamage(Mathf.RoundToInt(damage));
 
                 damage = Mathf.RoundToInt(damage * (1 - damageFallOff));
-
                 damage = Mathf.Max(damage, Mathf.RoundToInt(baseDamage * 0.3f));
-
             }
 
             if(other.TryGetComponent(out EnemyAI enemyAI))

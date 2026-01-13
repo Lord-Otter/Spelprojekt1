@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2922334156580491320}
   - component: {fileID: 6455436920076285949}
   - component: {fileID: 9199390105603642524}
-  - component: {fileID: 8249117555724314513}
+  - component: {fileID: 7482514823707361014}
   - component: {fileID: 8165841304768155755}
   m_Layer: 8
   m_Name: Enemy_v.2_Ranged_Normal
@@ -266,8 +266,8 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0038137138, y: 0.013984203}
   m_Size: {x: 0.60762745, y: 1.0279684}
   m_Direction: 0
---- !u!70 &8249117555724314513
-CapsuleCollider2D:
+--- !u!58 &7482514823707361014
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -282,7 +282,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -301,8 +301,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.5}
-  m_Direction: 0
+  m_Radius: 0.25
 --- !u!114 &8165841304768155755
 MonoBehaviour:
   m_ObjectHideFlags: 0
